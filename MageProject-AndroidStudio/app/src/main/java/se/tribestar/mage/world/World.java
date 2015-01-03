@@ -33,6 +33,12 @@ public class World {
         return deltaTime;
     }
 
+    public void run(){
+        while(true){
+            update();
+        }
+    }
+
     public void addObject(GameObject object){
         objects.add(object);
     }
