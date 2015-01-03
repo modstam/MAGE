@@ -15,6 +15,7 @@ public class World {
     public ArrayList<GameObject> objects; //the game objects
     public ArrayList<Logic> logics; //the logic objects
     public float deltaTime; // time since the last frame
+    public boolean running;
 
     public World(){
         objects = new ArrayList<GameObject>();
@@ -25,7 +26,7 @@ public class World {
      * This method is responsible for the infinite loop
      */
     public void run(){
-        while(true){
+        while(running){
             update();
         }
     }
