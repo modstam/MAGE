@@ -7,4 +7,4 @@ MAGE
 
 This is the Minimalistic Android Game Engine (MAGE)
 
-<img src="http://thoracicsurgery.stanford.edu/patient_care/images/normal-stomach.jpg" width="295" height="480">
+<img src="http://thoracicsurgery.stanford.edu/patient_care/images/normal-stomach.jpg" width="285" height="480">
