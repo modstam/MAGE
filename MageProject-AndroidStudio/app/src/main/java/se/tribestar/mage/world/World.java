@@ -20,6 +20,7 @@ public class World {
     public World(){
         objects = new ArrayList<GameObject>();
         logics = new ArrayList<Logic>();
+        running = true;
     }
 
     /**
