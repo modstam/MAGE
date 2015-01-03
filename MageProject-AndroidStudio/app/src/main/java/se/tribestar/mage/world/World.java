@@ -7,12 +7,34 @@ import se.tribestar.mage.world.drawable.Drawable;
 
 /**
  * Created by modstam on 2015-01-03.
+ *
+ * This class is responsible for running the game world
+ * It will update and draw all game and logic objects that are in the world
  */
 public class World {
-    public ArrayList<GameObject> objects;
-    public ArrayList<Logic> logics;
-    public float deltaTime;
+    public ArrayList<GameObject> objects; //the game objects
+    public ArrayList<Logic> logics; //the logic objects
+    public float deltaTime; // time since the last frame
 
+    public World(){
+        objects = new ArrayList<GameObject>();
+        logics = new ArrayList<Logic>();
+    }
+
+    /**
+     * This method is responsible for the infinite loop
+     */
+    public void run(){
+        while(true){
+            update();
+        }
+    }
+
+    /**
+     * This method is responsible for updating all the objects
+     * in the world, one run of this method corresponds to one frame
+     * @return the time it took to complete the frame
+     */
     public float update(){
         float time = System.currentTimeMillis();
 
@@ -31,12 +53,6 @@ public class World {
 
         this.deltaTime = System.currentTimeMillis() - time;
         return deltaTime;
-    }
-
-    public void run(){
-        while(true){
-            update();
-        }
     }
 
     public void addObject(GameObject object){
