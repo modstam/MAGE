@@ -1,5 +1,6 @@
 package se.tribestar.mage.world;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 import se.tribestar.mage.logic.Logic;
@@ -63,5 +64,21 @@ public class World {
 
     public void addLogic(Logic logic){
         logics.add(logic);
+    }
+
+    /**
+     * This method will return all game objects of a certain type
+     * @param type - the type of object that should be found
+     * @return a list with the gameobjects of the given type
+     */
+    public ArrayList<GameObject> findObjectsOfType(Class<? extends GameObject> type){
+        ArrayList<GameObject> returnList = new ArrayList<GameObject>();
+
+        for(GameObject object : objects){
+            if(object.getClass() == type){
+                returnList.add(object);
+            }
+        }
+        return returnList;
     }
 }

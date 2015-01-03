@@ -8,6 +8,7 @@ import se.tribestar.mage.math.Transform;
 public class GameObject {
     public float deltaTime;
     public Transform transform;
+    public World world;
 
     public void update(float deltaTime){
 
