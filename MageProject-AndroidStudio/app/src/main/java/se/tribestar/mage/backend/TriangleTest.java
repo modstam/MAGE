@@ -17,6 +17,7 @@ public class TriangleTest {
     GLGraphics glGraphics;
     FloatBuffer vertices;
 
+
     public TriangleTest(BackendController controller) {
         glGraphics = ((GLBackendController) controller).getGLGraphics();
         ByteBuffer byteBuffer = ByteBuffer.allocateDirect(3 * VERTEX_SIZE);
@@ -24,6 +25,7 @@ public class TriangleTest {
         vertices = byteBuffer.asFloatBuffer();
         vertices.put( new float[] {   0.0f,   0.0f, 1, 0, 0, 1,
                 319.0f,   0.0f, 0, 1, 0, 1,
+              //     x,     y,  r, g, b, a,
                 160.0f, 479.0f, 0, 0, 1, 1});
         vertices.flip();
     }
