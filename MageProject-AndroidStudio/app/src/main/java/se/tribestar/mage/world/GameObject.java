@@ -9,6 +9,7 @@ public class GameObject {
     public float deltaTime;
     public Transform transform;
     public World world;
+    public String name;
 
     public void update(float deltaTime){
 

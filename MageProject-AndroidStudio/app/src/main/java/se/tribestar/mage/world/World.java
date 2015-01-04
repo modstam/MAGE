@@ -69,7 +69,7 @@ public class World {
     /**
      * This method will return all game objects of a certain type
      * @param type - the type of object that should be found
-     * @return a list with the gameobjects of the given type
+     * @return a list with the game objects of the given type
      */
     public ArrayList<GameObject> findObjectsOfType(Class<? extends GameObject> type){
         ArrayList<GameObject> returnList = new ArrayList<GameObject>();
