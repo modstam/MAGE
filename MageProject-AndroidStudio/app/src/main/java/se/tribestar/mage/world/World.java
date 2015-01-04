@@ -2,6 +2,8 @@ package se.tribestar.mage.world;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import se.tribestar.mage.logic.Logic;
 import se.tribestar.mage.world.drawable.Drawable;
@@ -15,12 +17,14 @@ import se.tribestar.mage.world.drawable.Drawable;
 public class World {
     public ArrayList<GameObject> objects; //the game objects
     public ArrayList<Logic> logics; //the logic objects
+    public HashMap<String, List<GameObject>> namedObjects;
     public float deltaTime; // time since the last frame
     public boolean running;
 
     public World(){
         objects = new ArrayList<GameObject>();
         logics = new ArrayList<Logic>();
+        namedObjects = new HashMap<String, List<GameObject>>();
         running = true;
     }
 
@@ -58,7 +62,17 @@ public class World {
         return deltaTime;
     }
 
+    /**
+     * This method registers a game object to
+     * the world object, there by notifying the world
+     * that this object needs to be updated/drawn
+     * @param object to add
+     */
     public void addObject(GameObject object){
+        if(!namedObjects.containsKey(object.name)){
+            namedObjects.put(object.name, new ArrayList<GameObject>());
+        }
+        namedObjects.get(object.name).add(object);
         objects.add(object);
     }
 
@@ -71,7 +85,7 @@ public class World {
      * @param type - the type of object that should be found
      * @return a list with the game objects of the given type
      */
-    public ArrayList<GameObject> findObjectsOfType(Class<? extends GameObject> type){
+    public List<GameObject> findObjectsOfType(Class<? extends GameObject> type){
         ArrayList<GameObject> returnList = new ArrayList<GameObject>();
 
         for(GameObject object : objects){
@@ -80,5 +94,18 @@ public class World {
             }
         }
         return returnList;
+    }
+
+    /**
+     * This method returns all objects registered to the
+     * world by the given name.
+     * @param name - the name to search for
+     * @return
+     */
+    public List<GameObject> findObjectsByName(String name){
+        if(namedObjects.containsKey(name)){
+            return namedObjects.get(name);
+        }
+        return new ArrayList<GameObject>();
     }
 }
