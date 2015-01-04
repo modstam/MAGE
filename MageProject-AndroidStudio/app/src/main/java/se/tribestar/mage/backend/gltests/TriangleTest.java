@@ -1,4 +1,4 @@
-package se.tribestar.mage.backend;
+package se.tribestar.mage.backend.gltests;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -6,6 +6,7 @@ import java.nio.FloatBuffer;
 
 import javax.microedition.khronos.opengles.GL10;
 
+import se.tribestar.mage.backend.BackendController;
 import se.tribestar.mage.backend.gl.GLBackendController;
 import se.tribestar.mage.backend.gl.GLGraphics;
 
