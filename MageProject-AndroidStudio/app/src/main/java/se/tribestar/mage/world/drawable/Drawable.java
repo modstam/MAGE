@@ -1,5 +1,7 @@
 package se.tribestar.mage.world.drawable;
 
+import se.tribestar.mage.backend.gl.Texture;
+import se.tribestar.mage.backend.gl.Vertices;
 import se.tribestar.mage.world.GameObject;
 
 /**

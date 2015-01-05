@@ -100,7 +100,8 @@ public class World {
      * This method returns all objects registered to the
      * world by the given name.
      * @param name - the name to search for
-     * @return
+     * @return a list of the objects with names mathing the parameter
+     * or an empty list if none were found
      */
     public List<GameObject> findObjectsByName(String name){
         if(namedObjects.containsKey(name)){
