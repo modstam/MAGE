@@ -16,7 +16,7 @@ import se.tribestar.mage.backend.gl.Vertices;
  */
 public class ModelViewOptimized {
     private final String TEXTURE_FILENAME = "test.png";
-    static final int NUM_BOBS = 100;
+    static final int NUM_GAMEOBJECTS = 100;
     GLGraphics glGraphics;
     Texture gameObjectTexture;
     Vertices gameObjectModel;
@@ -52,7 +52,7 @@ public class ModelViewOptimized {
         controller.getInput().getTouchEvents();
         controller.getInput().getKeyEvents();
 
-        for(int i = 0; i < NUM_BOBS; i++) {
+        for(int i = 0; i < NUM_GAMEOBJECTS; i++) {
             gameObjects[i].update(deltaTime);
         }
     }
@@ -78,7 +78,7 @@ public class ModelViewOptimized {
         gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 
         gameObjectModel.bind();
-        for(int i = 0; i < NUM_BOBS; i++) {
+        for(int i = 0; i < NUM_GAMEOBJECTS; i++) {
             gl.glLoadIdentity();
             gl.glTranslatef((int) gameObjects[i].x, (int) gameObjects[i].y, 0);
             gameObjectModel.draw(GL10.GL_TRIANGLES, 0, 6);
