@@ -30,6 +30,7 @@ public class ModelViewOptimized {
         bobTexture = new Texture((GLBackendController)controller, TEXTURE_FILENAME);
 
         bobModel = new Vertices(glGraphics, 4, 12, false, true);
+        //asuming 2d object of dimensions 32x32,
         bobModel.setVertices(new float[] { -16, -16, 0, 1,
                 16, -16, 1, 1,
                 16,  16, 1, 0,
