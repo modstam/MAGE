@@ -10,6 +10,8 @@ import se.tribestar.mage.backend.gl.Texture;
 import se.tribestar.mage.backend.gl.Vertices;
 
 /**
+ * Demonstrating how to use model and world space to move 100 gameobjects.
+ *
  * Created by Andreas Stjerndal on 05-Jan-2015.
  */
 public class ModelViewOptimized {
