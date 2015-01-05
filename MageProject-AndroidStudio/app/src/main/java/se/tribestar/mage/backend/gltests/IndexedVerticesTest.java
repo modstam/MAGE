@@ -24,7 +24,7 @@ public class IndexedVerticesTest {
     final int VERTEX_SIZE = (2 + 2) * 4;
     GLGraphics glGraphics;
     Vertices vertices;
-    ShortBuffer indices;
+    //ShortBuffer indices;
     Texture texture;
 
     public IndexedVerticesTest(BackendController controller) {
@@ -36,6 +36,8 @@ public class IndexedVerticesTest {
                 228.0f, 228.0f, 1.0f, 0.0f,
                 100.0f, 228.0f, 0.0f, 0.0f}, 0, 16);
         vertices.setIndices(new short[] { 0, 1, 2, 2, 3, 0 }, 0, 6);
+
+        texture = new Texture((GLBackendController)controller, TEXTURE_FILENAME);
     }
 
     public void draw(float deltaTime) {
