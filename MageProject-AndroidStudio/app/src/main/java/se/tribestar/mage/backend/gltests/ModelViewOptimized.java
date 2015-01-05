@@ -18,8 +18,8 @@ public class ModelViewOptimized {
     private final String TEXTURE_FILENAME = "test.png";
     static final int NUM_BOBS = 100;
     GLGraphics glGraphics;
-    Texture bobTexture;
-    Vertices bobModel;
+    Texture gameObjectTexture;
+    Vertices gameObjectModel;
     GameObjectTest[] gameObjects;
     FPSCounter fpsCounter;
     BackendController controller;
@@ -29,15 +29,15 @@ public class ModelViewOptimized {
 
         glGraphics = ((GLBackendController)controller).getGLGraphics();
 
-        bobTexture = new Texture((GLBackendController)controller, TEXTURE_FILENAME);
+        gameObjectTexture = new Texture((GLBackendController)controller, TEXTURE_FILENAME);
 
-        bobModel = new Vertices(glGraphics, 4, 12, false, true);
+        gameObjectModel = new Vertices(glGraphics, 4, 12, false, true);
         //asuming 2d object of dimensions 32x32,
-        bobModel.setVertices(new float[] { -16, -16, 0, 1,
+        gameObjectModel.setVertices(new float[]{-16, -16, 0, 1,
                 16, -16, 1, 1,
-                16,  16, 1, 0,
-                -16,  16, 0, 0, }, 0, 16);
-        bobModel.setIndices(new short[] {0, 1, 2, 2, 3, 0}, 0, 6);
+                16, 16, 1, 0,
+                -16, 16, 0, 0,}, 0, 16);
+        gameObjectModel.setIndices(new short[]{0, 1, 2, 2, 3, 0}, 0, 6);
 
 
         gameObjects = new GameObjectTest[100];
@@ -68,22 +68,22 @@ public class ModelViewOptimized {
 
         gl.glMatrixMode(GL10.GL_MODELVIEW);
 
-        bobTexture.reload();
+        gameObjectTexture.reload();
         gl.glEnable(GL10.GL_TEXTURE_2D);
-        bobTexture.bind();
+        gameObjectTexture.bind();
     }
 
     public void draw(float deltaTime) {
         GL10 gl = glGraphics.getGL();
         gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 
-        bobModel.bind();
+        gameObjectModel.bind();
         for(int i = 0; i < NUM_BOBS; i++) {
             gl.glLoadIdentity();
             gl.glTranslatef((int) gameObjects[i].x, (int) gameObjects[i].y, 0);
-            bobModel.draw(GL10.GL_TRIANGLES, 0, 6);
+            gameObjectModel.draw(GL10.GL_TRIANGLES, 0, 6);
         }
-        bobModel.unbind();
+        gameObjectModel.unbind();
 
         fpsCounter.logFrame();
     }
