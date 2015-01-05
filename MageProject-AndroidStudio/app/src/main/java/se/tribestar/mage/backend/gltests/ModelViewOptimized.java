@@ -18,7 +18,7 @@ public class ModelViewOptimized {
     GLGraphics glGraphics;
     Texture bobTexture;
     Vertices bobModel;
-    GameObjectTest[] bobs;
+    GameObjectTest[] gameObjects;
     FPSCounter fpsCounter;
     BackendController controller;
 
@@ -37,9 +37,9 @@ public class ModelViewOptimized {
         bobModel.setIndices(new short[] {0, 1, 2, 2, 3, 0}, 0, 6);
 
 
-        bobs = new GameObjectTest[100];
+        gameObjects = new GameObjectTest[100];
         for(int i = 0; i < 100; i++) {
-            bobs[i] = new GameObjectTest();
+            gameObjects[i] = new GameObjectTest();
         }
 
         fpsCounter = new FPSCounter();
@@ -50,7 +50,7 @@ public class ModelViewOptimized {
         controller.getInput().getKeyEvents();
 
         for(int i = 0; i < NUM_BOBS; i++) {
-            bobs[i].update(deltaTime);
+            gameObjects[i].update(deltaTime);
         }
     }
 
@@ -77,7 +77,7 @@ public class ModelViewOptimized {
         bobModel.bind();
         for(int i = 0; i < NUM_BOBS; i++) {
             gl.glLoadIdentity();
-            gl.glTranslatef((int)bobs[i].x, (int)bobs[i].y, 0);
+            gl.glTranslatef((int) gameObjects[i].x, (int) gameObjects[i].y, 0);
             bobModel.draw(GL10.GL_TRIANGLES, 0, 6);
         }
         bobModel.unbind();
