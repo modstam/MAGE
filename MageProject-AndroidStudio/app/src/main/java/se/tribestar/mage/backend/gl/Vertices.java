@@ -3,6 +3,7 @@ package se.tribestar.mage.backend.gl;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
+import java.nio.IntBuffer;
 import java.nio.ShortBuffer;
 
 import javax.microedition.khronos.opengles.GL10;
@@ -15,7 +16,8 @@ public class Vertices {
     final boolean hasColor;
     final boolean hasTexCoords;
     final int vertexSize;
-    final FloatBuffer vertices;
+    final IntBuffer vertices;
+    final int[] tmpBuffer;
     final ShortBuffer indices;
 
     public Vertices(GLGraphics glGraphics, int maxVertices, int maxIndices, boolean hasColor, boolean hasTexCoords) {
@@ -23,10 +25,11 @@ public class Vertices {
         this.hasColor = hasColor;
         this.hasTexCoords = hasTexCoords;
         this.vertexSize = (2 + (hasColor?4:0) + (hasTexCoords?2:0)) * 4;
+        this.tmpBuffer = new int[maxVertices * vertexSize / 4];
 
         ByteBuffer buffer = ByteBuffer.allocateDirect(maxVertices * vertexSize);
         buffer.order(ByteOrder.nativeOrder());
-        vertices = buffer.asFloatBuffer();
+        vertices = buffer.asIntBuffer();
 
         if(maxIndices > 0) {
             buffer = ByteBuffer.allocateDirect(maxIndices * Short.SIZE / 8);
@@ -39,7 +42,10 @@ public class Vertices {
 
     public void setVertices(float[] vertices, int offset, int length) {
         this.vertices.clear();
-        this.vertices.put(vertices, offset, length);
+        int len = offset + length;
+        for(int i=offset, j=0; i < len; i++, j++)
+            tmpBuffer[j] = Float.floatToRawIntBits(vertices[i]);
+        this.vertices.put(tmpBuffer, 0, length);
         this.vertices.flip();
     }
 
@@ -49,7 +55,7 @@ public class Vertices {
         this.indices.flip();
     }
 
-    public void draw(int primitiveType, int offset, int numVertices) {
+    public void bind() {
         GL10 gl = glGraphics.getGL();
 
         gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
@@ -67,6 +73,10 @@ public class Vertices {
             vertices.position(hasColor?6:2);
             gl.glTexCoordPointer(2, GL10.GL_FLOAT, vertexSize, vertices);
         }
+    }
+
+    public void draw(int primitiveType, int offset, int numVertices) {
+        GL10 gl = glGraphics.getGL();
 
         if(indices!=null) {
             indices.position(offset);
@@ -74,7 +84,10 @@ public class Vertices {
         } else {
             gl.glDrawArrays(primitiveType, offset, numVertices);
         }
+    }
 
+    public void unbind() {
+        GL10 gl = glGraphics.getGL();
         if(hasTexCoords)
             gl.glDisableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
 
