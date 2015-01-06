@@ -43,6 +43,7 @@ public class LitCubeOnlyColorsActivity extends GLBackendController {
             //pointLight.setDiffuse(1, 0, 0, 1);
             //pointLight.setPosition(3, 3, 0);
             directionalLight = new DirectionalLight();
+            directionalLight.setAmbient(0.2f,0.2f,0.2f,1f);
             directionalLight.setDiffuse(1, 1, 1, 0.1f);
             directionalLight.setDirection(1, 0, 0);
             material = new Material();
@@ -84,6 +85,7 @@ public class LitCubeOnlyColorsActivity extends GLBackendController {
             //pointLight.enable(gl, GL10.GL_LIGHT0);
             directionalLight.enable(gl, GL10.GL_LIGHT1);
             material.setDiffuse(1,0,0,1f);
+            material.setAmbient(1,0,0,1f);
             material.enable(gl);
 
             //gl.glEnable(GL10.GL_TEXTURE_2D);
