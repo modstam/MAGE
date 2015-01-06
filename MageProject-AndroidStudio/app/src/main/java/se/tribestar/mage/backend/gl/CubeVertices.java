@@ -12,9 +12,9 @@ public class CubeVertices extends Vertices3{
         super(glGraphics,maxVertices,maxIndices,hasColor,hasTexCoords,hasNormals);
     }
 
-    public CubeVertices(GLGraphics glGraphics){
+    public CubeVertices(GLGraphics glGraphics, boolean hasColor, boolean hasTexCoords, boolean hasNormals){
 
-        super(glGraphics,24,36,true,true,true);
+        super(glGraphics,24,36,hasColor,hasTexCoords,hasNormals);
 
         color = new Vector3(1,0,0);
         alpha = 1.0f;
