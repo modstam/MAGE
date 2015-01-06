@@ -4,6 +4,7 @@ import android.opengl.GLU;
 
 import javax.microedition.khronos.opengles.GL10;
 
+import se.tribestar.mage.backend.gl.AmbientLight;
 import se.tribestar.mage.backend.gl.CubeVertices;
 import se.tribestar.mage.backend.gl.GLWorld;
 import se.tribestar.mage.backend.gl.DirectionalLight;
@@ -24,7 +25,7 @@ public class LitCubeActivity extends GLBackendController {
         float angle;
         Vertices3 cube;
         Texture texture;
-        //AmbientLight ambientLight;
+        AmbientLight ambientLight;
         //PointLight pointLight;
         DirectionalLight directionalLight;
         Material material;
@@ -34,8 +35,8 @@ public class LitCubeActivity extends GLBackendController {
 
             cube = createCube();
             texture = new Texture(controller, TEXTURE_FILENAME);
-            //ambientLight = new AmbientLight();
-            //ambientLight.setColor(0, 0.2f, 0, 1);
+            ambientLight = new AmbientLight();
+            ambientLight.setColor(0, 0.2f, 0, 1);
             //pointLight = new PointLight();
             //pointLight.setDiffuse(1, 0, 0, 1);
             //pointLight.setPosition(3, 3, 0);
@@ -117,7 +118,7 @@ public class LitCubeActivity extends GLBackendController {
 
             gl.glEnable(GL10.GL_LIGHTING);
 
-            //ambientLight.enable(gl);
+            ambientLight.enable(gl);
             //pointLight.enable(gl, GL10.GL_LIGHT0);
             directionalLight.enable(gl, GL10.GL_LIGHT1);
             material.enable(gl);
