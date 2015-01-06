@@ -78,22 +78,27 @@ public class CubeVertices extends Vertices3{
                 0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha,
                 0.5f, 0.5f, 0.5f, color.x, color.y, color.z, alpha,
                 -0.5f, 0.5f, 0.5f, color.x, color.y, color.z, alpha,
+
                 0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha,
                 0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha,
                 0.5f, 0.5f, -0.5f, color.x, color.y, color.z, alpha,
                 0.5f, 0.5f, 0.5f, color.x, color.y, color.z, alpha,
+
                 0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha,
                 -0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha,
                 -0.5f, 0.5f, -0.5f, color.x, color.y, color.z, alpha,
                 0.5f, 0.5f, -0.5f, color.x, color.y, color.z, alpha,
+
                 -0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha,
                 -0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha,
                 -0.5f, 0.5f, 0.5f, color.x, color.y, color.z, alpha,
                 -0.5f, 0.5f, -0.5f, color.x, color.y, color.z, alpha,
+
                 -0.5f, 0.5f, 0.5f, color.x, color.y, color.z, alpha,
                 0.5f, 0.5f, 0.5f, color.x, color.y, color.z, alpha,
                 0.5f, 0.5f, -0.5f, color.x, color.y, color.z, alpha,
                 -0.5f, 0.5f, -0.5f, color.x, color.y, color.z, alpha,
+
                 -0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha,
                 0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha,
                 0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha,
@@ -111,22 +116,27 @@ public class CubeVertices extends Vertices3{
                 0.5f, -0.5f, 0.5f, 1, 1, 0, 0, 1,
                 0.5f, 0.5f, 0.5f, 1, 0, 0, 0, 1,
                 -0.5f, 0.5f, 0.5f, 0, 0, 0, 0, 1,
+
                 0.5f, -0.5f, 0.5f, 0, 1, 1, 0, 0,
                 0.5f, -0.5f, -0.5f,  1, 1, 1, 0, 0,
                 0.5f, 0.5f, -0.5f, 1, 0, 1, 0, 0,
                 0.5f, 0.5f, 0.5f,0, 0, 1, 0, 0,
+
                 0.5f, -0.5f, -0.5f, 0, 1, 0, 0, -1,
                 -0.5f, -0.5f, -0.5f, 1, 1, 0, 0, -1,
                 -0.5f, 0.5f, -0.5f, 1, 0, 0, 0, -1,
                 0.5f, 0.5f, -0.5f,  0, 0, 0, 0, -1,
+
                 -0.5f, -0.5f, -0.5f, 0, 1, -1, 0, 0,
                 -0.5f, -0.5f, 0.5f, 1, 1, -1, 0, 0,
                 -0.5f, 0.5f, 0.5f,  1, 0, -1, 0, 0,
                 -0.5f, 0.5f, -0.5f,  0, 0, -1, 0, 0,
+
                 -0.5f, 0.5f, 0.5f,  0, 1, 0, 1, 0,
                 0.5f, 0.5f, 0.5f,  1, 1, 0, 1, 0,
                 0.5f, 0.5f, -0.5f,  1, 0, 0, 1, 0,
                 -0.5f, 0.5f, -0.5f, 0, 0, 0, 1, 0,
+
                 -0.5f, -0.5f, -0.5f, 0, 1, 0, -1, 0,
                 0.5f, -0.5f, -0.5f,  1, 1, 0, -1, 0,
                 0.5f, -0.5f, 0.5f,  1, 0, 0, -1, 0,
