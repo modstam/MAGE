@@ -16,6 +16,7 @@ import android.view.WindowManager;
 import se.tribestar.mage.backend.Audio;
 import se.tribestar.mage.backend.BackendController;
 import se.tribestar.mage.backend.FileIO;
+import se.tribestar.mage.backend.GLWorld;
 import se.tribestar.mage.backend.Graphics;
 import se.tribestar.mage.backend.Input;
 import se.tribestar.mage.backend.android.AndroidAudio;
@@ -40,6 +41,7 @@ public abstract class GLBackendController extends Activity implements BackendCon
     Input input;
     FileIO fileIO;
     GLGameState state = GLGameState.Initialized;
+    GLWorld world;
     Object stateChanged = new Object();
     long startTime = System.nanoTime();
     WakeLock wakeLock;
@@ -74,9 +76,9 @@ public abstract class GLBackendController extends Activity implements BackendCon
 
         synchronized(stateChanged) {
             if(state == GLGameState.Initialized)
-                //screen = getStartScreen();
+                world = getWorld();
             state = GLGameState.Running;
-            //screen.resume();
+            world.resume();
             startTime = System.nanoTime();
         }
     }
@@ -95,12 +97,12 @@ public abstract class GLBackendController extends Activity implements BackendCon
             float deltaTime = (System.nanoTime()-startTime) / 1000000000.0f;
             startTime = System.nanoTime();
 
-            //screen.update(deltaTime);
-            //screen.present(deltaTime);
+            world.update(deltaTime);
+            world.present(deltaTime);
         }
 
         if(state == GLGameState.Paused) {
-            //screen.pause();
+            world.pause();
             synchronized(stateChanged) {
                 this.state = GLGameState.Idle;
                 stateChanged.notifyAll();
@@ -108,8 +110,8 @@ public abstract class GLBackendController extends Activity implements BackendCon
         }
 
         if(state == GLGameState.Finished) {
-            //screen.pause();
-            //screen.dispose();
+            world.pause();
+            world.dispose();
             synchronized(stateChanged) {
                 this.state = GLGameState.Idle;
                 stateChanged.notifyAll();
