@@ -14,7 +14,7 @@ public class CubeVertices extends Vertices3{
 
     public CubeVertices(GLGraphics glGraphics, boolean hasColor, boolean hasTexCoords, boolean hasNormals){
 
-        super(glGraphics,24,36,hasColor,hasTexCoords,hasNormals);
+        super(glGraphics,36,42,hasColor,hasTexCoords,hasNormals);
 
         color = new Vector3(1,0,0);
         alpha = 1.0f;
@@ -54,6 +54,8 @@ public class CubeVertices extends Vertices3{
                 20, 21, 22, 22, 23, 20,
                 24, 25, 26, 26, 27, 24
         };
+
+//        super(glGraphics, vertices.length / 8, indices.length, false, true, true);
 
         setVertices(vertices,0,vertices.length);
         setIndices(indices,0,indices.length);
