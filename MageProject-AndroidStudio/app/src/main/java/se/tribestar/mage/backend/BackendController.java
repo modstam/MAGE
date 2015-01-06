@@ -1,5 +1,7 @@
 package se.tribestar.mage.backend;
 
+import se.tribestar.mage.backend.gl.GLWorld;
+
 /**
  * Created by Andreas Stjerndal on 04-Jan-2015.
  */
