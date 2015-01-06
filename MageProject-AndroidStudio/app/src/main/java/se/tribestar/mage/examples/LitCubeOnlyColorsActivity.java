@@ -4,6 +4,7 @@ import android.opengl.GLU;
 
 import javax.microedition.khronos.opengles.GL10;
 
+import se.tribestar.mage.backend.gl.AmbientLight;
 import se.tribestar.mage.backend.gl.CubeVertices;
 import se.tribestar.mage.backend.gl.GLWorld;
 import se.tribestar.mage.backend.gl.DirectionalLight;
@@ -25,7 +26,7 @@ public class LitCubeOnlyColorsActivity extends GLBackendController {
         float angle;
         Vertices3 cube;
         Texture texture;
-        //AmbientLight ambientLight;
+        AmbientLight ambientLight;
         //PointLight pointLight;
         DirectionalLight directionalLight;
         Material material;
@@ -36,8 +37,8 @@ public class LitCubeOnlyColorsActivity extends GLBackendController {
             cube = createCube();
             texture = new Texture(controller, TEXTURE_FILENAME);
             cube.color = new Vector3(1,1,0);
-            //ambientLight = new AmbientLight();
-            //ambientLight.setColor(0, 0.2f, 0, 1);
+            ambientLight = new AmbientLight();
+            ambientLight.setColor(1, 1, 1, 1f);
             //pointLight = new PointLight();
             //pointLight.setDiffuse(1, 0, 0, 1);
             //pointLight.setPosition(3, 3, 0);
@@ -80,7 +81,6 @@ public class LitCubeOnlyColorsActivity extends GLBackendController {
 
             gl.glEnable(GL10.GL_LIGHTING);
 
-            //ambientLight.enable(gl);
             //pointLight.enable(gl, GL10.GL_LIGHT0);
             directionalLight.enable(gl, GL10.GL_LIGHT1);
             material.setDiffuse(1,0,0,1f);
@@ -95,7 +95,7 @@ public class LitCubeOnlyColorsActivity extends GLBackendController {
             cube.unbind();
 
             //pointLight.disable(gl);
-            //directionalLight.disable(gl);
+            directionalLight.disable(gl);
 
             //gl.glDisable(GL10.GL_TEXTURE_2D);
             gl.glDisable(GL10.GL_DEPTH_TEST);
