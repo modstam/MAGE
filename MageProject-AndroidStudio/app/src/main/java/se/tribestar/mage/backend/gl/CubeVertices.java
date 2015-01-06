@@ -16,7 +16,7 @@ public class CubeVertices extends Vertices3{
 
         //super(glGraphics,36,42,hasColor,hasTexCoords,hasNormals);
 
-        color = new Vector3(1,0,0);
+        color = new Vector3(1f,0f,0f);
         alpha = 1.0f;
 
 /*        float[] vertices = {
@@ -45,14 +45,6 @@ public class CubeVertices extends Vertices3{
                 0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha, 1, 0, 0, -1, 0,
                 -0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha, 0, 0, 0, -1, 0 };*/
         float[] vertices = {};
-        if(hasColor){
-            vertices = getColorVertices();
-            setup(glGraphics,28, 42, hasColor, hasTexCoords, hasNormals);
-        }
-        else if(hasTexCoords && hasNormals){
-            vertices = getTextureNormalVertices();
-            setup(glGraphics,24, 42, hasColor, hasTexCoords, hasNormals);
-        }
 
         short[] indices = {
                 0, 1, 2, 2, 3, 0,
@@ -63,6 +55,17 @@ public class CubeVertices extends Vertices3{
                 20, 21, 22, 22, 23, 20,
                 24, 25, 26, 26, 27, 24
         };
+
+
+        if(hasColor){
+            vertices = getColorVertices();
+            setup(glGraphics,vertices.length/7,indices.length/6 , hasColor, hasTexCoords, hasNormals);
+        }
+        else if(hasTexCoords && hasNormals){
+            vertices = getTextureNormalVertices();
+            setup(glGraphics,24, 42, hasColor, hasTexCoords, hasNormals);
+        }
+
 
 //        super(glGraphics, vertices.length / 8, indices.length, false, true, true);
         setVertices(vertices,0,vertices.length);

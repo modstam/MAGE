@@ -1,5 +1,7 @@
 package se.tribestar.mage.backend.gl;
 
+import android.util.Log;
+
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.IntBuffer;
@@ -74,6 +76,7 @@ public class Vertices3 {
     }
 
     public void bind() {
+
         GL10 gl = glGraphics.getGL();
 
         gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
