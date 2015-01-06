@@ -14,7 +14,7 @@ public interface BackendController {
 
     /*public void setScreen(Screen screen);
 
-    public Screen getCurrentScreen();
+    public Screen getCurrentScreen();*/
 
-    public Screen getStartScreen();*/
+    public GLWorld getWorld();
 }
