@@ -32,7 +32,7 @@ public class LitCubeActivity extends GLBackendController {
             super(controller);
 
             cube = createCube();
-            texture = new Texture(controller, "crate.png");
+            texture = new Texture(controller, TEXTURE_FILENAME);
             //ambientLight = new AmbientLight();
             //ambientLight.setColor(0, 0.2f, 0, 1);
             //pointLight = new PointLight();
