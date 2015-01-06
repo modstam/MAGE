@@ -51,7 +51,7 @@ public class CubeVertices extends Vertices3{
         }
         else if(hasTexCoords && hasNormals){
             vertices = getTextureNormalVertices();
-            setup(glGraphics,36, 42, hasColor, hasTexCoords, hasNormals);
+            setup(glGraphics,24, 42, hasColor, hasTexCoords, hasNormals);
         }
 
         short[] indices = {

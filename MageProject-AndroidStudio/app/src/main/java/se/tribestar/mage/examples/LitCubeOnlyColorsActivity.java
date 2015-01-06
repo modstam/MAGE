@@ -11,6 +11,7 @@ import se.tribestar.mage.backend.gl.GLBackendController;
 import se.tribestar.mage.backend.gl.Material;
 import se.tribestar.mage.backend.gl.Texture;
 import se.tribestar.mage.backend.gl.Vertices3;
+import se.tribestar.mage.math.Vector3;
 
 public class LitCubeOnlyColorsActivity extends GLBackendController {
 
@@ -34,13 +35,15 @@ public class LitCubeOnlyColorsActivity extends GLBackendController {
 
             cube = createCube();
             texture = new Texture(controller, TEXTURE_FILENAME);
+            cube.color = new Vector3(1,1,0);
             //ambientLight = new AmbientLight();
             //ambientLight.setColor(0, 0.2f, 0, 1);
             //pointLight = new PointLight();
             //pointLight.setDiffuse(1, 0, 0, 1);
             //pointLight.setPosition(3, 3, 0);
             directionalLight = new DirectionalLight();
-            directionalLight.setDiffuse(0, 0, 1, 1);
+            directionalLight.setDiffuse(1, 1, 1, 0.5f);
+            directionalLight.setAmbient(1,1,1,0.5f);
             directionalLight.setDirection(1, 0, 0);
             material = new Material();
         }
@@ -52,7 +55,7 @@ public class LitCubeOnlyColorsActivity extends GLBackendController {
 
         private Vertices3 createCube() {
 
-            return new CubeVertices(getGLGraphics(), true, false, false);
+            return new CubeVertices(getGLGraphics(), false, true, true);
         }
 
         @Override
@@ -76,14 +79,14 @@ public class LitCubeOnlyColorsActivity extends GLBackendController {
             gl.glLoadIdentity();
             GLU.gluLookAt(gl, 0, 1, 3, 0, 0, 0, 0, 1, 0);
 
-            gl.glEnable(GL10.GL_LIGHTING);
+            //gl.glEnable(GL10.GL_LIGHTING);
 
             //ambientLight.enable(gl);
             //pointLight.enable(gl, GL10.GL_LIGHT0);
-            directionalLight.enable(gl, GL10.GL_LIGHT1);
-            material.enable(gl);
+           //directionalLight.enable(gl, GL10.GL_LIGHT1);
+            //material.enable(gl);
 
-           // gl.glEnable(GL10.GL_TEXTURE_2D);
+            //gl.glEnable(GL10.GL_TEXTURE_2D);
             //texture.bind();
 
             gl.glRotatef(angle, 0, 1, 0);
@@ -92,9 +95,9 @@ public class LitCubeOnlyColorsActivity extends GLBackendController {
             cube.unbind();
 
             //pointLight.disable(gl);
-            directionalLight.disable(gl);
+            //directionalLight.disable(gl);
 
-           // gl.glDisable(GL10.GL_TEXTURE_2D);
+            //gl.glDisable(GL10.GL_TEXTURE_2D);
             gl.glDisable(GL10.GL_DEPTH_TEST);
         }
 
