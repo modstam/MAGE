@@ -16,7 +16,6 @@ import android.view.WindowManager;
 import se.tribestar.mage.backend.Audio;
 import se.tribestar.mage.backend.BackendController;
 import se.tribestar.mage.backend.FileIO;
-import se.tribestar.mage.backend.GLWorld;
 import se.tribestar.mage.backend.Graphics;
 import se.tribestar.mage.backend.Input;
 import se.tribestar.mage.backend.android.AndroidAudio;
