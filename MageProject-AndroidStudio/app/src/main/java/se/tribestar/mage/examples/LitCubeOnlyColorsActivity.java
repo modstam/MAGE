@@ -56,7 +56,7 @@ public class LitCubeOnlyColorsActivity extends GLBackendController {
 
         private Vertices3 createCube() {
 
-            return new CubeVertices(getGLGraphics(), true, false, false);
+            return new CubeVertices(getGLGraphics(), true, false, true);
         }
 
         @Override
