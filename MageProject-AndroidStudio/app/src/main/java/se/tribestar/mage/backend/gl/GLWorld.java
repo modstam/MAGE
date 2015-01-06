@@ -1,4 +1,4 @@
-package se.tribestar.mage.backend;
+package se.tribestar.mage.backend.gl;
 
 import se.tribestar.mage.backend.gl.GLBackendController;
 
