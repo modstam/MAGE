@@ -7,6 +7,8 @@ import java.nio.ShortBuffer;
 
 import javax.microedition.khronos.opengles.GL10;
 
+import se.tribestar.mage.math.Vector3;
+
 /**
  * A vertices class with potential to use vertex normals.
  *
@@ -21,6 +23,8 @@ public class Vertices3 {
     final IntBuffer vertices;
     final int[] tmpBuffer;
     final ShortBuffer indices;
+    public Vector3 color;
+    public float alpha;
 
     public Vertices3(GLGraphics glGraphics, int maxVertices, int maxIndices,
                      boolean hasColor, boolean hasTexCoords, boolean hasNormals) {

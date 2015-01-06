@@ -1,5 +1,7 @@
 package se.tribestar.mage.backend.gl;
 
+import se.tribestar.mage.math.Vector3;
+
 /**
  * Created by Andreas Stjerndal on 06-Jan-2015.
  */
@@ -14,31 +16,34 @@ public class CubeVertices extends Vertices3{
 
         super(glGraphics,24,36,true,true,true);
 
+        color = new Vector3(1,0,0);
+        alpha = 1.0f;
+
         float[] vertices = {
-                -0.5f, -0.5f, 0.5f, 0, 1, 0, 0, 1,
-                0.5f, -0.5f, 0.5f, 1, 1, 0, 0, 1,
-                0.5f, 0.5f, 0.5f, 1, 0, 0, 0, 1,
-                -0.5f, 0.5f, 0.5f, 0, 0, 0, 0, 1,
-                0.5f, -0.5f, 0.5f, 0, 1, 1, 0, 0,
-                0.5f, -0.5f, -0.5f, 1, 1, 1, 0, 0,
-                0.5f, 0.5f, -0.5f, 1, 0, 1, 0, 0,
-                0.5f, 0.5f, 0.5f, 0, 0, 1, 0, 0,
-                0.5f, -0.5f, -0.5f, 0, 1, 0, 0, -1,
-                -0.5f, -0.5f, -0.5f, 1, 1, 0, 0, -1,
-                -0.5f, 0.5f, -0.5f, 1, 0, 0, 0, -1,
-                0.5f, 0.5f, -0.5f, 0, 0, 0, 0, -1,
-                -0.5f, -0.5f, -0.5f, 0, 1, -1, 0, 0,
-                -0.5f, -0.5f, 0.5f, 1, 1, -1, 0, 0,
-                -0.5f, 0.5f, 0.5f, 1, 0, -1, 0, 0,
-                -0.5f, 0.5f, -0.5f, 0, 0, -1, 0, 0,
-                -0.5f, 0.5f, 0.5f, 0, 1, 0, 1, 0,
-                0.5f, 0.5f, 0.5f, 1, 1, 0, 1, 0,
-                0.5f, 0.5f, -0.5f, 1, 0, 0, 1, 0,
-                -0.5f, 0.5f, -0.5f, 0, 0, 0, 1, 0,
-                -0.5f, -0.5f, -0.5f, 0, 1, 0, -1, 0,
-                0.5f, -0.5f, -0.5f, 1, 1, 0, -1, 0,
-                0.5f, -0.5f, 0.5f, 1, 0, 0, -1, 0,
-                -0.5f, -0.5f, 0.5f, 0, 0, 0, -1, 0 };
+                -0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha,  0, 1, 0, 0, 1,
+                0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha, 1, 1, 0, 0, 1,
+                0.5f, 0.5f, 0.5f, color.x, color.y, color.z, alpha, 1, 0, 0, 0, 1,
+                -0.5f, 0.5f, 0.5f, color.x, color.y, color.z, alpha, 0, 0, 0, 0, 1,
+                0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha, 0, 1, 1, 0, 0,
+                0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha, 1, 1, 1, 0, 0,
+                0.5f, 0.5f, -0.5f, color.x, color.y, color.z, alpha, 1, 0, 1, 0, 0,
+                0.5f, 0.5f, 0.5f, color.x, color.y, color.z, alpha, 0, 0, 1, 0, 0,
+                0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha, 0, 1, 0, 0, -1,
+                -0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha, 1, 1, 0, 0, -1,
+                -0.5f, 0.5f, -0.5f, color.x, color.y, color.z, alpha, 1, 0, 0, 0, -1,
+                0.5f, 0.5f, -0.5f, color.x, color.y, color.z, alpha, 0, 0, 0, 0, -1,
+                -0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha, 0, 1, -1, 0, 0,
+                -0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha, 1, 1, -1, 0, 0,
+                -0.5f, 0.5f, 0.5f, color.x, color.y, color.z, alpha, 1, 0, -1, 0, 0,
+                -0.5f, 0.5f, -0.5f, color.x, color.y, color.z, alpha, 0, 0, -1, 0, 0,
+                -0.5f, 0.5f, 0.5f, color.x, color.y, color.z, alpha, 0, 1, 0, 1, 0,
+                0.5f, 0.5f, 0.5f, color.x, color.y, color.z, alpha, 1, 1, 0, 1, 0,
+                0.5f, 0.5f, -0.5f, color.x, color.y, color.z, alpha, 1, 0, 0, 1, 0,
+                -0.5f, 0.5f, -0.5f, color.x, color.y, color.z, alpha, 0, 0, 0, 1, 0,
+                -0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha, 0, 1, 0, -1, 0,
+                0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha, 1, 1, 0, -1, 0,
+                0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha, 1, 0, 0, -1, 0,
+                -0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha, 0, 0, 0, -1, 0 };
 
         short[] indices = {
                 0, 1, 2, 2, 3, 0,
@@ -49,7 +54,7 @@ public class CubeVertices extends Vertices3{
                 20, 21, 22, 22, 23, 20,
                 24, 25, 26, 26, 27, 24
         };
-        
+
         setVertices(vertices,0,vertices.length);
         setIndices(indices,0,indices.length);
         
