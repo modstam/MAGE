@@ -42,8 +42,7 @@ public class LitCubeOnlyColorsActivity extends GLBackendController {
             //pointLight.setDiffuse(1, 0, 0, 1);
             //pointLight.setPosition(3, 3, 0);
             directionalLight = new DirectionalLight();
-            directionalLight.setDiffuse(1, 1, 1, 0.5f);
-            directionalLight.setAmbient(1,1,1,0.5f);
+            directionalLight.setDiffuse(1, 1, 1, 0.1f);
             directionalLight.setDirection(1, 0, 0);
             material = new Material();
         }
@@ -79,12 +78,13 @@ public class LitCubeOnlyColorsActivity extends GLBackendController {
             gl.glLoadIdentity();
             GLU.gluLookAt(gl, 0, 1, 3, 0, 0, 0, 0, 1, 0);
 
-            //gl.glEnable(GL10.GL_LIGHTING);
+            gl.glEnable(GL10.GL_LIGHTING);
 
             //ambientLight.enable(gl);
             //pointLight.enable(gl, GL10.GL_LIGHT0);
-            //directionalLight.enable(gl, GL10.GL_LIGHT1);
-            //material.enable(gl);
+            directionalLight.enable(gl, GL10.GL_LIGHT1);
+            material.setDiffuse(1,0,0,1f);
+            material.enable(gl);
 
             //gl.glEnable(GL10.GL_TEXTURE_2D);
             //texture.bind();
