@@ -47,9 +47,11 @@ public class CubeVertices extends Vertices3{
         float[] vertices = {};
         if(hasColor){
             vertices = getColorVertices();
+            setup(glGraphics,28, 42, hasColor, hasTexCoords, hasNormals);
         }
         else if(hasTexCoords && hasNormals){
             vertices = getTextureNormalVertices();
+            setup(glGraphics,36, 42, hasColor, hasTexCoords, hasNormals);
         }
 
         short[] indices = {
@@ -63,7 +65,6 @@ public class CubeVertices extends Vertices3{
         };
 
 //        super(glGraphics, vertices.length / 8, indices.length, false, true, true);
-
         setVertices(vertices,0,vertices.length);
         setIndices(indices,0,indices.length);
         
