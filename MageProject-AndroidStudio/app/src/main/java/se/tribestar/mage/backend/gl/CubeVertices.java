@@ -14,7 +14,8 @@ public class CubeVertices extends Vertices3{
 
         super(glGraphics,24,36,true,true,true);
 
-        float[] vertices = { −0.5f, -0.5f, 0.5f, 0, 1,
+        float[] vertices = {
+                -0.5f, -0.5f, 0.5f, 0, 1,
                 0.5f, -0.5f, 0.5f, 1, 1,
                 0.5f, 0.5f, 0.5f, 1, 0,
                 -0.5f, 0.5f, 0.5f, 0, 0,
@@ -39,7 +40,8 @@ public class CubeVertices extends Vertices3{
                 0.5f, -0.5f, -0.5f, 1, 0,
                 -0.5f, -0.5f, -0.5f, 0, 0
         };
-        short[] indices = { 0, 1, 3, 1, 2, 3,
+        short[] indices = {
+                0, 1, 3, 1, 2, 3,
                 4, 5, 7, 5, 6, 7,
                 8, 9, 11, 9, 10, 11,
                 12, 13, 15, 13, 14, 15,

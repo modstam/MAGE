@@ -114,6 +114,10 @@ public class Vertices3 {
             gl.glDisableClientState(GL10.GL_NORMAL_ARRAY);
     }
 
+    public GLGraphics getGL(){
+        return glGraphics;
+    }
+
     public int getNumIndices() {
         return indices.limit();
     }
