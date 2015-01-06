@@ -4,6 +4,7 @@ import android.opengl.GLU;
 
 import javax.microedition.khronos.opengles.GL10;
 
+import se.tribestar.mage.backend.gl.CubeVertices;
 import se.tribestar.mage.backend.gl.GLWorld;
 import se.tribestar.mage.backend.gl.DirectionalLight;
 import se.tribestar.mage.backend.gl.GLBackendController;
@@ -39,7 +40,7 @@ public class LitCubeActivity extends GLBackendController {
             //pointLight.setDiffuse(1, 0, 0, 1);
             //pointLight.setPosition(3, 3, 0);
             directionalLight = new DirectionalLight();
-            directionalLight.setDiffuse(0, 0, 1, 1);
+            directionalLight.setDiffuse(1, 1, 1, 1);
             directionalLight.setDirection(1, 0, 0);
             material = new Material();
         }
@@ -50,7 +51,7 @@ public class LitCubeActivity extends GLBackendController {
         }
 
         private Vertices3 createCube() {
-            float[] vertices = { -0.5f, -0.5f, 0.5f, 0, 1, 0, 0, 1,
+/*            float[] vertices = { -0.5f, -0.5f, 0.5f, 0, 1, 0, 0, 1,
                     0.5f, -0.5f, 0.5f, 1, 1, 0, 0, 1,
                     0.5f,  0.5f, 0.5f, 1, 0, 0, 0, 1,
                     -0.5f,  0.5f, 0.5f, 0, 0, 0, 0, 1,
@@ -89,7 +90,8 @@ public class LitCubeActivity extends GLBackendController {
             Vertices3 cube = new Vertices3(getGLGraphics(), vertices.length / 8, indices.length, false, true, true);
             cube.setVertices(vertices, 0, vertices.length);
             cube.setIndices(indices, 0, indices.length);
-            return cube;
+            return cube;*/
+            return new CubeVertices(getGLGraphics(), true,true,true);
         }
 
         @Override
