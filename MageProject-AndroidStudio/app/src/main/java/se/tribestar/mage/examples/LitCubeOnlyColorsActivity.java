@@ -55,7 +55,7 @@ public class LitCubeOnlyColorsActivity extends GLBackendController {
 
         private Vertices3 createCube() {
 
-            return new CubeVertices(getGLGraphics(), false, true, true);
+            return new CubeVertices(getGLGraphics(), true, false, false);
         }
 
         @Override
@@ -83,7 +83,7 @@ public class LitCubeOnlyColorsActivity extends GLBackendController {
 
             //ambientLight.enable(gl);
             //pointLight.enable(gl, GL10.GL_LIGHT0);
-           //directionalLight.enable(gl, GL10.GL_LIGHT1);
+            //directionalLight.enable(gl, GL10.GL_LIGHT1);
             //material.enable(gl);
 
             //gl.glEnable(GL10.GL_TEXTURE_2D);

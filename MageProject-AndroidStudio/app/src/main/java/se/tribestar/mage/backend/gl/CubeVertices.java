@@ -63,7 +63,7 @@ public class CubeVertices extends Vertices3{
 
         if(hasColor){
             vertices = getColorVertices();
-            setup(glGraphics,vertices.length/7,indices.length/6 , hasColor, hasTexCoords, hasNormals);
+            setup(glGraphics,24,42, hasColor, hasTexCoords, hasNormals);
         }
         else if(hasTexCoords && hasNormals){
             vertices = getTextureNormalVertices();
