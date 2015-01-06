@@ -3,7 +3,7 @@
     package="se.tribestar.mage" >
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -13,6 +13,15 @@
         <activity
             android:name=".examples.LitCubeActivity"
             android:label="@string/title_activity_lit_cube" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".examples.LitCubeOnlyColorsActivity"
+            android:label="@string/title_activity_lit_cube_only_colors" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
