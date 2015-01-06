@@ -14,12 +14,12 @@ public class CubeVertices extends Vertices3{
 
     public CubeVertices(GLGraphics glGraphics, boolean hasColor, boolean hasTexCoords, boolean hasNormals){
 
-        super(glGraphics,36,42,hasColor,hasTexCoords,hasNormals);
+        //super(glGraphics,36,42,hasColor,hasTexCoords,hasNormals);
 
         color = new Vector3(1,0,0);
         alpha = 1.0f;
 
-        float[] vertices = {
+/*        float[] vertices = {
                 -0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha,  0, 1, 0, 0, 1,
                 0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha, 1, 1, 0, 0, 1,
                 0.5f, 0.5f, 0.5f, color.x, color.y, color.z, alpha, 1, 0, 0, 0, 1,
@@ -43,7 +43,14 @@ public class CubeVertices extends Vertices3{
                 -0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha, 0, 1, 0, -1, 0,
                 0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha, 1, 1, 0, -1, 0,
                 0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha, 1, 0, 0, -1, 0,
-                -0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha, 0, 0, 0, -1, 0 };
+                -0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha, 0, 0, 0, -1, 0 };*/
+        float[] vertices = {};
+        if(hasColor){
+            vertices = getColorVertices();
+        }
+        else if(hasTexCoords && hasNormals){
+            vertices = getTextureNormalVertices();
+        }
 
         short[] indices = {
                 0, 1, 2, 2, 3, 0,
@@ -60,6 +67,71 @@ public class CubeVertices extends Vertices3{
         setVertices(vertices,0,vertices.length);
         setIndices(indices,0,indices.length);
         
+    }
+
+
+    private float[] getColorVertices(){
+
+        float[] vertices = {
+                -0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha,
+                0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha,
+                0.5f, 0.5f, 0.5f, color.x, color.y, color.z, alpha,
+                -0.5f, 0.5f, 0.5f, color.x, color.y, color.z, alpha,
+                0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha,
+                0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha,
+                0.5f, 0.5f, -0.5f, color.x, color.y, color.z, alpha,
+                0.5f, 0.5f, 0.5f, color.x, color.y, color.z, alpha,
+                0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha,
+                -0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha,
+                -0.5f, 0.5f, -0.5f, color.x, color.y, color.z, alpha,
+                0.5f, 0.5f, -0.5f, color.x, color.y, color.z, alpha,
+                -0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha,
+                -0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha,
+                -0.5f, 0.5f, 0.5f, color.x, color.y, color.z, alpha,
+                -0.5f, 0.5f, -0.5f, color.x, color.y, color.z, alpha,
+                -0.5f, 0.5f, 0.5f, color.x, color.y, color.z, alpha,
+                0.5f, 0.5f, 0.5f, color.x, color.y, color.z, alpha,
+                0.5f, 0.5f, -0.5f, color.x, color.y, color.z, alpha,
+                -0.5f, 0.5f, -0.5f, color.x, color.y, color.z, alpha,
+                -0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha,
+                0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha,
+                0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha,
+                -0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha
+        };
+
+        return vertices;
+    }
+
+
+    private float[] getTextureNormalVertices(){
+
+        float[] vertices = {
+                -0.5f, -0.5f, 0.5f, 0, 1, 0, 0, 1,
+                0.5f, -0.5f, 0.5f, 1, 1, 0, 0, 1,
+                0.5f, 0.5f, 0.5f, 1, 0, 0, 0, 1,
+                -0.5f, 0.5f, 0.5f, 0, 0, 0, 0, 1,
+                0.5f, -0.5f, 0.5f, 0, 1, 1, 0, 0,
+                0.5f, -0.5f, -0.5f,  1, 1, 1, 0, 0,
+                0.5f, 0.5f, -0.5f, 1, 0, 1, 0, 0,
+                0.5f, 0.5f, 0.5f,0, 0, 1, 0, 0,
+                0.5f, -0.5f, -0.5f, 0, 1, 0, 0, -1,
+                -0.5f, -0.5f, -0.5f, 1, 1, 0, 0, -1,
+                -0.5f, 0.5f, -0.5f, 1, 0, 0, 0, -1,
+                0.5f, 0.5f, -0.5f,  0, 0, 0, 0, -1,
+                -0.5f, -0.5f, -0.5f, 0, 1, -1, 0, 0,
+                -0.5f, -0.5f, 0.5f, 1, 1, -1, 0, 0,
+                -0.5f, 0.5f, 0.5f,  1, 0, -1, 0, 0,
+                -0.5f, 0.5f, -0.5f,  0, 0, -1, 0, 0,
+                -0.5f, 0.5f, 0.5f,  0, 1, 0, 1, 0,
+                0.5f, 0.5f, 0.5f,  1, 1, 0, 1, 0,
+                0.5f, 0.5f, -0.5f,  1, 0, 0, 1, 0,
+                -0.5f, 0.5f, -0.5f, 0, 0, 0, 1, 0,
+                -0.5f, -0.5f, -0.5f, 0, 1, 0, -1, 0,
+                0.5f, -0.5f, -0.5f,  1, 1, 0, -1, 0,
+                0.5f, -0.5f, 0.5f,  1, 0, 0, -1, 0,
+                -0.5f, -0.5f, 0.5f,  0, 0, 0, -1, 0 };
+
+        return vertices;
     }
 
 

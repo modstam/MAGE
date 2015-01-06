@@ -15,18 +15,28 @@ import se.tribestar.mage.math.Vector3;
  * Created by Andreas Stjerndal on 06-Jan-2015.
  */
 public class Vertices3 {
-    final GLGraphics glGraphics;
-    final boolean hasColor;
-    final boolean hasTexCoords;
-    final boolean hasNormals;
-    final int vertexSize;
-    final IntBuffer vertices;
-    final int[] tmpBuffer;
-    final ShortBuffer indices;
+    private GLGraphics glGraphics;
+    private boolean hasColor;
+    private boolean hasTexCoords;
+    private boolean hasNormals;
+    private int vertexSize;
+    private IntBuffer vertices;
+    private int[] tmpBuffer;
+    private ShortBuffer indices;
     public Vector3 color;
     public float alpha;
 
+    public Vertices3(){
+
+    }
+
     public Vertices3(GLGraphics glGraphics, int maxVertices, int maxIndices,
+                     boolean hasColor, boolean hasTexCoords, boolean hasNormals) {
+
+        setup(glGraphics,maxVertices,maxIndices,hasColor,hasTexCoords,hasNormals);
+    }
+
+    public void setup(GLGraphics glGraphics, int maxVertices, int maxIndices,
                      boolean hasColor, boolean hasTexCoords, boolean hasNormals) {
         this.glGraphics = glGraphics;
         this.hasColor = hasColor;

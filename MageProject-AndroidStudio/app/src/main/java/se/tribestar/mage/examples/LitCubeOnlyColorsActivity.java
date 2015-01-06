@@ -83,8 +83,8 @@ public class LitCubeOnlyColorsActivity extends GLBackendController {
             directionalLight.enable(gl, GL10.GL_LIGHT1);
             material.enable(gl);
 
-            gl.glEnable(GL10.GL_TEXTURE_2D);
-            texture.bind();
+           // gl.glEnable(GL10.GL_TEXTURE_2D);
+            //texture.bind();
 
             gl.glRotatef(angle, 0, 1, 0);
             cube.bind();
@@ -94,7 +94,7 @@ public class LitCubeOnlyColorsActivity extends GLBackendController {
             //pointLight.disable(gl);
             directionalLight.disable(gl);
 
-            gl.glDisable(GL10.GL_TEXTURE_2D);
+           // gl.glDisable(GL10.GL_TEXTURE_2D);
             gl.glDisable(GL10.GL_DEPTH_TEST);
         }
 
