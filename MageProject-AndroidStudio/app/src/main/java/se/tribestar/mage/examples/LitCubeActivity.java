@@ -91,7 +91,7 @@ public class LitCubeActivity extends GLBackendController {
             cube.setVertices(vertices, 0, vertices.length);
             cube.setIndices(indices, 0, indices.length);
             return cube;*/
-            return new CubeVertices(getGLGraphics(), true,true,true);
+            return new CubeVertices(getGLGraphics(), true,false,true);
         }
 
         @Override
