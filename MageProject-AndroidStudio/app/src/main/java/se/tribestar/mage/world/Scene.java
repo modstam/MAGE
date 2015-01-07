@@ -9,14 +9,14 @@ public class Scene {
 
     public Scene(String name){
         this.name = name;
-        this.world = new World();
+        //this.world = new World();
     }
 
     public World getWorld(){
         return this.world;
     }
 
-    public void start(){
+    /*public void start(){
         world.run();
-    }
+    }*/
 }
