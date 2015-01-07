@@ -65,7 +65,7 @@ public class LitCubeOnlyColorsActivity extends GLBackendController {
         }
 
         @Override
-        public void present(float deltaTime) {
+        public void draw(float deltaTime) {
             GL10 gl = getGLGraphics().getGL();
             gl.glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
             gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
