@@ -39,15 +39,6 @@ public class World {
     }
 
     /**
-     * This method is responsible for the infinite loop
-     */
-    public void run(){
-        while(running){
-            update();
-        }
-    }
-
-    /**
      * This method is responsible for updating all the objects
      * in the world, one run of this method corresponds to one frame
      * @return the time it took to complete the frame
