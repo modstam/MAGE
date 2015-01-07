@@ -14,9 +14,9 @@ public interface BackendController {
 
     public Audio getAudio();
 
-    /*public void setScreen(Screen screen);
+    public void setWorld(GLWorld world);
 
-    public Screen getCurrentScreen();*/
+    public GLWorld getCurrentWorld();
 
     public GLWorld getWorld();
 }

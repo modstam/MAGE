@@ -157,19 +157,19 @@ public abstract class GLBackendController extends Activity implements BackendCon
     public Audio getAudio() {
         return audio;
     }
-/*
-    public void setScreen(Screen newScreen) {
-        if (newScreen == null)
+
+    public void setWorld(GLWorld newWorld) {
+        if (newWorld == null)
             throw new IllegalArgumentException("Screen must not be null");
 
-        this.screen.pause();
-        this.screen.dispose();
-        newScreen.resume();
-        newScreen.update(0);
-        this.screen = newScreen;
+        this.world.pause();
+        this.world.dispose();
+        newWorld.resume();
+        newWorld.update(0);
+        this.world = newWorld;
     }
 
-    public Screen getCurrentScreen() {
-        return screen;
-    }*/
+    public GLWorld getCurrentWorld() {
+        return world;
+    }
 }
