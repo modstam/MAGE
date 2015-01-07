@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import se.tribestar.mage.backend.gl.GLBackendController;
+import se.tribestar.mage.backend.gl.GLWorld;
 import se.tribestar.mage.backend.gl.Vertices;
 import se.tribestar.mage.backend.gl.Vertices3;
 import se.tribestar.mage.logic.Logic;
@@ -20,7 +21,7 @@ import se.tribestar.mage.world.drawable.Sphere;
  * This class is responsible for running the game world
  * It will update and draw all game and logic objects that are in the world
  */
-public class World {
+public class World extends GLWorld{
     public ArrayList<GameObject> objects; //the game objects
     public ArrayList<Logic> logics; //the logic objects
     public ArrayList<Drawable> drawables;
@@ -31,6 +32,7 @@ public class World {
     public GLBackendController controller;
 
     public World(GLBackendController controller ){
+        super(controller);
         objects = new ArrayList<GameObject>();
         logics = new ArrayList<Logic>();
         namedObjects = new HashMap<String, List<GameObject>>();
@@ -43,8 +45,9 @@ public class World {
      * in the world, one run of this method corresponds to one frame
      * @return the time it took to complete the frame
      */
-    public float update(){
-        float time = System.currentTimeMillis();
+    @Override
+    public void update(float deltaTime){
+        this.deltaTime = deltaTime;
 
         for(GameObject object : objects) {
             object.update(deltaTime);
@@ -53,15 +56,13 @@ public class World {
         for(Logic logic : logics){
             logic.update(deltaTime);
         }
-
-        this.deltaTime = System.currentTimeMillis() - time;
-        return deltaTime;
     }
 
     /**
      * This method is responsible to draw all objects in the frame
      */
-    public void draw(){
+    @Override
+    public void draw(float deltaTime){
         for(Drawable object : drawables) {
             controller.render(object);
         }
@@ -117,5 +118,21 @@ public class World {
             return namedObjects.get(name);
         }
         return new ArrayList<GameObject>();
+    }
+
+
+    @Override
+    public void pause() {
+
+    }
+
+    @Override
+    public void resume() {
+
+    }
+
+    @Override
+    public void dispose() {
+
     }
 }
