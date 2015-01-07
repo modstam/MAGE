@@ -9,16 +9,16 @@ import se.tribestar.mage.world.World;
  *
  * Created by Andreas Stjerndal on 07-Jan-2015.
  */
-public abstract class MageGame {
-    GLBackendController controller;
+public abstract class MageGame extends GLBackendController {
     World world;
 
     public MageGame() {
-        controller = new GLBackendController() {
-            @Override
-            public GLWorld getWorld() {
-                return world;
-            }
-        };
+
+
+    }
+
+    @Override
+    public GLWorld getWorld() {
+        return world;
     }
 }
