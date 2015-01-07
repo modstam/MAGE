@@ -14,6 +14,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import java.util.HashMap;
+import java.util.List;
 
 import se.tribestar.mage.backend.Audio;
 import se.tribestar.mage.backend.BackendController;
@@ -27,6 +28,8 @@ import se.tribestar.mage.world.drawable.Cube;
 import se.tribestar.mage.world.drawable.Drawable;
 import se.tribestar.mage.world.drawable.Mesh;
 import se.tribestar.mage.world.drawable.Sphere;
+import se.tribestar.mage.world.light.Light;
+import se.tribestar.mage.world.viewport.ViewPort;
 
 /**
  * Created by Andreas Stjerndal on 04-Jan-2015.
@@ -129,6 +132,14 @@ public abstract class GLBackendController extends Activity implements BackendCon
                 stateChanged.notifyAll();
             }
         }
+    }
+
+    public void preRender(List<Light> lights, List<ViewPort> viewPorts){
+
+    }
+
+    public void postRender(List<Light> lights, List<ViewPort> viewPorts){
+
     }
 
     public void render(Drawable drawable) {
