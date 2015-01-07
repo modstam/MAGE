@@ -14,6 +14,7 @@ public class MageGame extends GLBackendController {
 
     public MageGame() {
         super();
+        world = new World(this);
     }
 
     @Override

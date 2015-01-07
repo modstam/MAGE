@@ -138,17 +138,25 @@ public abstract class GLBackendController extends Activity implements BackendCon
     @Override
     public boolean loadObject(Drawable drawable) {
         String hashKey = "";
+        Vertices3 model;
         if(drawable instanceof Cube){
             hashKey = primitiveHasher("CUBE", drawable);
             if(!vertices.containsKey(hashKey))
-               vertices.put(hashKey, new CubeVertices(glGraphics, drawable.hasColors(), drawable.hasTexture(), drawable.hasNormals()));
+               model = new CubeVertices(glGraphics, drawable.hasColors(), drawable.hasTexture(), drawable.hasNormals());
             else
                 return true;
         }
         else if(drawable instanceof Sphere){
             hashKey = primitiveHasher("SPHERE", drawable);
+            if(!vertices.containsKey(hashKey))
+                model = new CubeVertices(glGraphics, drawable.hasColors(), drawable.hasTexture(), drawable.hasNormals());
+            else
+                return true;
         }
         else if(drawable instanceof Mesh){
+            if(!vertices.containsKey(hashKey))
+                model = new CubeVertices(glGraphics, drawable.hasColors(), drawable.hasTexture(), drawable.hasNormals());
+
             return false;
         }
         return true;
