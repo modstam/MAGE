@@ -16,6 +16,8 @@ import se.tribestar.mage.world.viewport.ViewPort;
  */
 public class ObjectRenderer {
 
+    public boolean isLit = true;
+
 
     public void prerender(List<Light> lights, List<ViewPort> viewPorts, GLGraphics glGraphics){
         GL10 gl = glGraphics.getGL();
@@ -46,6 +48,7 @@ public class ObjectRenderer {
         gl.glEnable(GL10.GL_DEPTH_TEST);
         //gl.glEnable(GL10.GL_TEXTURE_2D);
         //texture.bind();
+        setupVertixOptions(drawable, vertices, glGraphics);
         setMaterial(drawable, glGraphics);
         vertices.bind();
         setWorldPosition(drawable, glGraphics);
@@ -53,6 +56,7 @@ public class ObjectRenderer {
         vertices.draw(GL10.GL_TRIANGLES, 0, 36);
         vertices.unbind();
         //gl.glDisable(GL10.GL_TEXTURE_2D);
+        endOfFrame(drawable,vertices,glGraphics);
         gl.glDisable(GL10.GL_DEPTH_TEST);
 
     }
@@ -83,6 +87,35 @@ public class ObjectRenderer {
     public void setWorldRotation(Drawable d, GLGraphics glGraphics){
         GL10 gl = glGraphics.getGL();
             //TODO
+    }
+
+    public void endOfFrame(Drawable drawable, Vertices3 vertices, GLGraphics glGraphics){
+        GL10 gl = glGraphics.getGL();
+        if(drawable.hasColors()){
+
+        }
+        if(drawable.hasTexture()){
+
+        }
+        if(drawable.hasNormals()){
+
+        }
+
+    }
+
+    public void setupVertixOptions(Drawable drawable,  Vertices3 vertices, GLGraphics glGraphics){
+        GL10 gl = glGraphics.getGL();
+        if(drawable.hasColors()){
+
+        }
+        if(drawable.hasTexture()){
+
+        }
+        if(drawable.hasNormals()){
+
+        }
+
+
     }
 
 
