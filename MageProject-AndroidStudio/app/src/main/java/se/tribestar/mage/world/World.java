@@ -1,5 +1,6 @@
 package se.tribestar.mage.world;
 
+import java.lang.reflect.Array;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,6 +15,8 @@ import se.tribestar.mage.world.drawable.Cube;
 import se.tribestar.mage.world.drawable.Drawable;
 import se.tribestar.mage.world.drawable.Mesh;
 import se.tribestar.mage.world.drawable.Sphere;
+import se.tribestar.mage.world.light.Light;
+import se.tribestar.mage.world.viewport.ViewPort;
 
 /**
  * Created by modstam on 2015-01-03.
@@ -25,6 +28,8 @@ public class World extends GLWorld{
     public ArrayList<GameObject> objects; //the game objects
     public ArrayList<Logic> logics; //the logic objects
     public ArrayList<Drawable> drawables;
+    public ArrayList<Light> lights;
+    public ArrayList<ViewPort> viewPorts;
     public HashMap<String, List<GameObject>> namedObjects;
 
     public float deltaTime; // time since the last frame
@@ -36,6 +41,8 @@ public class World extends GLWorld{
         objects = new ArrayList<GameObject>();
         logics = new ArrayList<Logic>();
         namedObjects = new HashMap<String, List<GameObject>>();
+        lights = new ArrayList<Light>();
+        viewPorts = new ArrayList<ViewPort>();
         this.controller = controller;
         running = true;
     }
@@ -63,9 +70,13 @@ public class World extends GLWorld{
      */
     @Override
     public void draw(float deltaTime){
+        controller.preRender(lights, viewPorts);
+
         for(Drawable object : drawables) {
             controller.render(object);
         }
+
+        controller.postRender(lights, viewPorts);
     }
 
     /**
@@ -88,6 +99,29 @@ public class World extends GLWorld{
 
     public void addLogic(Logic logic){
         logics.add(logic);
+    }
+
+    public boolean addLight(Light light) {
+        if(lights.size() >= 8){
+            return false;
+        }
+        lights.add(light);
+        return true;
+    }
+
+    public boolean removeLight(Light light){
+        for(int i = 0; i<lights.size(); i++){
+            if(light.id.compareTo(lights.get(i).id) == 0){
+                lights.remove(i);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean addCamera(ViewPort viewPort){
+        viewPorts.add(viewPort);
+        return true;
     }
 
     /**

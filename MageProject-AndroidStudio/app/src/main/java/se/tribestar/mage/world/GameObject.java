@@ -15,14 +15,19 @@ public class GameObject {
     public String name = " ";
     public UUID id;
     public boolean draw;
+    public boolean isDestroyed;
 
     public GameObject(){
         Random r = new Random();
         id = new UUID(r.nextLong(), r.nextLong());
+        isDestroyed = false;
     }
 
     public void update(float deltaTime){
 
     }
 
+    public void destroy(){
+        isDestroyed = true;
+    }
 }

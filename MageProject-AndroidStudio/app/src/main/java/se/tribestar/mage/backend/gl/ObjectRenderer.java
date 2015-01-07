@@ -42,7 +42,6 @@ public class ObjectRenderer {
         //----------------------------
 
 
-
     }
 
     public void draw(Drawable drawable, Vertices3 vertices){
