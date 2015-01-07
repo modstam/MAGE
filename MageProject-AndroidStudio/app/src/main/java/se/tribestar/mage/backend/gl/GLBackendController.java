@@ -135,11 +135,11 @@ public abstract class GLBackendController extends Activity implements BackendCon
     }
 
     public void preRender(List<Light> lights, List<ViewPort> viewPorts){
-
+        renderer.prerender(lights, viewPorts, glGraphics);
     }
 
     public void postRender(List<Light> lights, List<ViewPort> viewPorts){
-
+        renderer.postrender(lights, viewPorts, glGraphics);
     }
 
     public void render(Drawable drawable) {
