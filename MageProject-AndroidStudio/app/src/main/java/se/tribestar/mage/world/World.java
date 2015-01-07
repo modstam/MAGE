@@ -9,7 +9,10 @@ import se.tribestar.mage.backend.gl.GLBackendController;
 import se.tribestar.mage.backend.gl.Vertices;
 import se.tribestar.mage.backend.gl.Vertices3;
 import se.tribestar.mage.logic.Logic;
+import se.tribestar.mage.world.drawable.Cube;
 import se.tribestar.mage.world.drawable.Drawable;
+import se.tribestar.mage.world.drawable.Mesh;
+import se.tribestar.mage.world.drawable.Sphere;
 
 /**
  * Created by modstam on 2015-01-03.
@@ -22,7 +25,7 @@ public class World {
     public ArrayList<Logic> logics; //the logic objects
     public ArrayList<Drawable> drawables;
     public HashMap<String, List<GameObject>> namedObjects;
-    public HashMap<String, Vertices3> vertices;
+
     public float deltaTime; // time since the last frame
     public boolean running;
     public GLBackendController controller;
@@ -69,7 +72,7 @@ public class World {
      */
     public void draw(){
         for(Drawable object : drawables) {
-            controller.render(object,vertices.get(object.id));
+            controller.render(object);
         }
     }
 
@@ -86,6 +89,7 @@ public class World {
         }
         if(object instanceof Drawable){
             drawables.add((Drawable) object);
+            controller.loadObject(object);
         }
         objects.add(object);
     }
