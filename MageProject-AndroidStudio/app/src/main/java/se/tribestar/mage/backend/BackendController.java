@@ -22,5 +22,7 @@ public interface BackendController {
 
     public GLWorld getWorld();
 
-    public void render(Drawable drawable, Vertices3 vertices);
+    public void render(Drawable drawable);
+
+    public void loadObject(String filename);
 }

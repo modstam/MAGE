@@ -13,6 +13,8 @@ import android.os.PowerManager.WakeLock;
 import android.view.Window;
 import android.view.WindowManager;
 
+import java.util.HashMap;
+
 import se.tribestar.mage.backend.Audio;
 import se.tribestar.mage.backend.BackendController;
 import se.tribestar.mage.backend.FileIO;
@@ -21,7 +23,10 @@ import se.tribestar.mage.backend.Input;
 import se.tribestar.mage.backend.android.AndroidAudio;
 import se.tribestar.mage.backend.android.AndroidFileIO;
 import se.tribestar.mage.backend.android.AndroidInput;
+import se.tribestar.mage.world.drawable.Cube;
 import se.tribestar.mage.world.drawable.Drawable;
+import se.tribestar.mage.world.drawable.Mesh;
+import se.tribestar.mage.world.drawable.Sphere;
 
 /**
  * Created by Andreas Stjerndal on 04-Jan-2015.
@@ -43,9 +48,12 @@ public abstract class GLBackendController extends Activity implements BackendCon
     GLGameState state = GLGameState.Initialized;
     GLWorld world;
     ObjectRenderer renderer;
+
     Object stateChanged = new Object();
     long startTime = System.nanoTime();
     WakeLock wakeLock;
+
+    HashMap<String, Vertices3> vertices;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -56,6 +64,9 @@ public abstract class GLBackendController extends Activity implements BackendCon
         glView = new GLSurfaceView(this);
         glView.setRenderer(this);
         setContentView(glView);
+
+        renderer = new ObjectRenderer();
+        vertices = new HashMap<String, Vertices3>();
 
         glGraphics = new GLGraphics(glView);
         fileIO = new AndroidFileIO(this);
@@ -120,8 +131,30 @@ public abstract class GLBackendController extends Activity implements BackendCon
         }
     }
 
-    public void render(Drawable drawable, Vertices3 vertices) {
-        renderer.draw(drawable, vertices);
+    public void render(Drawable drawable) {
+//        renderer.draw(drawable,);
+    }
+
+    public boolean loadObject(Drawable drawable) {
+        String hashKey = "";
+        if(drawable instanceof Cube){
+            hashKey = primitiveHasher("CUBE", drawable);
+            if(!vertices.containsKey(hashKey))
+               vertices.put(hashKey, new CubeVertices(glGraphics, drawable.hasColors(), drawable.hasTexture(), drawable.hasNormals()));
+            else
+                return true;
+        }
+        else if(drawable instanceof Sphere){
+            hashKey = primitiveHasher("SPHERE", drawable);
+        }
+        else if(drawable instanceof Mesh){
+            return false;
+        }
+        return true;
+    }
+
+    private String primitiveHasher(String primitiveName, Drawable drawable) {
+        return "\n" + primitiveName + "-" + drawable.hasColors() + "-" + drawable.hasTexture() + "-" + drawable.hasNormals();
     }
 
     @Override
