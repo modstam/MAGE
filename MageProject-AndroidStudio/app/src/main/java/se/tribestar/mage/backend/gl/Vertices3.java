@@ -10,6 +10,7 @@ import java.nio.ShortBuffer;
 import javax.microedition.khronos.opengles.GL10;
 
 import se.tribestar.mage.math.Vector3;
+import se.tribestar.mage.world.drawable.visuals.Color;
 
 /**
  * A vertices class with potential to use vertex normals.
@@ -18,14 +19,14 @@ import se.tribestar.mage.math.Vector3;
  */
 public class Vertices3 {
     private GLGraphics glGraphics;
-    private boolean hasColor;
-    private boolean hasTexCoords;
-    private boolean hasNormals;
+    public boolean hasColor;
+    public boolean hasTexCoords;
+    public boolean hasNormals;
     private int vertexSize;
     private IntBuffer vertices;
     private int[] tmpBuffer;
     private ShortBuffer indices;
-    public Vector3 color;
+    public Color color;
     public float alpha;
 
     public Vertices3(){

@@ -9,6 +9,7 @@ import se.tribestar.mage.backend.gl.CubeVertices;
 import se.tribestar.mage.backend.gl.GLWorld;
 import se.tribestar.mage.backend.gl.DirectionalLight;
 import se.tribestar.mage.backend.gl.GLBackendController;
+import se.tribestar.mage.world.drawable.visuals.Color;
 import se.tribestar.mage.world.drawable.visuals.Material;
 import se.tribestar.mage.backend.gl.Texture;
 import se.tribestar.mage.backend.gl.Vertices3;
@@ -36,7 +37,7 @@ public class LitCubeOnlyColorsActivity extends GLBackendController {
 
             cube = createCube();
             texture = new Texture(controller, TEXTURE_FILENAME);
-            cube.color = new Vector3(1,1,0);
+            cube.color = new Color(1,0,0,1);
             ambientLight = new AmbientLight();
             ambientLight.setColor(1, 1, 1, 1f);
             //pointLight = new PointLight();

@@ -36,6 +36,8 @@ public class ObjectRenderer {
 
         gl.glMatrixMode(GL10.GL_MODELVIEW);
         gl.glLoadIdentity();
+
+        GLU.gluLookAt(gl, 0, 1, 3, 0, 0, 0, 0, 1, 0);
         gl.glEnable(GL10.GL_DEPTH_TEST);
         //----------------------------
 
@@ -56,7 +58,7 @@ public class ObjectRenderer {
         setWorldRotation(drawable, glGraphics);
         vertices.draw(GL10.GL_TRIANGLES, 0, 36);
 
-        disableVertices(drawable,vertices,glGraphics);
+        disableVertices(drawable, vertices, glGraphics);
 
         //setupVertexOptions
         //setMaterial
@@ -82,7 +84,9 @@ public class ObjectRenderer {
 
     public void setMaterial(Drawable drawable, GLGraphics glGraphics){
         if(drawable.material != null){
-            drawable.material.enable(glGraphics.getGL());
+            if(drawable.material.isEnabled) {
+                drawable.material.enable(glGraphics.getGL());
+            }
         }
     }
 
@@ -92,7 +96,7 @@ public class ObjectRenderer {
         float y = d.transform.position.y;
         float z = d.transform.position.z;
 
-        gl.glTranslatef(x,y,z);
+        gl.glTranslatef(-x,-y,-z);
     }
 
     public void setWorldRotation(Drawable d, GLGraphics glGraphics){
@@ -104,15 +108,19 @@ public class ObjectRenderer {
     public void setupVertices(Drawable drawable,  Vertices3 vertices, GLGraphics glGraphics){
         GL10 gl = glGraphics.getGL();
         if(drawable.hasColors()){
-
+            if(!isLit){
+                vertices.color = drawable.color;
+                vertices.hasColor = true;
+            }
         }
         if(drawable.hasTexture()){
-
-            //gl.glEnable(GL10.GL_TEXTURE_2D);
+            vertices.hasTexCoords = true;
             //texture.bind();
+            gl.glEnable(GL10.GL_TEXTURE_2D);
+
         }
         if(drawable.hasNormals()){
-
+            vertices.hasNormals = true;
         }
 
         vertices.bind();
@@ -125,7 +133,7 @@ public class ObjectRenderer {
 
         }
         if(drawable.hasTexture()){
-            //gl.glDisable(GL10.GL_TEXTURE_2D);
+            gl.glDisable(GL10.GL_TEXTURE_2D);
         }
         if(drawable.hasNormals()){
 
