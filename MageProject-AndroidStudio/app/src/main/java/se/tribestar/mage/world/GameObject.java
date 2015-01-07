@@ -10,7 +10,7 @@ import se.tribestar.mage.math.Transform;
  */
 public class GameObject {
     public float deltaTime;
-    public Transform transform;
+    public Transform transform = new Transform();
     public World world;
     public String name = " ";
     public UUID id;

@@ -11,11 +11,11 @@ import se.tribestar.mage.world.drawable.visuals.Material;
  */
 public class Drawable extends GameObject {
     public String type;
-    public Material material;
+    public Material material = new Material();
     public Color color;
-    private boolean hasTexture;
-    private boolean hasColors;
-    private boolean hasNormals;
+    private boolean hasTexture = false;
+    private boolean hasColors = false;
+    private boolean hasNormals = true;
 
     public Drawable(){
         super();

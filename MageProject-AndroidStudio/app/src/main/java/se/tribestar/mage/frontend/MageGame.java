@@ -2,6 +2,7 @@ package se.tribestar.mage.frontend;
 
 import se.tribestar.mage.backend.gl.GLBackendController;
 import se.tribestar.mage.backend.gl.GLWorld;
+import se.tribestar.mage.examples.SimpleCube;
 import se.tribestar.mage.world.World;
 
 /**
@@ -15,6 +16,7 @@ public class MageGame extends GLBackendController {
     public MageGame() {
         super();
         world = new World(this);
+        world.addLogic(new SimpleCube(world));
     }
 
     @Override

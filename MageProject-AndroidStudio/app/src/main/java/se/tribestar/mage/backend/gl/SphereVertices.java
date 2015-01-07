@@ -14,13 +14,17 @@ public class SphereVertices extends Vertices3{
         super(glGraphics,maxVertices,maxIndices,hasColor,hasTexCoords,hasNormals);
     }
 
-    public SphereVertices(GLGraphics glGraphics, boolean hasColor, boolean hasTexCoords, boolean hasNormals){
+    public SphereVertices(GLGraphics glGraphics, boolean hasColor, boolean hasTexCoords, boolean hasNormals) {
+
+    }
 
         //super(glGraphics,36,42,hasColor,hasTexCoords,hasNormals);
+/*
 
         color = new Vector3(1,0,0);
         alpha = 1.0f;
 
+*/
 /*        float[] vertices = {
                 -0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha,  0, 1, 0, 0, 1,
                 0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha, 1, 1, 0, 0, 1,
@@ -45,7 +49,8 @@ public class SphereVertices extends Vertices3{
                 -0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha, 0, 1, 0, -1, 0,
                 0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha, 1, 1, 0, -1, 0,
                 0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha, 1, 0, 0, -1, 0,
-                -0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha, 0, 0, 0, -1, 0 };*/
+                -0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha, 0, 0, 0, -1, 0 };*//*
+
 
         float[] vertices = getVertices(hasColor, hasTexCoords, hasNormals);
         setup(glGraphics,NUM_VERTICES, NUM_INDICES, hasColor, hasTexCoords, hasNormals);
@@ -308,6 +313,7 @@ public class SphereVertices extends Vertices3{
         return vertices;
     }
 
+*/
 
 
 }

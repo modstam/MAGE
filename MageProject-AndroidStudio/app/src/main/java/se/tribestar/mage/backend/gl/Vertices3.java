@@ -27,7 +27,6 @@ public class Vertices3 {
     private int[] tmpBuffer;
     private ShortBuffer indices;
     public Color color;
-    public float alpha;
 
     public Vertices3(){
 

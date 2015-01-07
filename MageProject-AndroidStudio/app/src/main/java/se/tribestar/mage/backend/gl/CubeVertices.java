@@ -1,6 +1,7 @@
 package se.tribestar.mage.backend.gl;
 
 import se.tribestar.mage.math.Vector3;
+import se.tribestar.mage.world.drawable.visuals.Color;
 
 /**
  * Created by Andreas Stjerndal on 06-Jan-2015.
@@ -18,8 +19,7 @@ public class CubeVertices extends Vertices3{
 
         //super(glGraphics,36,42,hasColor,hasTexCoords,hasNormals);
 
-        color = new Vector3(1,0,0);
-        alpha = 1.0f;
+        color = new Color(1,0,0,1);
 
 /*        float[] vertices = {
                 -0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha,  0, 1, 0, 0, 1,
@@ -89,35 +89,35 @@ public class CubeVertices extends Vertices3{
     private float[] getColorVertices(){
 
         float[] vertices = {
-                -0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha,
-                0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha,
-                0.5f, 0.5f, 0.5f, color.x, color.y, color.z, alpha,
-                -0.5f, 0.5f, 0.5f, color.x, color.y, color.z, alpha,
+                -0.5f, -0.5f, 0.5f, color.r, color.g, color.b, color.a,
+                0.5f, -0.5f, 0.5f,  color.r, color.g, color.b, color.a,
+                0.5f, 0.5f, 0.5f, color.r, color.g, color.b, color.a,
+                -0.5f, 0.5f, 0.5f,  color.r, color.g, color.b, color.a,
 
-                0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha,
-                0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha,
-                0.5f, 0.5f, -0.5f, color.x, color.y, color.z, alpha,
-                0.5f, 0.5f, 0.5f, color.x, color.y, color.z, alpha,
+                0.5f, -0.5f, 0.5f,  color.r, color.g, color.b, color.a,
+                0.5f, -0.5f, -0.5f,  color.r, color.g, color.b, color.a,
+                0.5f, 0.5f, -0.5f,  color.r, color.g, color.b, color.a,
+                0.5f, 0.5f, 0.5f,  color.r, color.g, color.b, color.a,
 
-                0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha,
-                -0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha,
-                -0.5f, 0.5f, -0.5f, color.x, color.y, color.z, alpha,
-                0.5f, 0.5f, -0.5f, color.x, color.y, color.z, alpha,
+                0.5f, -0.5f, -0.5f,  color.r, color.g, color.b, color.a,
+                -0.5f, -0.5f, -0.5f,  color.r, color.g, color.b, color.a,
+                -0.5f, 0.5f, -0.5f,  color.r, color.g, color.b, color.a,
+                0.5f, 0.5f, -0.5f,  color.r, color.g, color.b, color.a,
 
-                -0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha,
-                -0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha,
-                -0.5f, 0.5f, 0.5f, color.x, color.y, color.z, alpha,
-                -0.5f, 0.5f, -0.5f, color.x, color.y, color.z, alpha,
+                -0.5f, -0.5f, -0.5f,  color.r, color.g, color.b, color.a,
+                -0.5f, -0.5f, 0.5f,  color.r, color.g, color.b, color.a,
+                -0.5f, 0.5f, 0.5f,  color.r, color.g, color.b, color.a,
+                -0.5f, 0.5f, -0.5f, color.r, color.g, color.b, color.a,
 
-                -0.5f, 0.5f, 0.5f, color.x, color.y, color.z, alpha,
-                0.5f, 0.5f, 0.5f, color.x, color.y, color.z, alpha,
-                0.5f, 0.5f, -0.5f, color.x, color.y, color.z, alpha,
-                -0.5f, 0.5f, -0.5f, color.x, color.y, color.z, alpha,
+                -0.5f, 0.5f, 0.5f, color.r, color.g, color.b, color.a,
+                0.5f, 0.5f, 0.5f,  color.r, color.g, color.b, color.a,
+                0.5f, 0.5f, -0.5f,  color.r, color.g, color.b, color.a,
+                -0.5f, 0.5f, -0.5f,  color.r, color.g, color.b, color.a,
 
-                -0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha,
-                0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha,
-                0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha,
-                -0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha
+                -0.5f, -0.5f, -0.5f,  color.r, color.g, color.b, color.a,
+                0.5f, -0.5f, -0.5f,  color.r, color.g, color.b, color.a,
+                0.5f, -0.5f, 0.5f,  color.r, color.g, color.b, color.a,
+                -0.5f, -0.5f, 0.5f,  color.r, color.g, color.b, color.a,
         };
 
         return vertices;
@@ -126,35 +126,35 @@ public class CubeVertices extends Vertices3{
     private float[] getColorTextureNormalVertices(){
 
         float[] vertices = {
-                -0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha, 0, 1, 0, 0, 1,
-                0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha, 1, 1, 0, 0, 1,
-                0.5f, 0.5f, 0.5f, color.x, color.y, color.z, alpha, 1, 0, 0, 0, 1,
-                -0.5f, 0.5f, 0.5f, color.x, color.y, color.z, alpha, 0, 0, 0, 0, 1,
+                -0.5f, -0.5f, 0.5f,  color.r, color.g, color.b, color.a, 0, 1, 0, 0, 1,
+                0.5f, -0.5f, 0.5f,  color.r, color.g, color.b, color.a, 1, 1, 0, 0, 1,
+                0.5f, 0.5f, 0.5f,  color.r, color.g, color.b, color.a, 1, 0, 0, 0, 1,
+                -0.5f, 0.5f, 0.5f,  color.r, color.g, color.b, color.a, 0, 0, 0, 0, 1,
 
-                0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha, 0, 1, 1, 0, 0,
-                0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha, 1, 1, 1, 0, 0,
-                0.5f, 0.5f, -0.5f, color.x, color.y, color.z, alpha, 1, 0, 1, 0, 0,
-                0.5f, 0.5f, 0.5f, color.x, color.y, color.z, alpha, 0, 0, 1, 0, 0,
+                0.5f, -0.5f, 0.5f,  color.r, color.g, color.b, color.a, 0, 1, 1, 0, 0,
+                0.5f, -0.5f, -0.5f,  color.r, color.g, color.b, color.a, 1, 1, 1, 0, 0,
+                0.5f, 0.5f, -0.5f, color.r, color.g, color.b, color.a, 1, 0, 1, 0, 0,
+                0.5f, 0.5f, 0.5f,  color.r, color.g, color.b, color.a, 0, 0, 1, 0, 0,
 
-                0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha, 0, 1, 0, 0, -1,
-                -0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha, 1, 1, 0, 0, -1,
-                -0.5f, 0.5f, -0.5f, color.x, color.y, color.z, alpha, 1, 0, 0, 0, -1,
-                0.5f, 0.5f, -0.5f, color.x, color.y, color.z, alpha, 0, 0, 0, 0, -1,
+                0.5f, -0.5f, -0.5f,  color.r, color.g, color.b, color.a, 0, 1, 0, 0, -1,
+                -0.5f, -0.5f, -0.5f,  color.r, color.g, color.b, color.a, 1, 1, 0, 0, -1,
+                -0.5f, 0.5f, -0.5f,  color.r, color.g, color.b, color.a, 1, 0, 0, 0, -1,
+                0.5f, 0.5f, -0.5f,  color.r, color.g, color.b, color.a, 0, 0, 0, 0, -1,
 
-                -0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha, 0, 1, -1, 0, 0,
-                -0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha, 1, 1, -1, 0, 0,
-                -0.5f, 0.5f, 0.5f, color.x, color.y, color.z, alpha, 1, 0, -1, 0, 0,
-                -0.5f, 0.5f, -0.5f, color.x, color.y, color.z, alpha, 0, 0, -1, 0, 0,
+                -0.5f, -0.5f, -0.5f,  color.r, color.g, color.b, color.a, 0, 1, -1, 0, 0,
+                -0.5f, -0.5f, 0.5f,  color.r, color.g, color.b, color.a, 1, 1, -1, 0, 0,
+                -0.5f, 0.5f, 0.5f,  color.r, color.g, color.b, color.a, 1, 0, -1, 0, 0,
+                -0.5f, 0.5f, -0.5f,  color.r, color.g, color.b, color.a, 0, 0, -1, 0, 0,
 
-                -0.5f, 0.5f, 0.5f, color.x, color.y, color.z, alpha, 0, 1, 0, 1, 0,
-                0.5f, 0.5f, 0.5f, color.x, color.y, color.z, alpha, 1, 1, 0, 1, 0,
-                0.5f, 0.5f, -0.5f, color.x, color.y, color.z, alpha, 1, 0, 0, 1, 0,
-                -0.5f, 0.5f, -0.5f, color.x, color.y, color.z, alpha, 0, 0, 0, 1, 0,
+                -0.5f, 0.5f, 0.5f,  color.r, color.g, color.b, color.a, 0, 1, 0, 1, 0,
+                0.5f, 0.5f, 0.5f,  color.r, color.g, color.b, color.a, 1, 1, 0, 1, 0,
+                0.5f, 0.5f, -0.5f,  color.r, color.g, color.b, color.a, 1, 0, 0, 1, 0,
+                -0.5f, 0.5f, -0.5f, color.r, color.g, color.b, color.a, 0, 0, 0, 1, 0,
 
-                -0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha, 0, 1, 0, -1, 0,
-                0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha, 1, 1, 0, -1, 0,
-                0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha, 1, 0, 0, -1, 0,
-                -0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha, 0, 0, 0, -1, 0
+                -0.5f, -0.5f, -0.5f,  color.r, color.g, color.b, color.a, 0, 1, 0, -1, 0,
+                0.5f, -0.5f, -0.5f,  color.r, color.g, color.b, color.a, 1, 1, 0, -1, 0,
+                0.5f, -0.5f, 0.5f,  color.r, color.g, color.b, color.a, 1, 0, 0, -1, 0,
+                -0.5f, -0.5f, 0.5f,  color.r, color.g, color.b, color.a, 0, 0, 0, -1, 0
         };
 
         return vertices;
@@ -163,35 +163,35 @@ public class CubeVertices extends Vertices3{
     private float[] getColorNormalVertices(){
 
         float[] vertices = {
-                -0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha, 0, 0, 1,
-                0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha, 0, 0, 1,
-                0.5f, 0.5f, 0.5f, color.x, color.y, color.z, alpha, 0, 0, 1,
-                -0.5f, 0.5f, 0.5f, color.x, color.y, color.z, alpha, 0, 0, 1,
+                -0.5f, -0.5f, 0.5f,  color.r, color.g, color.b, color.a, 0, 0, 1,
+                0.5f, -0.5f, 0.5f,  color.r, color.g, color.b, color.a, 0, 0, 1,
+                0.5f, 0.5f, 0.5f, color.r, color.g, color.b, color.a, 0, 0, 1,
+                -0.5f, 0.5f, 0.5f,  color.r, color.g, color.b, color.a, 0, 0, 1,
 
-                0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha, 1, 0, 0,
-                0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha, 1, 0, 0,
-                0.5f, 0.5f, -0.5f, color.x, color.y, color.z, alpha, 1, 0, 0,
-                0.5f, 0.5f, 0.5f, color.x, color.y, color.z, alpha, 1, 0, 0,
+                0.5f, -0.5f, 0.5f,  color.r, color.g, color.b, color.a, 1, 0, 0,
+                0.5f, -0.5f, -0.5f,  color.r, color.g, color.b, color.a, 1, 0, 0,
+                0.5f, 0.5f, -0.5f, color.r, color.g, color.b, color.a, 1, 0, 0,
+                0.5f, 0.5f, 0.5f,  color.r, color.g, color.b, color.a, 1, 0, 0,
 
-                0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha, 0, 0, -1,
-                -0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha, 0, 0, -1,
-                -0.5f, 0.5f, -0.5f, color.x, color.y, color.z, alpha, 0, 0, -1,
-                0.5f, 0.5f, -0.5f, color.x, color.y, color.z, alpha, 0, 0, -1,
+                0.5f, -0.5f, -0.5f,  color.r, color.g, color.b, color.a, 0, 0, -1,
+                -0.5f, -0.5f, -0.5f,  color.r, color.g, color.b, color.a, 0, 0, -1,
+                -0.5f, 0.5f, -0.5f,  color.r, color.g, color.b, color.a, 0, 0, -1,
+                0.5f, 0.5f, -0.5f,  color.r, color.g, color.b, color.a, 0, 0, -1,
 
-                -0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha, -1, 0, 0,
-                -0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha, -1, 0, 0,
-                -0.5f, 0.5f, 0.5f, color.x, color.y, color.z, alpha, -1, 0, 0,
-                -0.5f, 0.5f, -0.5f, color.x, color.y, color.z, alpha, -1, 0, 0,
+                -0.5f, -0.5f, -0.5f,  color.r, color.g, color.b, color.a, -1, 0, 0,
+                -0.5f, -0.5f, 0.5f,  color.r, color.g, color.b, color.a, -1, 0, 0,
+                -0.5f, 0.5f, 0.5f, color.r, color.g, color.b, color.a, -1, 0, 0,
+                -0.5f, 0.5f, -0.5f,  color.r, color.g, color.b, color.a, -1, 0, 0,
 
-                -0.5f, 0.5f, 0.5f, color.x, color.y, color.z, alpha, 0, 1, 0,
-                0.5f, 0.5f, 0.5f, color.x, color.y, color.z, alpha, 0, 1, 0,
-                0.5f, 0.5f, -0.5f, color.x, color.y, color.z, alpha, 0, 1, 0,
-                -0.5f, 0.5f, -0.5f, color.x, color.y, color.z, alpha, 0, 1, 0,
+                -0.5f, 0.5f, 0.5f,  color.r, color.g, color.b, color.a, 0, 1, 0,
+                0.5f, 0.5f, 0.5f,  color.r, color.g, color.b, color.a, 0, 1, 0,
+                0.5f, 0.5f, -0.5f,  color.r, color.g, color.b, color.a, 0, 1, 0,
+                -0.5f, 0.5f, -0.5f,  color.r, color.g, color.b, color.a, 0, 1, 0,
 
-                -0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha, 0, -1, 0,
-                0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha, 0, -1, 0,
-                0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha, 0, -1, 0,
-                -0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha, 0, -1, 0
+                -0.5f, -0.5f, -0.5f, color.r, color.g, color.b, color.a, 0, -1, 0,
+                0.5f, -0.5f, -0.5f,  color.r, color.g, color.b, color.a, 0, -1, 0,
+                0.5f, -0.5f, 0.5f,  color.r, color.g, color.b, color.a, 0, -1, 0,
+                -0.5f, -0.5f, 0.5f,  color.r, color.g, color.b, color.a, 0, -1, 0
         };
 
         return vertices;
@@ -200,35 +200,35 @@ public class CubeVertices extends Vertices3{
     private float[] getColorTextureVertices(){
 
         float[] vertices = {
-                -0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha, 0, 1,
-                0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha, 1, 1,
-                0.5f, 0.5f, 0.5f, color.x, color.y, color.z, alpha, 1, 0,
-                -0.5f, 0.5f, 0.5f, color.x, color.y, color.z, alpha, 0, 0,
+                -0.5f, -0.5f, 0.5f,  color.r, color.g, color.b, color.a, 0, 1,
+                0.5f, -0.5f, 0.5f,  color.r, color.g, color.b, color.a, 1, 1,
+                0.5f, 0.5f, 0.5f,  color.r, color.g, color.b, color.a, 1, 0,
+                -0.5f, 0.5f, 0.5f,  color.r, color.g, color.b, color.a, 0, 0,
 
-                0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha, 0, 1,
-                0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha, 1, 1,
-                0.5f, 0.5f, -0.5f, color.x, color.y, color.z, alpha, 1, 0,
-                0.5f, 0.5f, 0.5f, color.x, color.y, color.z, alpha, 0, 0,
+                0.5f, -0.5f, 0.5f,  color.r, color.g, color.b, color.a, 0, 1,
+                0.5f, -0.5f, -0.5f,  color.r, color.g, color.b, color.a, 1, 1,
+                0.5f, 0.5f, -0.5f,  color.r, color.g, color.b, color.a, 1, 0,
+                0.5f, 0.5f, 0.5f,  color.r, color.g, color.b, color.a, 0, 0,
 
-                0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha, 0, 1,
-                -0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha, 1, 1,
-                -0.5f, 0.5f, -0.5f, color.x, color.y, color.z, alpha, 1, 0,
-                0.5f, 0.5f, -0.5f, color.x, color.y, color.z, alpha, 0, 0,
+                0.5f, -0.5f, -0.5f,  color.r, color.g, color.b, color.a, 0, 1,
+                -0.5f, -0.5f, -0.5f,  color.r, color.g, color.b, color.a, 1, 1,
+                -0.5f, 0.5f, -0.5f, color.r, color.g, color.b, color.a, 1, 0,
+                0.5f, 0.5f, -0.5f,  color.r, color.g, color.b, color.a, 0, 0,
 
-                -0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha, 0, 1,
-                -0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha, 1, 1,
-                -0.5f, 0.5f, 0.5f, color.x, color.y, color.z, alpha, 1, 0,
-                -0.5f, 0.5f, -0.5f, color.x, color.y, color.z, alpha, 0, 0,
+                -0.5f, -0.5f, -0.5f,  color.r, color.g, color.b, color.a, 0, 1,
+                -0.5f, -0.5f, 0.5f,  color.r, color.g, color.b, color.a, 1, 1,
+                -0.5f, 0.5f, 0.5f,  color.r, color.g, color.b, color.a, 1, 0,
+                -0.5f, 0.5f, -0.5f,  color.r, color.g, color.b, color.a, 0, 0,
 
-                -0.5f, 0.5f, 0.5f, color.x, color.y, color.z, alpha, 0, 1,
-                0.5f, 0.5f, 0.5f, color.x, color.y, color.z, alpha, 1, 1,
-                0.5f, 0.5f, -0.5f, color.x, color.y, color.z, alpha, 1, 0,
-                -0.5f, 0.5f, -0.5f, color.x, color.y, color.z, alpha, 0, 0,
+                -0.5f, 0.5f, 0.5f,  color.r, color.g, color.b, color.a, 0, 1,
+                0.5f, 0.5f, 0.5f,  color.r, color.g, color.b, color.a, 1, 1,
+                0.5f, 0.5f, -0.5f,  color.r, color.g, color.b, color.a, 1, 0,
+                -0.5f, 0.5f, -0.5f,  color.r, color.g, color.b, color.a, 0, 0,
 
-                -0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha, 0, 1,
-                0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha, 1, 1,
-                0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha, 1, 0,
-                -0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha, 0, 0,
+                -0.5f, -0.5f, -0.5f,  color.r, color.g, color.b, color.a, 0, 1,
+                0.5f, -0.5f, -0.5f, color.r, color.g, color.b, color.a, 1, 1,
+                0.5f, -0.5f, 0.5f,  color.r, color.g, color.b, color.a, 1, 0,
+                -0.5f, -0.5f, 0.5f,  color.r, color.g, color.b, color.a, 0, 0,
         };
 
         return vertices;

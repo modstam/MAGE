@@ -104,7 +104,7 @@ public class ObjectRenderer {
         float y = d.transform.position.y;
         float z = d.transform.position.z;
 
-        gl.glTranslatef(-x,-y,-z);
+        gl.glTranslatef(x,y,z);
     }
 
     public void setWorldRotation(Drawable d, GLGraphics glGraphics){

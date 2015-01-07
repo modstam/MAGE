@@ -43,6 +43,7 @@ public class World extends GLWorld{
         namedObjects = new HashMap<String, List<GameObject>>();
         lights = new ArrayList<Light>();
         viewPorts = new ArrayList<ViewPort>();
+        drawables = new ArrayList<Drawable>();
         this.controller = controller;
         running = true;
     }

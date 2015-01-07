@@ -68,10 +68,12 @@ public abstract class GLBackendController extends Activity implements BackendCon
         glView.setRenderer(this);
         setContentView(glView);
 
-        renderer = new ObjectRenderer();
+
         vertices = new HashMap<String, Vertices3>();
 
         glGraphics = new GLGraphics(glView);
+        renderer = new ObjectRenderer(glGraphics);
+
         fileIO = new AndroidFileIO(this);
         audio = new AndroidAudio(this);
         input = new AndroidInput(this, glView, 1, 1);
