@@ -8,8 +8,10 @@ import android.content.Context;
 import android.opengl.GLSurfaceView;
 import android.opengl.GLSurfaceView.Renderer;
 import android.os.Bundle;
+import android.os.Debug;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
+import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -61,12 +63,14 @@ public abstract class GLBackendController extends Activity implements BackendCon
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("MAGE", "ONCREATING");
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         glView = new GLSurfaceView(this);
         glView.setRenderer(this);
         setContentView(glView);
+
 
 
         vertices = new HashMap<String, Vertices3>();
