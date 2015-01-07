@@ -13,6 +13,9 @@ public class Drawable extends GameObject {
     public String type;
     public Material material;
     public Color color;
+    private boolean hasTexture;
+    private boolean hasColors;
+    private boolean hasNormals;
 
     public Drawable(){
         super();
@@ -21,5 +24,17 @@ public class Drawable extends GameObject {
     public boolean draw(){
 
         return false;
+    }
+
+    public boolean hasColors(){
+        return hasColors;
+    }
+
+    public boolean hasTexture(){
+        return hasTexture;
+    }
+
+    public boolean hasNormals(){
+        return hasNormals;
     }
 }
