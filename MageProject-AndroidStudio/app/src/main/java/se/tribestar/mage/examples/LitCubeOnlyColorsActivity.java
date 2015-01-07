@@ -84,8 +84,8 @@ public class LitCubeOnlyColorsActivity extends GLBackendController {
 
             //pointLight.enable(gl, GL10.GL_LIGHT0);
             directionalLight.enable(gl, GL10.GL_LIGHT1);
-            material.setDiffuse(1,0,0,1f);
-            material.setAmbient(1,0,0,1f);
+            material.setDiffuse(0,0,1,1f);
+            material.setAmbient(0,0,1,1f);
             material.enable(gl);
 
             //gl.glEnable(GL10.GL_TEXTURE_2D);
