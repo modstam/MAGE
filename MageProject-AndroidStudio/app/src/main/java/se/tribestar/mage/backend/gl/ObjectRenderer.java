@@ -41,8 +41,6 @@ public class ObjectRenderer {
         GLGraphics glGraphics = vertices.getGL();
         GL10 gl = glGraphics.getGL();
 
-        clearFrame(glGraphics);
-
         gl.glMatrixMode(GL10.GL_MODELVIEW);
         gl.glLoadIdentity();
         gl.glEnable(GL10.GL_DEPTH_TEST);
@@ -56,8 +54,19 @@ public class ObjectRenderer {
         vertices.draw(GL10.GL_TRIANGLES, 0, 36);
         vertices.unbind();
         //gl.glDisable(GL10.GL_TEXTURE_2D);
-        disableVertixOptions(drawable,vertices,glGraphics);
+        disableVertexOptions(drawable,vertices,glGraphics);
         gl.glDisable(GL10.GL_DEPTH_TEST);
+
+
+        //setupVertexOptions
+        //setMaterial
+        //vertices.bind()
+        //setPosition
+        //setRotation
+        //vertices.draw
+        //vertices.unbind()
+        //disableVertexOptions
+
 
     }
 
@@ -103,7 +112,7 @@ public class ObjectRenderer {
 
     }
 
-    public void disableVertixOptions(Drawable drawable, Vertices3 vertices, GLGraphics glGraphics){
+    public void disableVertexOptions(Drawable drawable, Vertices3 vertices, GLGraphics glGraphics){
         GL10 gl = glGraphics.getGL();
         if(drawable.hasColors()){
 
