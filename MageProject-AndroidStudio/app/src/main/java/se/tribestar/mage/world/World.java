@@ -81,7 +81,7 @@ public class World extends GLWorld{
         }
         if(object instanceof Drawable){
             drawables.add((Drawable) object);
-            controller.loadObject(object);
+            controller.loadObject((Drawable) object);
         }
         objects.add(object);
     }
