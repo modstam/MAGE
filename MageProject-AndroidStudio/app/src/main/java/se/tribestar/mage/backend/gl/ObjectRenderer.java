@@ -16,7 +16,14 @@ import se.tribestar.mage.world.viewport.ViewPort;
 public class ObjectRenderer {
 
     public boolean isLit = true;
+    LookAtCamera camera;
 
+    public ObjectRenderer(GLGraphics glGraphics) {
+        camera = new LookAtCamera(67, glGraphics.getWidth()
+                / (float) glGraphics.getHeight(), 0.1f, 100);
+        camera.getPosition().set(0, 1, 3);
+        camera.getLookAt().set(0, 0, 0);
+    }
 
     public void prerender(List<Light> lights, List<ViewPort> viewPorts, GLGraphics glGraphics){
         GL10 gl = glGraphics.getGL();
@@ -27,17 +34,19 @@ public class ObjectRenderer {
 
         clearFrame(glGraphics);
 
-        gl.glMatrixMode(GL10.GL_PROJECTION);
-        gl.glLoadIdentity();
-        GLU.gluPerspective(gl, 67,
-                glGraphics.getWidth() / (float) glGraphics.getHeight(),
-                0.1f, 10.0f);
+        camera.setMatrices(gl);
 
-
-        gl.glMatrixMode(GL10.GL_MODELVIEW);
-        gl.glLoadIdentity();
-
-        GLU.gluLookAt(gl, 0, 1, 3, 0, 0, 0, 0, 1, 0);
+//        gl.glMatrixMode(GL10.GL_PROJECTION);
+//        gl.glLoadIdentity();
+//        GLU.gluPerspective(gl, 67,
+//                glGraphics.getWidth() / (float) glGraphics.getHeight(),
+//                0.1f, 10.0f);
+//
+//
+//        gl.glMatrixMode(GL10.GL_MODELVIEW);
+//        gl.glLoadIdentity();
+//
+//        GLU.gluLookAt(gl, 0, 1, 3, 0, 0, 0, 0, 1, 0);
         
         //Lighting loop, enables all lights
         if(isLit){
