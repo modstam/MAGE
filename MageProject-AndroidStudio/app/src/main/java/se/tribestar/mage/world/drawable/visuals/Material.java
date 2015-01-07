@@ -6,6 +6,7 @@ import javax.microedition.khronos.opengles.GL10;
  * Created by Andreas Stjerndal on 06-Jan-2015.
  */
 public class Material {
+    public boolean isEnabled;
     float[] ambient = {0.2f, 0.2f, 0.2f, 1.0f};
     float[] diffuse = {1.0f, 1.0f, 1.0f, 1.0f};
     float[] specular = {0.0f, 0.0f, 0.0f, 1.0f};
@@ -15,6 +16,7 @@ public class Material {
         ambient[1] = g;
         ambient[2] = b;
         ambient[3] = a;
+        isEnabled = true;
     }
 
     public void setDiffuse(float r, float g, float b, float a) {
@@ -31,6 +33,12 @@ public class Material {
         specular[3] = a;
     }
 
+
+    /**
+     * This should only be called by the renderer,
+     * set the boolean isEnabled instead
+     * @param gl
+     */
     public void enable(GL10 gl) {
         gl.glMaterialfv(GL10.GL_FRONT_AND_BACK, GL10.GL_AMBIENT, ambient, 0);
         gl.glMaterialfv(GL10.GL_FRONT_AND_BACK, GL10.GL_DIFFUSE, diffuse, 0);
