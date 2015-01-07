@@ -49,14 +49,14 @@ public class ObjectRenderer {
         GL10 gl = glGraphics.getGL();
 
 
-        setupVerteces(drawable, vertices, glGraphics);
+        setupVertices(drawable, vertices, glGraphics);
         setMaterial(drawable, glGraphics);
 
         setWorldPosition(drawable, glGraphics);
         setWorldRotation(drawable, glGraphics);
         vertices.draw(GL10.GL_TRIANGLES, 0, 36);
 
-        disableVerteces(drawable,vertices,glGraphics);
+        disableVertices(drawable,vertices,glGraphics);
 
         //setupVertexOptions
         //setMaterial
@@ -101,7 +101,7 @@ public class ObjectRenderer {
         //gl.glRotatef(angle, 0, 1, 0);
     }
 
-    public void setupVerteces(Drawable drawable,  Vertices3 vertices, GLGraphics glGraphics){
+    public void setupVertices(Drawable drawable,  Vertices3 vertices, GLGraphics glGraphics){
         GL10 gl = glGraphics.getGL();
         if(drawable.hasColors()){
 
@@ -119,7 +119,7 @@ public class ObjectRenderer {
 
     }
 
-    public void disableVerteces(Drawable drawable, Vertices3 vertices, GLGraphics glGraphics){
+    public void disableVertices(Drawable drawable, Vertices3 vertices, GLGraphics glGraphics){
         GL10 gl = glGraphics.getGL();
         if(drawable.hasColors()){
 
