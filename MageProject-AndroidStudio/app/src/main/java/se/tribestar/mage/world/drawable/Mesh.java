@@ -5,4 +5,8 @@ package se.tribestar.mage.world.drawable;
  */
 public class Mesh extends Drawable {
     public String filename;
+
+    public Mesh(){
+        super();
+    }
 }

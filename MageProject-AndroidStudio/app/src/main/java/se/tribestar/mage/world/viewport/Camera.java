@@ -5,4 +5,8 @@ package se.tribestar.mage.world.viewport;
  */
 public class Camera extends ViewPort {
     public boolean perspective;
+
+    public Camera(){
+        super();
+    }
 }

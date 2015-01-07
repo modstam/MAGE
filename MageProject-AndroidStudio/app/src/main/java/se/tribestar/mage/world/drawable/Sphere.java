@@ -5,4 +5,8 @@ package se.tribestar.mage.world.drawable;
  */
 public class Sphere extends Drawable{
     public float radius;
+
+    public Sphere(){
+        super();
+    }
 }

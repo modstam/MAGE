@@ -7,4 +7,8 @@ import se.tribestar.mage.math.Vector3;
  */
 public class Cube extends Drawable {
     public Vector3 dimensions;
+
+    public Cube(){
+        super();
+    }
 }

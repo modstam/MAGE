@@ -9,4 +9,8 @@ import se.tribestar.mage.world.GameObject;
 public class Light extends GameObject {
     public float intensity;
     public Vector3 color;
+
+    public Light(){
+        super();
+    }
 }

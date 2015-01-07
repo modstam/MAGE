@@ -9,4 +9,8 @@ public class ViewPort extends GameObject {
     public float width;
     public float height;
     public float depth;
+
+    public ViewPort(){
+        super();
+    }
 }

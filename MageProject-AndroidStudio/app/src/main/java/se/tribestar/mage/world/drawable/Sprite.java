@@ -8,4 +8,8 @@ import se.tribestar.mage.math.Vector2;
 public class Sprite extends Drawable{
     public String filename;
     public Vector2 dimensions;
+
+    public Sprite(){
+        super();
+    }
 }

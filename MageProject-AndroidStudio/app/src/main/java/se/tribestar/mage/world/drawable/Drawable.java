@@ -14,6 +14,10 @@ public class Drawable extends GameObject {
     public Material material;
     public Color color;
 
+    public Drawable(){
+        super();
+    }
+
     public boolean draw(){
 
         return false;
