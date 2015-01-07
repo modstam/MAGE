@@ -5,7 +5,7 @@ import javax.microedition.khronos.opengles.GL10;
 /**
  * Created by Andreas Stjerndal on 06-Jan-2015.
  */
-public class DirectionalLight {
+public class GLDirectionalLight {
     float[] ambient = { 0.2f, 0.2f, 0.2f, 1.0f };
     float[] diffuse = { 1.0f, 1.0f, 1.0f, 1.0f };
     float[] specular = { 0.0f, 0.0f, 0.0f, 1.0f };

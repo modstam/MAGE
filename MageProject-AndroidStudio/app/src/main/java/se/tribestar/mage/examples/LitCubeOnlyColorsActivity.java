@@ -7,13 +7,12 @@ import javax.microedition.khronos.opengles.GL10;
 import se.tribestar.mage.backend.gl.AmbientLight;
 import se.tribestar.mage.backend.gl.CubeVertices;
 import se.tribestar.mage.backend.gl.GLWorld;
-import se.tribestar.mage.backend.gl.DirectionalLight;
+import se.tribestar.mage.backend.gl.GLDirectionalLight;
 import se.tribestar.mage.backend.gl.GLBackendController;
 import se.tribestar.mage.world.drawable.visuals.Color;
 import se.tribestar.mage.world.drawable.visuals.Material;
 import se.tribestar.mage.backend.gl.Texture;
 import se.tribestar.mage.backend.gl.Vertices3;
-import se.tribestar.mage.math.Vector3;
 
 public class LitCubeOnlyColorsActivity extends GLBackendController {
 
@@ -29,7 +28,7 @@ public class LitCubeOnlyColorsActivity extends GLBackendController {
         Texture texture;
         AmbientLight ambientLight;
         //PointLight pointLight;
-        DirectionalLight directionalLight;
+        GLDirectionalLight GLDirectionalLight;
         Material material;
 
         public LightScreen(GLBackendController controller) {
@@ -43,10 +42,10 @@ public class LitCubeOnlyColorsActivity extends GLBackendController {
             //pointLight = new PointLight();
             //pointLight.setDiffuse(1, 0, 0, 1);
             //pointLight.setPosition(3, 3, 0);
-            directionalLight = new DirectionalLight();
-            directionalLight.setAmbient(0.2f,0.2f,0.2f,1f);
-            directionalLight.setDiffuse(1, 1, 1, 0.1f);
-            directionalLight.setDirection(1, 0, 0);
+            GLDirectionalLight = new GLDirectionalLight();
+            GLDirectionalLight.setAmbient(0.2f,0.2f,0.2f,1f);
+            GLDirectionalLight.setDiffuse(1, 1, 1, 0.1f);
+            GLDirectionalLight.setDirection(1, 0, 0);
             material = new Material();
         }
 
@@ -84,7 +83,7 @@ public class LitCubeOnlyColorsActivity extends GLBackendController {
             gl.glEnable(GL10.GL_LIGHTING);
 
             //pointLight.enable(gl, GL10.GL_LIGHT0);
-            directionalLight.enable(gl, GL10.GL_LIGHT1);
+            GLDirectionalLight.enable(gl, GL10.GL_LIGHT1);
             material.setDiffuse(0,0,1,1f);
             material.setAmbient(0,0,1,1f);
             material.enable(gl);
@@ -98,7 +97,7 @@ public class LitCubeOnlyColorsActivity extends GLBackendController {
             cube.unbind();
 
             //pointLight.disable(gl);
-            directionalLight.disable(gl);
+            GLDirectionalLight.disable(gl);
 
             //gl.glDisable(GL10.GL_TEXTURE_2D);
             gl.glDisable(GL10.GL_DEPTH_TEST);

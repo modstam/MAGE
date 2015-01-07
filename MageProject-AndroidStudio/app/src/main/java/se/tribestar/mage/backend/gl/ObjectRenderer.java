@@ -7,8 +7,7 @@ import java.util.List;
 import javax.microedition.khronos.opengles.GL10;
 
 import se.tribestar.mage.world.drawable.Drawable;
-import se.tribestar.mage.world.light.Light;
-import se.tribestar.mage.world.viewport.Camera;
+import se.tribestar.mage.world.light.*;
 import se.tribestar.mage.world.viewport.ViewPort;
 
 /**
@@ -25,6 +24,7 @@ public class ObjectRenderer {
         //TEMP------------------------
         gl.glViewport(0, 0, glGraphics.getWidth(), glGraphics.getHeight());
 
+
         clearFrame(glGraphics);
 
         gl.glMatrixMode(GL10.GL_PROJECTION);
@@ -38,6 +38,18 @@ public class ObjectRenderer {
         gl.glLoadIdentity();
 
         GLU.gluLookAt(gl, 0, 1, 3, 0, 0, 0, 0, 1, 0);
+        
+        //Lighting loop, enables all lights
+        if(isLit){
+            gl.glEnable(GL10.GL_LIGHTING);
+            for(int i = 0; i<lights.size(); i++){
+                if(lights.get(i).isEnabled){
+                    enableLight(glGraphics,i,lights.get(i));
+                }
+            }
+        }
+
+
         gl.glEnable(GL10.GL_DEPTH_TEST);
         //----------------------------
 
@@ -145,7 +157,29 @@ public class ObjectRenderer {
     public void postrender(List<Light> lights, List<ViewPort> viewPorts, GLGraphics glGraphics){
         GL10 gl = glGraphics.getGL();
         //disable stuff
+        if(isLit){
+          int id = 16385;
+          for(int i = 0; i<lights.size(); i++){
+              gl.glDisable(id+i);
+          }
+        }
         gl.glDisable(GL10.GL_DEPTH_TEST);
+    }
+
+    public void enableLight(GLGraphics glGraphics, int lightId, Light light){
+        int id = 16385 + lightId;
+        GL10 gl = glGraphics.getGL();
+        if(light instanceof DirectionalLight){
+            DirectionalLight l= (DirectionalLight) light;
+            GLDirectionalLight dlight = new GLDirectionalLight();
+            dlight.setAmbient(l.ambientColor.r, l.ambientColor.g, l.ambientColor.b, l.ambientColor.a);
+            dlight.setDiffuse(l.diffuseColor.r, l.diffuseColor.g, l.diffuseColor.b, l.diffuseColor.a);
+            dlight.setSpecular(l.specularColor.r, l.specularColor.g, l.specularColor.b, l.specularColor.a);
+            if(l.direction != null){
+                dlight.setDirection(l.direction.x, l.direction.y, l.direction.z);
+            }
+            dlight.enable(gl, id);
+        }
     }
 
 
