@@ -32,7 +32,14 @@ public class ObjectRenderer {
         GLU.gluPerspective(gl, 67,
                 glGraphics.getWidth() / (float) glGraphics.getHeight(),
                 0.1f, 10.0f);
+
+
+        gl.glMatrixMode(GL10.GL_MODELVIEW);
+        gl.glLoadIdentity();
+        gl.glEnable(GL10.GL_DEPTH_TEST);
         //----------------------------
+
+
 
     }
 
@@ -41,22 +48,16 @@ public class ObjectRenderer {
         GLGraphics glGraphics = vertices.getGL();
         GL10 gl = glGraphics.getGL();
 
-        gl.glMatrixMode(GL10.GL_MODELVIEW);
-        gl.glLoadIdentity();
-        gl.glEnable(GL10.GL_DEPTH_TEST);
-        //gl.glEnable(GL10.GL_TEXTURE_2D);
-        //texture.bind();
+
         setupVertexOptions(drawable, vertices, glGraphics);
         setMaterial(drawable, glGraphics);
         vertices.bind();
         setWorldPosition(drawable, glGraphics);
-        //gl.glRotatef(angle, 0, 1, 0);
+        setWorldRotation(drawable, glGraphics);
         vertices.draw(GL10.GL_TRIANGLES, 0, 36);
         vertices.unbind();
-        //gl.glDisable(GL10.GL_TEXTURE_2D);
-        disableVertexOptions(drawable,vertices,glGraphics);
-        gl.glDisable(GL10.GL_DEPTH_TEST);
 
+        disableVertexOptions(drawable,vertices,glGraphics);
 
         //setupVertexOptions
         //setMaterial
@@ -66,6 +67,8 @@ public class ObjectRenderer {
         //vertices.draw
         //vertices.unbind()
         //disableVertexOptions
+
+
 
 
     }
@@ -96,6 +99,7 @@ public class ObjectRenderer {
     public void setWorldRotation(Drawable d, GLGraphics glGraphics){
         GL10 gl = glGraphics.getGL();
             //TODO
+        //gl.glRotatef(angle, 0, 1, 0);
     }
 
     public void setupVertexOptions(Drawable drawable,  Vertices3 vertices, GLGraphics glGraphics){
@@ -105,6 +109,8 @@ public class ObjectRenderer {
         }
         if(drawable.hasTexture()){
 
+            //gl.glEnable(GL10.GL_TEXTURE_2D);
+            //texture.bind();
         }
         if(drawable.hasNormals()){
 
@@ -118,7 +124,7 @@ public class ObjectRenderer {
 
         }
         if(drawable.hasTexture()){
-
+            //gl.glDisable(GL10.GL_TEXTURE_2D);
         }
         if(drawable.hasNormals()){
 
@@ -127,8 +133,9 @@ public class ObjectRenderer {
     }
 
     public void postrender(List<Light> lights, List<ViewPort> viewPorts, GLGraphics glGraphics){
-
+        GL10 gl = glGraphics.getGL();
         //disable stuff
+        gl.glDisable(GL10.GL_DEPTH_TEST);
     }
 
 
