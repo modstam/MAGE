@@ -47,7 +47,7 @@ public class ObjectRenderer {
 //        gl.glLoadIdentity();
 //
 //        GLU.gluLookAt(gl, 0, 1, 3, 0, 0, 0, 0, 1, 0);
-        
+
         //Lighting loop, enables all lights
         if(isLit){
             gl.glEnable(GL10.GL_LIGHTING);
@@ -79,18 +79,6 @@ public class ObjectRenderer {
         vertices.draw(GL10.GL_TRIANGLES, 0, 36);
 
         disableVertices(drawable, vertices, glGraphics);
-
-        //setupVertexOptions
-        //setMaterial
-        //vertices.bind()
-        //setPosition
-        //setRotation
-        //vertices.draw
-        //vertices.unbind()
-        //disableVertexOptions
-
-
-
 
     }
 
