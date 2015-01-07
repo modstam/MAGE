@@ -19,6 +19,9 @@
             android:name=".examples.LitCubeOnlyColorsActivity"
             android:label="@string/title_activity_lit_cube_only_colors" >
 
+        </activity>
+        <activity
+            android:name=".frontend.MageGame">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
