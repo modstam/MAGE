@@ -21,6 +21,7 @@ import se.tribestar.mage.backend.Input;
 import se.tribestar.mage.backend.android.AndroidAudio;
 import se.tribestar.mage.backend.android.AndroidFileIO;
 import se.tribestar.mage.backend.android.AndroidInput;
+import se.tribestar.mage.world.drawable.Drawable;
 
 /**
  * Created by Andreas Stjerndal on 04-Jan-2015.
@@ -97,7 +98,7 @@ public abstract class GLBackendController extends Activity implements BackendCon
             startTime = System.nanoTime();
 
             world.update(deltaTime);
-            world.present(deltaTime);
+            world.draw(deltaTime);
         }
 
         if(state == GLGameState.Paused) {
@@ -116,6 +117,10 @@ public abstract class GLBackendController extends Activity implements BackendCon
                 stateChanged.notifyAll();
             }
         }
+    }
+
+    public void render(Drawable drawable, Vertices3 vertices) {
+        
     }
 
     @Override

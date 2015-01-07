@@ -1,6 +1,8 @@
 package se.tribestar.mage.backend;
 
 import se.tribestar.mage.backend.gl.GLWorld;
+import se.tribestar.mage.backend.gl.Vertices3;
+import se.tribestar.mage.world.drawable.Drawable;
 
 /**
  * Created by Andreas Stjerndal on 04-Jan-2015.
@@ -19,4 +21,6 @@ public interface BackendController {
     public GLWorld getCurrentWorld();
 
     public GLWorld getWorld();
+
+    public void render(Drawable drawable, Vertices3 vertices);
 }
