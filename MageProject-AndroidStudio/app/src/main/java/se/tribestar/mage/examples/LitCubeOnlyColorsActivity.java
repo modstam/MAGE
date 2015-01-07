@@ -9,7 +9,7 @@ import se.tribestar.mage.backend.gl.CubeVertices;
 import se.tribestar.mage.backend.gl.GLWorld;
 import se.tribestar.mage.backend.gl.DirectionalLight;
 import se.tribestar.mage.backend.gl.GLBackendController;
-import se.tribestar.mage.backend.gl.Material;
+import se.tribestar.mage.world.drawable.visuals.Material;
 import se.tribestar.mage.backend.gl.Texture;
 import se.tribestar.mage.backend.gl.Vertices3;
 import se.tribestar.mage.math.Vector3;

@@ -11,6 +11,7 @@ public class GameObject {
     public World world;
     public String name = " ";
     public String id;
+    public boolean draw;
 
     public void update(float deltaTime){
 
