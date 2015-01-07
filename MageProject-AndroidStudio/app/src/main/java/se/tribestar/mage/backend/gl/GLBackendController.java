@@ -135,6 +135,7 @@ public abstract class GLBackendController extends Activity implements BackendCon
 //        renderer.draw(drawable,);
     }
 
+    @Override
     public boolean loadObject(Drawable drawable) {
         String hashKey = "";
         if(drawable instanceof Cube){
