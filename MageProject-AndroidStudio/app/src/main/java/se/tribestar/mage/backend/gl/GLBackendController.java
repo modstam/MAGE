@@ -42,6 +42,7 @@ public abstract class GLBackendController extends Activity implements BackendCon
     FileIO fileIO;
     GLGameState state = GLGameState.Initialized;
     GLWorld world;
+    ObjectRenderer renderer;
     Object stateChanged = new Object();
     long startTime = System.nanoTime();
     WakeLock wakeLock;
@@ -120,7 +121,7 @@ public abstract class GLBackendController extends Activity implements BackendCon
     }
 
     public void render(Drawable drawable, Vertices3 vertices) {
-        
+        renderer.draw(drawable, vertices);
     }
 
     @Override
