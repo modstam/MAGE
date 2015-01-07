@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import se.tribestar.mage.backend.gl.GLBackendController;
+import se.tribestar.mage.backend.gl.Vertices;
+import se.tribestar.mage.backend.gl.Vertices3;
 import se.tribestar.mage.logic.Logic;
 import se.tribestar.mage.world.drawable.Drawable;
 
@@ -17,14 +20,18 @@ import se.tribestar.mage.world.drawable.Drawable;
 public class World {
     public ArrayList<GameObject> objects; //the game objects
     public ArrayList<Logic> logics; //the logic objects
+    public ArrayList<Drawable> drawables;
     public HashMap<String, List<GameObject>> namedObjects;
+    public HashMap<String, Vertices3> vertices;
     public float deltaTime; // time since the last frame
     public boolean running;
+    public GLBackendController controller;
 
-    public World(){
+    public World(GLBackendController controller ){
         objects = new ArrayList<GameObject>();
         logics = new ArrayList<Logic>();
         namedObjects = new HashMap<String, List<GameObject>>();
+        this.controller = controller;
         running = true;
     }
 
@@ -45,13 +52,8 @@ public class World {
     public float update(){
         float time = System.currentTimeMillis();
 
-        for(GameObject object : objects){
-            if(object instanceof Drawable){
-                ((Drawable) object).draw();
-            }
-            else{
-                object.update(deltaTime);
-            }
+        for(GameObject object : objects) {
+            object.update(deltaTime);
         }
 
         for(Logic logic : logics){
@@ -63,6 +65,15 @@ public class World {
     }
 
     /**
+     * This method is responsible to draw all objects in the frame
+     */
+    public void draw(){
+        for(Drawable object : drawables) {
+            controller.render(object,vertices.get(object.id));
+        }
+    }
+
+    /**
      * This method registers a game object to
      * the world object, there by notifying the world
      * that this object needs to be updated/drawn
@@ -71,8 +82,11 @@ public class World {
     public void addObject(GameObject object){
         if(!namedObjects.containsKey(object.name)){
             namedObjects.put(object.name, new ArrayList<GameObject>());
+            namedObjects.get(object.name).add(object);
         }
-        namedObjects.get(object.name).add(object);
+        if(object instanceof Drawable){
+            drawables.add((Drawable) object);
+        }
         objects.add(object);
     }
 

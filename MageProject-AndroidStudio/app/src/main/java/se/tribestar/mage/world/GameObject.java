@@ -10,6 +10,7 @@ public class GameObject {
     public Transform transform;
     public World world;
     public String name = " ";
+    public String id;
 
     public void update(float deltaTime){
 
