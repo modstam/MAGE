@@ -10,15 +10,16 @@ import se.tribestar.mage.math.Transform;
  */
 public class GameObject {
     public float deltaTime;
-    public Transform transform = new Transform();
+    public Transform transform;
     public World world;
-    public String name = " ";
+    public String name;
     public UUID id;
-    public boolean draw;
     public boolean isDestroyed;
 
     public GameObject(){
         Random r = new Random();
+        transform = new Transform();
+        name = " ";
         id = new UUID(r.nextLong(), r.nextLong());
         isDestroyed = false;
     }

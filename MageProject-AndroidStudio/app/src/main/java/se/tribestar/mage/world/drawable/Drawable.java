@@ -16,9 +16,11 @@ public class Drawable extends GameObject {
     private boolean hasTexture = false;
     private boolean hasColors = false;
     private boolean hasNormals = true;
+    public boolean draw;
 
     public Drawable(){
         super();
+        draw = true;
     }
 
     public boolean draw(){
