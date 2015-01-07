@@ -7,7 +7,7 @@ import se.tribestar.mage.math.Vector3;
  */
 public class DirectionalLight extends Light {
 
-    public Vector3 direction;
+    public Vector3 direction = new Vector3(1,0,0);
 
     public DirectionalLight(){
         super();
