@@ -13,4 +13,18 @@ public class Vector3 {
         this.y = y;
         this.z = z;
     }
+
+    public Vector3 set(float x, float y, float z) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+        return this;
+    }
+
+    public Vector3 set(Vector3 other) {
+        this.x = other.x;
+        this.y = other.y;
+        this.z = other.z;
+        return this;
+    }
 }
