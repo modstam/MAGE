@@ -48,7 +48,7 @@ public class ObjectRenderer {
         gl.glEnable(GL10.GL_DEPTH_TEST);
         //gl.glEnable(GL10.GL_TEXTURE_2D);
         //texture.bind();
-        setupVertixOptions(drawable, vertices, glGraphics);
+        setupVertexOptions(drawable, vertices, glGraphics);
         setMaterial(drawable, glGraphics);
         vertices.bind();
         setWorldPosition(drawable, glGraphics);
@@ -89,6 +89,20 @@ public class ObjectRenderer {
             //TODO
     }
 
+    public void setupVertexOptions(Drawable drawable,  Vertices3 vertices, GLGraphics glGraphics){
+        GL10 gl = glGraphics.getGL();
+        if(drawable.hasColors()){
+
+        }
+        if(drawable.hasTexture()){
+
+        }
+        if(drawable.hasNormals()){
+
+        }
+
+    }
+
     public void endOfFrame(Drawable drawable, Vertices3 vertices, GLGraphics glGraphics){
         GL10 gl = glGraphics.getGL();
         if(drawable.hasColors()){
@@ -103,20 +117,6 @@ public class ObjectRenderer {
 
     }
 
-    public void setupVertixOptions(Drawable drawable,  Vertices3 vertices, GLGraphics glGraphics){
-        GL10 gl = glGraphics.getGL();
-        if(drawable.hasColors()){
-
-        }
-        if(drawable.hasTexture()){
-
-        }
-        if(drawable.hasNormals()){
-
-        }
-
-
-    }
 
 
 }
