@@ -33,16 +33,12 @@ public class ObjectRenderer {
         clearFrame(glGraphics);
         gl.glEnable(GL10.GL_DEPTH_TEST);
         gl.glViewport(0, 0, glGraphics.getWidth(), glGraphics.getHeight());
+
+        camera = new LookAtCamera(67, glGraphics.getWidth()
+                / (float) glGraphics.getHeight(), 0.1f, 10f);
+        camera.getPosition().set(0, 1, 3);
+        camera.getLookAt().set(0, 0, 0);
         camera.setMatrices(gl);
-
-
-        //gl.glMatrixMode(GL10.GL_PROJECTION);
-        //gl.glLoadIdentity();
-        //GLU.gluPerspective(gl, 67, glGraphics.getWidth()
-        //        / (float) glGraphics.getHeight(), 0.1f, 10f);
-        //gl.glMatrixMode(GL10.GL_MODELVIEW);
-        //gl.glLoadIdentity();
-        //GLU.gluLookAt(gl, 0, 1, 3, 0, 0, 0, 0, 1, 0);
 
         //Lighting loop, enables all lights
         if(isLit){
