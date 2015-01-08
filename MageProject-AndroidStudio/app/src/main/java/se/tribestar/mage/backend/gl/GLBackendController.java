@@ -165,21 +165,26 @@ public abstract class GLBackendController extends Activity implements BackendCon
 
     }
 
+    /**
+     * Returns true if the object is successfully loaded, or was so already.
+     */
     @Override
     public boolean loadObject(Drawable drawable) {
         String hashKey = "";
         Vertices3 model = null;
         if(drawable instanceof Cube){
             hashKey = primitiveHasher("CUBE", drawable);
-            if(!vertices.containsKey(hashKey)){
+            if(!vertices.containsKey(hashKey))
                 model = new CubeVertices(glGraphics, drawable.hasColors(), drawable.hasTexture(), drawable.hasNormals());
-            }
+            else
+                return true;
         }
         else if(drawable instanceof Sphere){
             hashKey = primitiveHasher("SPHERE", drawable);
-            if(!vertices.containsKey(hashKey)){
+            if(!vertices.containsKey(hashKey))
                 model = new SphereVertices(glGraphics, drawable.hasColors(), drawable.hasTexture(), drawable.hasNormals());
-            }
+            else
+                return true;
         }
         else if(drawable instanceof Mesh){
             if(!vertices.containsKey(hashKey)){
@@ -188,6 +193,8 @@ public abstract class GLBackendController extends Activity implements BackendCon
                 } catch (RuntimeException e) {
                     return false;
                 }
+            } else {
+                return true;
             }
         } else {
             return false;
