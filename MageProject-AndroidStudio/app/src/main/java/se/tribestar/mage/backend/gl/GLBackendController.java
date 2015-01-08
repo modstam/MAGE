@@ -187,6 +187,7 @@ public abstract class GLBackendController extends Activity implements BackendCon
                 return true;
         }
         else if(drawable instanceof Mesh){
+            hashKey = ((Mesh) drawable).filename;
             if(!vertices.containsKey(hashKey)){
                 try {
                     model = ObjLoader.load(this, ((Mesh) drawable).filename);
