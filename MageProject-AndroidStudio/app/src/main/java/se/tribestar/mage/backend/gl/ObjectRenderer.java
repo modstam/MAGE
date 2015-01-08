@@ -156,7 +156,7 @@ public class ObjectRenderer {
         GL10 gl = glGraphics.getGL();
         //disable stuff
         if(isLit){
-          int id = 16385;
+          int id = GL10.GL_LIGHT0;
           for(int i = 0; i<lights.size(); i++){
               gl.glDisable(id+i);
           }
@@ -165,7 +165,7 @@ public class ObjectRenderer {
     }
 
     public void enableLight(GLGraphics glGraphics, int lightId, Light light){
-        int id = 16385 + lightId;
+        int id = GL10.GL_LIGHT0 + lightId;
         GL10 gl = glGraphics.getGL();
         if(light instanceof DirectionalLight){
             DirectionalLight l= (DirectionalLight) light;
