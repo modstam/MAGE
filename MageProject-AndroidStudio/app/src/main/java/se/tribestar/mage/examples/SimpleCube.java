@@ -5,6 +5,7 @@ import se.tribestar.mage.logic.Logic;
 import se.tribestar.mage.math.Vector3;
 import se.tribestar.mage.world.World;
 import se.tribestar.mage.world.drawable.Cube;
+import se.tribestar.mage.world.drawable.visuals.Color;
 import se.tribestar.mage.world.light.DirectionalLight;
 
 /**

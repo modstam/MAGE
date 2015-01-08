@@ -30,6 +30,7 @@ import se.tribestar.mage.world.drawable.Cube;
 import se.tribestar.mage.world.drawable.Drawable;
 import se.tribestar.mage.world.drawable.Mesh;
 import se.tribestar.mage.world.drawable.Sphere;
+import se.tribestar.mage.world.drawable.Sprite;
 import se.tribestar.mage.world.light.Light;
 import se.tribestar.mage.world.viewport.ViewPort;
 
@@ -149,7 +150,19 @@ public abstract class GLBackendController extends Activity implements BackendCon
     }
 
     public void render(Drawable drawable) {
-//        renderer.draw(drawable,);
+       if(drawable instanceof Cube){
+           renderer.draw(drawable, vertices.get((primitiveHasher("CUBE", drawable))));
+       }
+       else if(drawable instanceof Sphere){
+
+       }
+       else if(drawable instanceof Sprite){
+
+       }
+       else if(drawable instanceof Mesh){
+
+       }
+
     }
 
     @Override
