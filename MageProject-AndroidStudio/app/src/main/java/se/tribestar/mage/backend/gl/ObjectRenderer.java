@@ -29,26 +29,11 @@ public class ObjectRenderer {
     public void prerender(List<Light> lights, List<ViewPort> viewPorts, GLGraphics glGraphics){
         GL10 gl = glGraphics.getGL();
 
-        //TEMP------------------------
-        gl.glViewport(0, 0, glGraphics.getWidth(), glGraphics.getHeight());
-
 
         clearFrame(glGraphics);
-
+        gl.glEnable(GL10.GL_DEPTH_TEST);
+        gl.glViewport(0, 0, glGraphics.getWidth(), glGraphics.getHeight());
         camera.setMatrices(gl);
-
-//        gl.glMatrixMode(GL10.GL_PROJECTION);
-//        gl.glLoadIdentity();
-//        GLU.gluPerspective(gl, 67,
-//                glGraphics.getWidth() / (float) glGraphics.getHeight(),
-//                0.1f, 10.0f);
-//
-//
-//        gl.glMatrixMode(GL10.GL_MODELVIEW);
-//        gl.glLoadIdentity();
-//
-//        GLU.gluLookAt(gl, 0, 1, 3, 0, 0, 0, 0, 1, 0);
-
         //Lighting loop, enables all lights
         if(isLit){
             gl.glEnable(GL10.GL_LIGHTING);
@@ -58,27 +43,17 @@ public class ObjectRenderer {
                 }
             }
         }
-
-
-        gl.glEnable(GL10.GL_DEPTH_TEST);
-        //----------------------------
-
-
     }
 
-    public void draw(Drawable drawable, Vertices3 vertices){
-
-        GLGraphics glGraphics = vertices.getGL();
+    public void draw(Drawable drawable, Vertices3 vertices, GLGraphics glGraphics){
         GL10 gl = glGraphics.getGL();
 
+        setMaterial(drawable, glGraphics);
+        //setWorldPosition(drawable, glGraphics);
+        //setWorldRotation(drawable, glGraphics);
 
         setupVertices(drawable, vertices, glGraphics);
-        setMaterial(drawable, glGraphics);
-
-        setWorldPosition(drawable, glGraphics);
-        setWorldRotation(drawable, glGraphics);
-        vertices.draw(GL10.GL_TRIANGLES, 0, 36);
-
+        vertices.draw(GL10.GL_TRIANGLES, 0, 6 * 2 * 3);
         disableVertices(drawable, vertices, glGraphics);
 
     }
@@ -86,7 +61,7 @@ public class ObjectRenderer {
 
     public void clearFrame(GLGraphics glGraphics){
         GL10 gl = glGraphics.getGL();
-        gl.glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
+        gl.glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
         gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
 
     }
@@ -114,7 +89,7 @@ public class ObjectRenderer {
         //gl.glRotatef(angle, 0, 1, 0);
     }
 
-    public void setupVertices(Drawable drawable,  Vertices3 vertices, GLGraphics glGraphics){
+    public void setupVertices(Drawable drawable,Vertices3 vertices, GLGraphics glGraphics){
         GL10 gl = glGraphics.getGL();
         if(drawable.hasColors()){
             if(!isLit){
@@ -138,6 +113,7 @@ public class ObjectRenderer {
 
     public void disableVertices(Drawable drawable, Vertices3 vertices, GLGraphics glGraphics){
         GL10 gl = glGraphics.getGL();
+        vertices.unbind();
         if(drawable.hasColors()){
 
         }
@@ -147,8 +123,6 @@ public class ObjectRenderer {
         if(drawable.hasNormals()){
 
         }
-
-        vertices.unbind();
 
     }
 

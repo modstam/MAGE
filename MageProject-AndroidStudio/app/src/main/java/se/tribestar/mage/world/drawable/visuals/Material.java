@@ -6,17 +6,16 @@ import javax.microedition.khronos.opengles.GL10;
  * Created by Andreas Stjerndal on 06-Jan-2015.
  */
 public class Material {
-    public boolean isEnabled;
+    public boolean isEnabled = true;
     float[] ambient = {0.2f, 0.0f, 0.0f, 1.0f};
     float[] diffuse = {1.0f, 0.0f, 0.0f, 1.0f};
-    float[] specular = {0.0f, 0.0f, 0.0f, 1.0f};
+    float[] specular = {1.0f, 0.0f, 0.0f, 1.0f};
 
     public void setAmbient(float r, float g, float b, float a) {
         ambient[0] = r;
         ambient[1] = g;
         ambient[2] = b;
         ambient[3] = a;
-        isEnabled = true;
     }
 
     public void setDiffuse(float r, float g, float b, float a) {

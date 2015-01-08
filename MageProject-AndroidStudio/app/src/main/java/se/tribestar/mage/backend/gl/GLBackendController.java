@@ -151,7 +151,7 @@ public abstract class GLBackendController extends Activity implements BackendCon
 
     public void render(Drawable drawable) {
        if(drawable instanceof Cube){
-           renderer.draw(drawable, vertices.get((primitiveHasher("CUBE", drawable))));
+           renderer.draw(drawable, vertices.get((primitiveHasher("CUBE", drawable))), glGraphics);
        }
        else if(drawable instanceof Sphere){
 
