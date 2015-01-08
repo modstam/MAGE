@@ -57,6 +57,7 @@ public class ObjectRenderer {
 
         setMaterial(drawable, glGraphics);
         setWorldPosition(drawable, glGraphics);
+        setScale(drawable, glGraphics);
         setWorldRotation(drawable, glGraphics);
         setupVertices(drawable,vertices,glGraphics);
         vertices.draw(GL10.GL_TRIANGLES, 0, 6 * 2 * 3);
@@ -99,7 +100,10 @@ public class ObjectRenderer {
         gl.glRotatef(angleY,0,1,0);
         gl.glRotatef(angleZ,0,0,1);
 
-        //gl.glRotatef(angle, 0, 1, 0);
+    }
+
+    public void setScale(Drawable d, GLGraphics glGraphics){
+        //TODO
     }
 
     public void setupVertices(Drawable drawable,Vertices3 vertices, GLGraphics glGraphics){
