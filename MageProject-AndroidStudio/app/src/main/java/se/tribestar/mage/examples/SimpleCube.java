@@ -22,6 +22,7 @@ public class SimpleCube extends Logic {
         world.addObject(cube);
 
         DirectionalLight dLight = new DirectionalLight();
+        dLight.ambientColor = new Color(1,1,1,1);
         world.addLight(dLight);
     }
 }

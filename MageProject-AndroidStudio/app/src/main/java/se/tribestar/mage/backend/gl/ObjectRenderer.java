@@ -21,7 +21,7 @@ public class ObjectRenderer {
 
     public ObjectRenderer(GLGraphics glGraphics) {
         camera = new LookAtCamera(67, glGraphics.getWidth()
-                / (float) glGraphics.getHeight(), 0.1f, 100);
+                / (float) glGraphics.getHeight(), 0.1f, 10f);
         camera.getPosition().set(0, 1, 3);
         camera.getLookAt().set(0, 0, 0);
     }
@@ -34,6 +34,16 @@ public class ObjectRenderer {
         gl.glEnable(GL10.GL_DEPTH_TEST);
         gl.glViewport(0, 0, glGraphics.getWidth(), glGraphics.getHeight());
         camera.setMatrices(gl);
+
+
+        //gl.glMatrixMode(GL10.GL_PROJECTION);
+        //gl.glLoadIdentity();
+        //GLU.gluPerspective(gl, 67, glGraphics.getWidth()
+        //        / (float) glGraphics.getHeight(), 0.1f, 10f);
+        //gl.glMatrixMode(GL10.GL_MODELVIEW);
+        //gl.glLoadIdentity();
+        //GLU.gluLookAt(gl, 0, 1, 3, 0, 0, 0, 0, 1, 0);
+
         //Lighting loop, enables all lights
         if(isLit){
             gl.glEnable(GL10.GL_LIGHTING);
@@ -49,13 +59,11 @@ public class ObjectRenderer {
         GL10 gl = glGraphics.getGL();
 
         setMaterial(drawable, glGraphics);
-        //setWorldPosition(drawable, glGraphics);
-        //setWorldRotation(drawable, glGraphics);
-
-        setupVertices(drawable, vertices, glGraphics);
+        setWorldPosition(drawable, glGraphics);
+        setWorldRotation(drawable, glGraphics);
+        setupVertices(drawable,vertices,glGraphics);
         vertices.draw(GL10.GL_TRIANGLES, 0, 6 * 2 * 3);
-        disableVertices(drawable, vertices, glGraphics);
-
+        disableVertices(drawable,vertices,glGraphics);
     }
 
 
