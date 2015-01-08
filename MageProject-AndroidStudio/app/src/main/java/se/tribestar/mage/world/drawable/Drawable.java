@@ -14,7 +14,7 @@ public class Drawable extends GameObject {
     public Material material = new Material();
     public Color color;
     private boolean hasTexture = false;
-    private boolean hasColors = false;
+    private boolean hasColors = true;
     private boolean hasNormals = true;
     public boolean draw;
 
