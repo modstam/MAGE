@@ -171,25 +171,31 @@ public abstract class GLBackendController extends Activity implements BackendCon
         Vertices3 model;
         if(drawable instanceof Cube){
             hashKey = primitiveHasher("CUBE", drawable);
-            if(!vertices.containsKey(hashKey))
-               model = new CubeVertices(glGraphics, drawable.hasColors(), drawable.hasTexture(), drawable.hasNormals());
-            else
+            if(!vertices.containsKey(hashKey)){
+                model = new CubeVertices(glGraphics, drawable.hasColors(), drawable.hasTexture(), drawable.hasNormals());
+                vertices.put(hashKey, model);
+            }
+              else
                 return true;
         }
         else if(drawable instanceof Sphere){
             hashKey = primitiveHasher("SPHERE", drawable);
-            if(!vertices.containsKey(hashKey))
-                model = new CubeVertices(glGraphics, drawable.hasColors(), drawable.hasTexture(), drawable.hasNormals());
+            if(!vertices.containsKey(hashKey)){
+                //model = new CubeVertices(glGraphics, drawable.hasColors(), drawable.hasTexture(), drawable.hasNormals());
+                //vertices.put(hashKey, model);
+            }
             else
                 return true;
         }
         else if(drawable instanceof Mesh){
-            if(!vertices.containsKey(hashKey))
-                model = new CubeVertices(glGraphics, drawable.hasColors(), drawable.hasTexture(), drawable.hasNormals());
-
-            return false;
+            if(!vertices.containsKey(hashKey)){
+                //model = new CubeVertices(glGraphics, drawable.hasColors(), drawable.hasTexture(), drawable.hasNormals());
+                //vertices.put(hashKey, model);
+            }
+            else
+                return true;
         }
-        return true;
+        return false;
     }
 
     private String primitiveHasher(String primitiveName, Drawable drawable) {
