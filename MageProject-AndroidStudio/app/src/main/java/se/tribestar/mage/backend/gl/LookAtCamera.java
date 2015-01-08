@@ -30,7 +30,12 @@ public class LookAtCamera {
         up = new Vector3(0, 1, 0);
         lookAt = new Vector3(0,0,-1);
     }
-
+    public void setAspectRatio(float aspectRatio){
+        this.aspectRatio = aspectRatio;
+    }
+    public void setFieldOfView(float fieldOfView){
+        this.fieldOfView = fieldOfView;
+    }
     public Vector3 getPosition() {
         return position;
     }

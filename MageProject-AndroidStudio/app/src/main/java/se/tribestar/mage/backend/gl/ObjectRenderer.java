@@ -34,8 +34,9 @@ public class ObjectRenderer {
         gl.glEnable(GL10.GL_DEPTH_TEST);
         gl.glViewport(0, 0, glGraphics.getWidth(), glGraphics.getHeight());
 
-        camera = new LookAtCamera(67, glGraphics.getWidth()
-                / (float) glGraphics.getHeight(), 0.1f, 10f);
+        camera.setFieldOfView(67);
+        camera.setAspectRatio(glGraphics.getWidth()
+                / (float) glGraphics.getHeight());
         camera.getPosition().set(0, 1, 3);
         camera.getLookAt().set(0, 0, 0);
         camera.setMatrices(gl);
