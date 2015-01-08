@@ -174,26 +174,23 @@ public abstract class GLBackendController extends Activity implements BackendCon
             if(!vertices.containsKey(hashKey)){
                 model = new CubeVertices(glGraphics, drawable.hasColors(), drawable.hasTexture(), drawable.hasNormals());
                 vertices.put(hashKey, model);
-            }
-              else
                 return true;
+            }
         }
         else if(drawable instanceof Sphere){
             hashKey = primitiveHasher("SPHERE", drawable);
             if(!vertices.containsKey(hashKey)){
                 //model = new CubeVertices(glGraphics, drawable.hasColors(), drawable.hasTexture(), drawable.hasNormals());
                 //vertices.put(hashKey, model);
-            }
-            else
                 return true;
+            }
         }
         else if(drawable instanceof Mesh){
             if(!vertices.containsKey(hashKey)){
                 //model = new CubeVertices(glGraphics, drawable.hasColors(), drawable.hasTexture(), drawable.hasNormals());
                 //vertices.put(hashKey, model);
-            }
-            else
                 return true;
+            }
         }
         return false;
     }
