@@ -168,7 +168,7 @@ public abstract class GLBackendController extends Activity implements BackendCon
     @Override
     public boolean loadObject(Drawable drawable) {
         String hashKey = "";
-        Vertices3 model;
+        Vertices3 model = null;
         if(drawable instanceof Cube){
             hashKey = primitiveHasher("CUBE", drawable);
             if(!vertices.containsKey(hashKey))
@@ -189,6 +189,7 @@ public abstract class GLBackendController extends Activity implements BackendCon
 
             return false;
         }
+        vertices.put(hashKey, model);
         return true;
     }
 
