@@ -90,7 +90,15 @@ public class ObjectRenderer {
 
     public void setWorldRotation(Drawable d, GLGraphics glGraphics){
         GL10 gl = glGraphics.getGL();
-            //TODO
+
+        float angleX = d.transform.rotation.x;
+        float angleY = d.transform.rotation.y;
+        float angleZ = d.transform.rotation.z;
+
+        gl.glRotatef(angleX,1,0,0);
+        gl.glRotatef(angleY,0,1,0);
+        gl.glRotatef(angleZ,0,0,1);
+
         //gl.glRotatef(angle, 0, 1, 0);
     }
 

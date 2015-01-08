@@ -13,16 +13,27 @@ import se.tribestar.mage.world.light.DirectionalLight;
  */
 public class SimpleCube extends Logic {
 
+    float angle = 20f;
+    Cube cube;
+
     public SimpleCube(World world){
         super(world);
 
-        Cube cube = new Cube();
+        cube = new Cube();
         cube.transform.position = new Vector3(0,0,0);
         cube.transform.rotation = new Vector3(0,0,0);
         world.addObject(cube);
 
         DirectionalLight dLight = new DirectionalLight();
         dLight.ambientColor = new Color(1,1,1,1);
+        dLight.diffuseColor = new Color(1,1,1,1);
+        dLight.direction = new Vector3(1,0,0);
         world.addLight(dLight);
+    }
+
+    @Override
+    public void update(float deltaTime){
+        cube.transform.rotation.x += angle*deltaTime;
+        cube.transform.rotation.y += angle*deltaTime;
     }
 }
