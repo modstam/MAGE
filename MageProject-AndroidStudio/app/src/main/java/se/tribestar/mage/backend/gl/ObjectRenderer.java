@@ -1,6 +1,7 @@
 package se.tribestar.mage.backend.gl;
 
 import android.opengl.GLU;
+import android.util.Log;
 
 import java.util.List;
 
