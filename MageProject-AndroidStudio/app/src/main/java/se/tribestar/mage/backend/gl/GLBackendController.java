@@ -173,30 +173,27 @@ public abstract class GLBackendController extends Activity implements BackendCon
             hashKey = primitiveHasher("CUBE", drawable);
             if(!vertices.containsKey(hashKey)){
                 model = new CubeVertices(glGraphics, drawable.hasColors(), drawable.hasTexture(), drawable.hasNormals());
-                vertices.put(hashKey, model);
-                return true;
             }
         }
         else if(drawable instanceof Sphere){
             hashKey = primitiveHasher("SPHERE", drawable);
             if(!vertices.containsKey(hashKey)){
                 model = new SphereVertices(glGraphics, drawable.hasColors(), drawable.hasTexture(), drawable.hasNormals());
-                vertices.put(hashKey, model);
-                return true;
             }
         }
         else if(drawable instanceof Mesh){
             if(!vertices.containsKey(hashKey)){
                 try {
                     model = ObjLoader.load(this, ((Mesh) drawable).filename);
-                    vertices.put(hashKey, model);
-                    return true;
                 } catch (RuntimeException e) {
                     return false;
                 }
             }
+        } else {
+            return false;
         }
-        return false;
+        vertices.put(hashKey, model);
+        return true;
     }
 
     private String primitiveHasher(String primitiveName, Drawable drawable) {
