@@ -8,10 +8,8 @@ import android.content.Context;
 import android.opengl.GLSurfaceView;
 import android.opengl.GLSurfaceView.Renderer;
 import android.os.Bundle;
-import android.os.Debug;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
-import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -26,6 +24,7 @@ import se.tribestar.mage.backend.Input;
 import se.tribestar.mage.backend.android.AndroidAudio;
 import se.tribestar.mage.backend.android.AndroidFileIO;
 import se.tribestar.mage.backend.android.AndroidInput;
+import se.tribestar.mage.util.Log;
 import se.tribestar.mage.world.drawable.Cube;
 import se.tribestar.mage.world.drawable.Drawable;
 import se.tribestar.mage.world.drawable.Mesh;
@@ -65,7 +64,6 @@ public abstract class GLBackendController extends Activity implements BackendCon
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d("MAGE", "ONCREATING");
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -76,6 +74,7 @@ public abstract class GLBackendController extends Activity implements BackendCon
 
 
         vertices = new HashMap<String, Vertices3>();
+        textures = new HashMap<String, Texture>();
 
         glGraphics = new GLGraphics(glView);
         renderer = new ObjectRenderer(glGraphics, this);
@@ -103,10 +102,18 @@ public abstract class GLBackendController extends Activity implements BackendCon
             state = GLGameState.Running;
             world.resume();
             startTime = System.nanoTime();
+            start();
         }
     }
 
     public void onSurfaceChanged(GL10 gl, int width, int height) {
+    }
+
+    /**
+     * Called at startup
+     */
+    public void start() {
+        //For overriding.
     }
 
     public void onDrawFrame(GL10 gl) {

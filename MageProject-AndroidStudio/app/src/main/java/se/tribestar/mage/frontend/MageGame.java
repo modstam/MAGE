@@ -18,17 +18,10 @@ public class MageGame extends GLBackendController {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        start();
-
-
+        world = new World(this);
     }
 
-    /**
-     * Called at startup
-     */
-    public void start() {
-      //For overriding.
-    }
+
 
     @Override
     public GLWorld getWorld() {
