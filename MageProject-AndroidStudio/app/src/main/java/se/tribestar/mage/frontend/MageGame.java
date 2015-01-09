@@ -13,14 +13,21 @@ import se.tribestar.mage.world.World;
  * Created by Andreas Stjerndal on 07-Jan-2015.
  */
 public class MageGame extends GLBackendController {
-    World world;
+    public World world;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        world = new World(this);
-        world.addLogic(new SimpleCube(world));
+        start();
 
+
+    }
+
+    /**
+     * Called at startup
+     */
+    public void start() {
+      //For overriding.
     }
 
     @Override
