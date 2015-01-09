@@ -23,7 +23,7 @@ public class SimpleCube extends Logic {
         cube = new Cube();
         cube.transform.position = new Vector3(0,0,0);
         cube.transform.rotation = new Vector3(0,0,0);
-        cube.setColor(Color.ORANGE);
+        cube.setColor(Color.RED);
         world.addObject(cube);
 
         DirectionalLight dLight = new DirectionalLight();
