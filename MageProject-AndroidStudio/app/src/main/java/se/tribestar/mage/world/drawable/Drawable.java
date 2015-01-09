@@ -12,6 +12,7 @@ import se.tribestar.mage.world.drawable.visuals.Material;
 public class Drawable extends GameObject {
     public String type;
     public Material material = new Material();
+    public String texturePath;
     public Color color;
     public boolean hasColors = true;
     public boolean hasTexture = false;
@@ -38,5 +39,9 @@ public class Drawable extends GameObject {
 
     public boolean hasNormals(){
         return hasNormals;
+    }
+
+    public String getTexturePath() {
+        return texturePath;
     }
 }

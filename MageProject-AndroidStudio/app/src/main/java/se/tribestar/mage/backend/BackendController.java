@@ -24,5 +24,5 @@ public interface BackendController {
 
     public void render(Drawable drawable);
 
-    public boolean loadObject(Drawable drawable);
+    public void loadObject(Drawable drawable);
 }
