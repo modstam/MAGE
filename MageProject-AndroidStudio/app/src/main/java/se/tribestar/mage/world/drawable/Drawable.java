@@ -29,6 +29,16 @@ public class Drawable extends GameObject {
         return false;
     }
 
+    public void setColor(Color color) {
+        this.color = color;
+        material.setColors(color);
+    }
+
+    public void setColor(float r, float g, float b, float a) {
+        this.color = new Color(r, g, b, a);
+        material.setColors(color);
+    }
+
     public boolean hasColors(){
         return hasColors;
     }

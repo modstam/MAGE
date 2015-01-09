@@ -32,6 +32,18 @@ public class Material {
         specular[3] = a;
     }
 
+    public void setColors(float r, float g, float b, float a) {
+        setAmbient(r/5f, g/5f, b/5f, a);
+        setDiffuse(r, g, b, a);
+        setSpecular(r, g, b, a);
+    }
+
+    public void setColors(Color color) {
+        setAmbient(color.r/5f, color.g/5f, color.b/5f, color.a);
+        setDiffuse(color.r, color.g, color.b, color.a);
+        setSpecular(color.r, color.g, color.b, color.a);
+    }
+
 
     /**
      * This should only be called by the renderer,
