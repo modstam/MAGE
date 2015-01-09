@@ -78,7 +78,7 @@ public abstract class GLBackendController extends Activity implements BackendCon
         vertices = new HashMap<String, Vertices3>();
 
         glGraphics = new GLGraphics(glView);
-        renderer = new ObjectRenderer(glGraphics);
+        renderer = new ObjectRenderer(glGraphics, this);
 
         fileIO = new AndroidFileIO(this);
         audio = new AndroidAudio(this);
@@ -143,16 +143,16 @@ public abstract class GLBackendController extends Activity implements BackendCon
     }
 
     public void preRender(List<Light> lights, List<ViewPort> viewPorts){
-        renderer.prerender(lights, viewPorts, glGraphics);
+        renderer.prerender(lights, viewPorts);
     }
 
     public void postRender(List<Light> lights, List<ViewPort> viewPorts){
-        renderer.postrender(lights, viewPorts, glGraphics);
+        renderer.postrender(lights, viewPorts);
     }
 
     public void render(Drawable drawable) {
        if(drawable instanceof Cube){
-           renderer.draw(drawable, vertices.get((primitiveHasher("CUBE", drawable))), glGraphics);
+           renderer.draw(drawable, vertices.get((primitiveHasher("CUBE", drawable))));
        }
        else if(drawable instanceof Sphere){
 
