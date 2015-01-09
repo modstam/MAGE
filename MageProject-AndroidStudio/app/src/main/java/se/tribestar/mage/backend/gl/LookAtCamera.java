@@ -48,7 +48,8 @@ public class LookAtCamera {
         return lookAt;
     }
 
-    public void setMatrices(GL10 gl) {
+    public void setMatrices(GL10 gl, boolean perspective) {
+        //TODO implement perspective based stuff
         gl.glMatrixMode(GL10.GL_PROJECTION);
         gl.glLoadIdentity();
         GLU.gluPerspective(gl, fieldOfView, aspectRatio, near, far);

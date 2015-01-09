@@ -39,12 +39,12 @@ public class ObjectRenderer {
         gl.glEnable(GL10.GL_DEPTH_TEST);
         gl.glViewport(0, 0, glGraphics.getWidth(), glGraphics.getHeight());
 
-        camera.setFieldOfView(67);
-        camera.setAspectRatio(glGraphics.getWidth()
-                / (float) glGraphics.getHeight());
-        camera.getPosition().set(0, 1, 3);
-        camera.getLookAt().set(0, 0, 0);
-        camera.setMatrices(gl);
+        // Uses the first enabled viewport in the list as a camera
+        for(ViewPort viewPort : viewPorts){
+            if(viewPort.isEnabled){
+                setViewPort(viewPort);
+            }
+        }
 
         //Lighting loop, enables all lights
         if(isLit){
@@ -65,8 +65,8 @@ public class ObjectRenderer {
         gl.glPushMatrix();
         setMaterial(drawable);
         setWorldPosition(drawable);
-        setScale(drawable);
         setWorldRotation(drawable);
+        setScale(drawable);
 //        vertices.draw(GL10.GL_TRIANGLES, 0, vertices.getNumVertices());
         vertices.draw(GL10.GL_TRIANGLES, 0, 36);
         gl.glPopMatrix();
@@ -182,6 +182,15 @@ public class ObjectRenderer {
         }
     }
 
+    public void setViewPort(ViewPort v){
+        camera.setFieldOfView(v.fieldOfView);
+        camera.setAspectRatio(glGraphics.getWidth()
+                / (float) glGraphics.getHeight());
+        //camera.getPosition().set(0, 1, 3);
+        camera.getPosition().set(v.transform.position.x, v.transform.position.y, v.transform.position.z);
+        camera.getLookAt().set(v.lookAt.x, v.lookAt.y, v.lookAt.z);
+        camera.setMatrices(glGraphics.getGL(), v.perspective);
+    }
 
 
 }
