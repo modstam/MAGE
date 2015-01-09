@@ -60,7 +60,7 @@ public class ObjectRenderer {
         setScale(drawable, glGraphics);
         setWorldRotation(drawable, glGraphics);
         setupVertices(drawable,vertices,glGraphics);
-        vertices.draw(GL10.GL_TRIANGLES, 0, 6 * 2 * 3);
+        vertices.draw(GL10.GL_TRIANGLES, 0, vertices.getNumVertices());
         disableVertices(drawable,vertices,glGraphics);
     }
 
