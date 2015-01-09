@@ -39,6 +39,14 @@ public class Drawable extends GameObject {
         material.setColors(color);
     }
 
+    public void setTexturePath(String texturePath) {
+        if(!texturePath.isEmpty())
+            hasTexture = true;
+        else
+            hasTexture = false;
+        this.texturePath = texturePath;
+    }
+
     public boolean hasColors(){
         return hasColors;
     }
