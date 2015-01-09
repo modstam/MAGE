@@ -103,7 +103,8 @@ public class ObjectRenderer {
     }
 
     public void setScale(Drawable d, GLGraphics glGraphics){
-        //TODO
+        GL10 gl = glGraphics.getGL();
+        gl.glScalef(d.transform.scale.x,d.transform.scale.y,d.transform.scale.z);
     }
 
     public void setupVertices(Drawable drawable,Vertices3 vertices, GLGraphics glGraphics){
