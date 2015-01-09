@@ -14,6 +14,7 @@ import se.tribestar.mage.world.light.DirectionalLight;
 public class SimpleCube extends Logic {
 
     float angle = 20f;
+    float scale = 1f;
     Cube cube;
 
     public SimpleCube(World world){
@@ -35,5 +36,9 @@ public class SimpleCube extends Logic {
     public void update(float deltaTime){
         cube.transform.rotation.x += angle*deltaTime;
         cube.transform.rotation.y += angle*deltaTime;
+        cube.transform.scale.x = (float) Math.sin(scale);
+        cube.transform.scale.y = (float) Math.sin(scale);
+        cube.transform.scale.z = (float) Math.sin(scale);
+        scale += deltaTime;
     }
 }
