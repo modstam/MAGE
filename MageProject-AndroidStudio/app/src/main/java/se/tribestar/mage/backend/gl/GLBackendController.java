@@ -60,6 +60,7 @@ public abstract class GLBackendController extends Activity implements BackendCon
     WakeLock wakeLock;
 
     HashMap<String, Vertices3> vertices;
+    HashMap<String, Texture> textures;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -77,7 +78,7 @@ public abstract class GLBackendController extends Activity implements BackendCon
         vertices = new HashMap<String, Vertices3>();
 
         glGraphics = new GLGraphics(glView);
-        renderer = new ObjectRenderer(glGraphics);
+        renderer = new ObjectRenderer(glGraphics, this);
 
         fileIO = new AndroidFileIO(this);
         audio = new AndroidAudio(this);
@@ -142,16 +143,16 @@ public abstract class GLBackendController extends Activity implements BackendCon
     }
 
     public void preRender(List<Light> lights, List<ViewPort> viewPorts){
-        renderer.prerender(lights, viewPorts, glGraphics);
+        renderer.prerender(lights, viewPorts);
     }
 
     public void postRender(List<Light> lights, List<ViewPort> viewPorts){
-        renderer.postrender(lights, viewPorts, glGraphics);
+        renderer.postrender(lights, viewPorts);
     }
 
     public void render(Drawable drawable) {
        if(drawable instanceof Cube){
-           renderer.draw(drawable, vertices.get((primitiveHasher("CUBE", drawable))), glGraphics);
+           renderer.draw(drawable, vertices.get((primitiveHasher("CUBE", drawable))));
        }
        else if(drawable instanceof Sphere){
 
@@ -166,42 +167,48 @@ public abstract class GLBackendController extends Activity implements BackendCon
     }
 
     /**
-     * Returns true if the object is successfully loaded, or was so already.
+     * Loads a drawable mesh and its texture into RAM.
      */
     @Override
-    public boolean loadObject(Drawable drawable) {
+    public void loadObject(Drawable drawable) {
         String hashKey = "";
         Vertices3 model = null;
+
+        loadTexture(drawable);
+
         if(drawable instanceof Cube){
             hashKey = primitiveHasher("CUBE", drawable);
             if(!vertices.containsKey(hashKey))
                 model = new CubeVertices(glGraphics, drawable.hasColors(), drawable.hasTexture(), drawable.hasNormals());
             else
-                return true;
+                return;
         }
         else if(drawable instanceof Sphere){
             hashKey = primitiveHasher("SPHERE", drawable);
             if(!vertices.containsKey(hashKey))
                 model = new SphereVertices(glGraphics, drawable.hasColors(), drawable.hasTexture(), drawable.hasNormals());
             else
-                return true;
+                return;
         }
         else if(drawable instanceof Mesh){
             hashKey = ((Mesh) drawable).filename;
             if(!vertices.containsKey(hashKey)){
-                try {
-                    model = ObjLoader.load(this, ((Mesh) drawable).filename);
-                } catch (RuntimeException e) {
-                    return false;
-                }
+                model = ObjLoader.load(this, ((Mesh) drawable).filename);
             } else {
-                return true;
+                return;
             }
         } else {
-            return false;
+            throw (new IllegalStateException("Invalid Drawable type."));
         }
         vertices.put(hashKey, model);
-        return true;
+    }
+
+    private void loadTexture(Drawable drawable) {
+        if(!drawable.hasTexture())
+            return;
+
+        if(!textures.containsKey(drawable.getTexturePath()))
+            textures.put(drawable.getTexturePath(), new Texture(this, drawable.getTexturePath()));
     }
 
     private String primitiveHasher(String primitiveName, Drawable drawable) {
