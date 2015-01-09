@@ -67,7 +67,8 @@ public class ObjectRenderer {
         setWorldPosition(drawable);
         setScale(drawable);
         setWorldRotation(drawable);
-        vertices.draw(GL10.GL_TRIANGLES, 0, vertices.getNumVertices());
+//        vertices.draw(GL10.GL_TRIANGLES, 0, vertices.getNumVertices());
+        vertices.draw(GL10.GL_TRIANGLES, 0, 36);
         gl.glPopMatrix();
         disableVertices(drawable,vertices);
     }
