@@ -10,25 +10,24 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-        <activity
-            android:name=".examples.LitCubeActivity"
-            android:label="@string/title_activity_lit_cube" >
 
-        </activity>
         <activity
-            android:name=".examples.LitCubeOnlyColorsActivity"
-            android:label="@string/title_activity_lit_cube_only_colors" >
-
-        </activity>
-        <activity
-            android:name=".examples.ColoredCubeTest">
+            android:name=".examples.MageExamplesStarter">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
+
+        <activity
+            android:name=".examples.ColoredCubeTest">
+        </activity>
+
+        <activity
+            android:name=".examples.TexturedCubeTest">
+        </activity>
+
     </application>
 
 </manifest>
