@@ -94,7 +94,7 @@ public class ObjectRenderer {
         float y = d.transform.position.y;
         float z = d.transform.position.z;
 
-        gl.glTranslatef(x,y,z);
+        gl.glTranslatef(x, y, z);
     }
 
     public void setWorldRotation(Drawable d){
@@ -110,9 +110,10 @@ public class ObjectRenderer {
 
     }
 
-    public void setScale(Drawable d, GLGraphics glGraphics){
+    public void setScale(Drawable d) {
         GL10 gl = glGraphics.getGL();
-        gl.glScalef(d.transform.scale.x,d.transform.scale.y,d.transform.scale.z);
+        gl.glScalef(d.transform.scale.x, d.transform.scale.y, d.transform.scale.z);
+    }
 
 
     public void setupVertices(Drawable drawable,Vertices3 vertices){
