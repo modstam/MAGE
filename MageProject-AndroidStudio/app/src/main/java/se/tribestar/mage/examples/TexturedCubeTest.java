@@ -11,7 +11,6 @@ public class TexturedCubeTest extends MageGame {
     @Override
     public void start() {
         //For overriding.
-        world = new World(this);
-        world.addLogic(new SimpleCube(world));
+        world.addLogic(new TexturedCube(world));
     }
 }
