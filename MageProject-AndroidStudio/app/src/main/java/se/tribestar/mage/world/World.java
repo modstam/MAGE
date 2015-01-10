@@ -98,10 +98,25 @@ public class World extends GLWorld{
         objects.add(object);
     }
 
+    /**
+     * Use this method to register a new logic-class to the world object.
+     * The world object will then call its update method every frame
+     * @param logic
+     */
     public void addLogic(Logic logic){
         logics.add(logic);
     }
 
+    /**
+     * Register a light to the world object.
+     * This light will then be rendered in the scene.
+     * There can only be a maximum of 8 lights active
+     * at any given time in the scene due to OpenGL ES 1.0 limitations,
+     * if you have more than 8 lights, only the first 8 will be displayed.
+     * Use removeLight method to remove unwanted lights.
+     * @param light
+     * @return Will return true or false depending on success
+     */
     public boolean addLight(Light light) {
         if(lights.size() >= 8){
             return false;
@@ -110,6 +125,11 @@ public class World extends GLWorld{
         return true;
     }
 
+    /**
+     * Remove a light from the scene.
+     * @param light
+     * @return Will return true or false depending on success
+     */
     public boolean removeLight(Light light){
         for(int i = 0; i<lights.size(); i++){
             if(light.id.compareTo(lights.get(i).id) == 0){
@@ -120,6 +140,16 @@ public class World extends GLWorld{
         return false;
     }
 
+    /**
+     * Register a camera to the world object.
+     * This camera will then be used as the viewport of the game.
+     * Note that this engine currently only supports one active camera
+     * at a time and will therefor pick the first registered camera
+     * that is set enabled as viewport, use the isEnabled member
+     * to switch a camera on or off.
+     * @param viewPort
+     * @return
+     */
     public boolean addCamera(ViewPort viewPort){
         viewPorts.add(viewPort);
         return true;
