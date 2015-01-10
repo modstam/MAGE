@@ -1,4 +1,4 @@
-package se.tribestar.mage.examples;
+package se.tribestar.mage.examples.ModelTest;
 
 import se.tribestar.mage.frontend.logic.Logic;
 import se.tribestar.mage.frontend.math.Vector3;

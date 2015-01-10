@@ -26,7 +26,7 @@ public class MageExamplesStarter extends ListActivity {
         String exampleName = examples[position];
         try {
             Class clazz = Class.forName("se.tribestar.mage.examples."
-                    + exampleName);
+                    + exampleName + "." + exampleName);
             Intent intent = new Intent(this, clazz);
             startActivity(intent);
         } catch (ClassNotFoundException e) {

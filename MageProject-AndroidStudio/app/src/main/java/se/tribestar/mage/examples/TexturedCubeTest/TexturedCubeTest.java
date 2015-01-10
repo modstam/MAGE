@@ -1,4 +1,4 @@
-package se.tribestar.mage.examples;
+package se.tribestar.mage.examples.TexturedCubeTest;
 
 import se.tribestar.mage.frontend.MageGame;
 

@@ -21,15 +21,15 @@
         </activity>
 
         <activity
-            android:name=".examples.ColoredCubeTest">
+            android:name=".examples.ColoredCubeTest.ColoredCubeTest">
         </activity>
 
         <activity
-            android:name=".examples.TexturedCubeTest">
+            android:name=".examples.TexturedCubeTest.TexturedCubeTest">
         </activity>
 
         <activity
-            android:name=".examples.ModelTest">
+            android:name=".examples.ModelTest.ModelTest">
         </activity>
 
     </application>
