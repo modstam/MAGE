@@ -10,10 +10,10 @@ public class ViewPort extends GameObject {
     public float width;
     public float height;
     public float depth;
-    public boolean isEnabled;
+    public boolean isEnabled; //Signifies whether a camera is active or not
     public float fieldOfView;
-    public Vector3 lookAt;
-    public boolean perspective;
+    public Vector3 lookAt; // A point in space where the camera will look at
+    public boolean perspective; //True = Perspective view, false = Orthographic view
 
     public ViewPort(){
         super();

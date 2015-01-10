@@ -9,12 +9,12 @@ import se.tribestar.mage.math.Transform;
  * Created by modstam on 2015-01-03.
  */
 public class GameObject {
-    public float deltaTime;
-    public Transform transform;
-    public World world;
-    public String name;
-    public UUID id;
-    public boolean isDestroyed;
+    public float deltaTime; // time since last frame
+    public Transform transform; // Every object in the scene must have a transform
+    public World world; //a pointer to the world
+    public String name; // the name of the object
+    public UUID id; // Every object has a unique ID
+    public boolean isDestroyed; //Signifies if this object is ready to be removed from the scene
 
     public GameObject(){
         Random r = new Random();
@@ -24,10 +24,19 @@ public class GameObject {
         isDestroyed = false;
     }
 
+    /**
+     * Update will be called once a frame by the world-object
+     * @param deltaTime
+     */
     public void update(float deltaTime){
 
     }
 
+    /**
+     * Calling this method will tell the world that the
+     * object is ready to be removed from the scene,
+     * this will happen on the next frame after the call
+     */
     public void destroy(){
         isDestroyed = true;
     }

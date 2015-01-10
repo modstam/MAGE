@@ -1,6 +1,9 @@
 package se.tribestar.mage.math;
 
 /**
+ * A transform is a representation of an objects
+ * physical presence in the scene, it contains a
+ * position, rotation and scale vector.
  * Created by modstam on 2015-01-03.
  */
 public class Transform {

@@ -3,6 +3,8 @@ package se.tribestar.mage.logic;
 import se.tribestar.mage.world.World;
 
 /**
+ * A Logic-class is called every frame by the world-object
+ * Extend this class and override the update-method to implement behaviour.
  * Created by modstam on 2015-01-03.
  */
 public class Logic {
@@ -13,6 +15,11 @@ public class Logic {
         this.world = world;
     }
 
+    /**
+     * This method will be called once every frame by the world object.
+     * Extend this class and implement your game update-dependant logic in this method
+     * @param deltaTime time since the last frame
+     */
     public void update(float deltaTime){
 
     }
