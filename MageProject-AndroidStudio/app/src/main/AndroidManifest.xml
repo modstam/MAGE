@@ -28,6 +28,10 @@
             android:name=".examples.TexturedCubeTest">
         </activity>
 
+        <activity
+            android:name=".examples.ModelTest">
+        </activity>
+
     </application>
 
 </manifest>

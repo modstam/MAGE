@@ -11,7 +11,7 @@ import android.widget.ListView;
  * Created by Andreas Stjerndal on 09-Jan-2015.
  */
 public class MageExamplesStarter extends ListActivity {
-    static final String examples[] = { "ColoredCubeTest", "TexturedCubeTest"};
+    static final String examples[] = { "ColoredCubeTest", "TexturedCubeTest", "ModelTest"};
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -19,7 +19,7 @@ public class TexturedCube extends Logic {
         super(world);
 
         cube = new Cube();
-        cube.transform.position = new Vector3(0,0,0);
+        cube.transform.position = new Vector3(0,0,-5);
         cube.transform.rotation = new Vector3(0,0,0);
         cube.setTexturePath("crate.png");
         world.addObject(cube);
