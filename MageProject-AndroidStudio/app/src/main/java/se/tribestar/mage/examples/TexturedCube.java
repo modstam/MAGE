@@ -19,6 +19,8 @@ public class TexturedCube extends Logic {
     public TexturedCube(World world){
         super(world);
 
+        //See the "SimpleCube.java" class for additional info
+
         Camera camera = new Camera();
         camera.transform.position = new Vector3(0,1,3);
         camera.lookAt = new Vector3(0,0,0);
@@ -27,6 +29,7 @@ public class TexturedCube extends Logic {
         cube = new Cube();
         cube.transform.position = new Vector3(0,0,-5);
         cube.transform.rotation = new Vector3(0,0,0);
+        //We tell the renderer that we want to use this texture file to texture this object
         cube.setTexturePath("crate.png");
         world.addObject(cube);
 
