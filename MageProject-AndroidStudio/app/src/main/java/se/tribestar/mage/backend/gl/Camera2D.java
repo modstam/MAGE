@@ -5,6 +5,7 @@ import javax.microedition.khronos.opengles.GL10;
 import se.tribestar.mage.math.Vector2;
 
 /**
+ * A camera for 2D games.
  * Created by Andreas Stjerndal on 05-Jan-2015.
  */
 public class Camera2D {

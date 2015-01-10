@@ -14,7 +14,7 @@ import se.tribestar.mage.world.drawable.visuals.Color;
 
 /**
  * A vertices class with potential to use vertex normals.
- *
+ * Therefore better for 3D.
  * Created by Andreas Stjerndal on 06-Jan-2015.
  */
 public class Vertices3 {
@@ -75,6 +75,9 @@ public class Vertices3 {
         this.indices.flip();
     }
 
+    /**
+     * Setup the correct GL-states, depending on color, texture etc.
+     */
     public void bind() {
 
         GL10 gl = glGraphics.getGL();
@@ -107,6 +110,9 @@ public class Vertices3 {
         }
     }
 
+    /**
+     * Sned the vertices to openGL to be rendered.
+     */
     public void draw(int primitiveType, int offset, int numVertices) {
         GL10 gl = glGraphics.getGL();
 
@@ -119,6 +125,9 @@ public class Vertices3 {
         }
     }
 
+    /**
+     * Disable enabled GLstates.
+     */
     public void unbind() {
         GL10 gl = glGraphics.getGL();
         if (hasTexCoords)

@@ -13,6 +13,7 @@ import se.tribestar.mage.world.light.*;
 import se.tribestar.mage.world.viewport.ViewPort;
 
 /**
+ * Class for rendering objects and preparing OpenGL
  * Created by modstam on 2015-01-06.
  */
 public class ObjectRenderer {
@@ -31,6 +32,9 @@ public class ObjectRenderer {
         camera.getLookAt().set(0, 0, 0);
     }
 
+    /**
+     * Prepares OpenGL, clears the frame, setup lights etc.
+     */
     public void prerender(List<Light> lights, List<ViewPort> viewPorts){
         GL10 gl = glGraphics.getGL();
 
@@ -57,6 +61,9 @@ public class ObjectRenderer {
         }
     }
 
+    /**
+     * Render a drawable object.
+     */
     public void draw(Drawable drawable, Vertices3 vertices){
         GL10 gl = glGraphics.getGL();
         if(drawable.hasTexture())
@@ -67,8 +74,8 @@ public class ObjectRenderer {
         setWorldPosition(drawable);
         setWorldRotation(drawable);
         setScale(drawable);
-//        vertices.draw(GL10.GL_TRIANGLES, 0, vertices.getNumVertices());
-        vertices.draw(GL10.GL_TRIANGLES, 0, 36);
+        vertices.draw(GL10.GL_TRIANGLES, 0, vertices.getNumVertices());
+//        vertices.draw(GL10.GL_TRIANGLES, 0, 36);
         gl.glPopMatrix();
         disableVertices(drawable,vertices);
     }

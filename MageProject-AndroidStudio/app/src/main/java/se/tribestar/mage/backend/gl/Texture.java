@@ -12,6 +12,7 @@ import javax.microedition.khronos.opengles.GL10;
 import se.tribestar.mage.backend.FileIO;
 
 /**
+ * Handling a texture.
  * Created by Andreas Stjerndal on 04-Jan-2015.
  */
 public class Texture {
@@ -31,6 +32,9 @@ public class Texture {
         load();
     }
 
+    /**
+     * Loading a texture from file.
+     */
     private void load() {
         GL10 gl = glGraphics.getGL();
         int[] textureIds = new int[1];
@@ -62,6 +66,9 @@ public class Texture {
         glGraphics.getGL().glBindTexture(GL10.GL_TEXTURE_2D, 0);
     }
 
+    /**
+     * Set filters for mini & magnifying the texture.
+     */
     public void setFilters(int minFilter, int magFilter) {
         this.minFilter = minFilter;
         this.magFilter = magFilter;

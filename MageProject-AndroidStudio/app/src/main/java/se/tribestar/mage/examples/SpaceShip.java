@@ -31,7 +31,8 @@ public class SpaceShip extends Logic {
         mesh.transform.position = new Vector3(0,0,-5);
         mesh.transform.rotation = new Vector3(0,0,0);
         mesh.setColor(Color.ORANGE);
-        mesh.filename = "cube.obj";
+        mesh.setTexturePath("ship.png");
+        mesh.filename = "ship.obj";
         world.addObject(mesh);
 
         DirectionalLight dLight = new DirectionalLight();

@@ -4,6 +4,7 @@ import se.tribestar.mage.math.Vector3;
 import se.tribestar.mage.world.drawable.visuals.Color;
 
 /**
+ * Class that creates vertices representing a cube.
  * Created by Andreas Stjerndal on 06-Jan-2015.
  */
 public class CubeVertices extends Vertices3{
@@ -15,41 +16,17 @@ public class CubeVertices extends Vertices3{
         super(glGraphics,maxVertices,maxIndices,hasColor,hasTexCoords,hasNormals);
     }
 
+    /**
+     * Sets up everything
+     */
     public CubeVertices(GLGraphics glGraphics, boolean hasColor, boolean hasTexCoords, boolean hasNormals){
 
-        //super(glGraphics,36,42,hasColor,hasTexCoords,hasNormals);
-
-        color = new Color(1,0,0,1);
-
-/*        float[] vertices = {
-                -0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha,  0, 1, 0, 0, 1,
-                0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha, 1, 1, 0, 0, 1,
-                0.5f, 0.5f, 0.5f, color.x, color.y, color.z, alpha, 1, 0, 0, 0, 1,
-                -0.5f, 0.5f, 0.5f, color.x, color.y, color.z, alpha, 0, 0, 0, 0, 1,
-                0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha, 0, 1, 1, 0, 0,
-                0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha, 1, 1, 1, 0, 0,
-                0.5f, 0.5f, -0.5f, color.x, color.y, color.z, alpha, 1, 0, 1, 0, 0,
-                0.5f, 0.5f, 0.5f, color.x, color.y, color.z, alpha, 0, 0, 1, 0, 0,
-                0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha, 0, 1, 0, 0, -1,
-                -0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha, 1, 1, 0, 0, -1,
-                -0.5f, 0.5f, -0.5f, color.x, color.y, color.z, alpha, 1, 0, 0, 0, -1,
-                0.5f, 0.5f, -0.5f, color.x, color.y, color.z, alpha, 0, 0, 0, 0, -1,
-                -0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha, 0, 1, -1, 0, 0,
-                -0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha, 1, 1, -1, 0, 0,
-                -0.5f, 0.5f, 0.5f, color.x, color.y, color.z, alpha, 1, 0, -1, 0, 0,
-                -0.5f, 0.5f, -0.5f, color.x, color.y, color.z, alpha, 0, 0, -1, 0, 0,
-                -0.5f, 0.5f, 0.5f, color.x, color.y, color.z, alpha, 0, 1, 0, 1, 0,
-                0.5f, 0.5f, 0.5f, color.x, color.y, color.z, alpha, 1, 1, 0, 1, 0,
-                0.5f, 0.5f, -0.5f, color.x, color.y, color.z, alpha, 1, 0, 0, 1, 0,
-                -0.5f, 0.5f, -0.5f, color.x, color.y, color.z, alpha, 0, 0, 0, 1, 0,
-                -0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha, 0, 1, 0, -1, 0,
-                0.5f, -0.5f, -0.5f, color.x, color.y, color.z, alpha, 1, 1, 0, -1, 0,
-                0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha, 1, 0, 0, -1, 0,
-                -0.5f, -0.5f, 0.5f, color.x, color.y, color.z, alpha, 0, 0, 0, -1, 0 };*/
+        color = new Color(1,1,1,1);
 
         float[] vertices = getVertices(hasColor, hasTexCoords, hasNormals);
         setup(glGraphics,NUM_VERTICES, NUM_INDICES, hasColor, hasTexCoords, hasNormals);
 
+        //Using indice-rendering.
         short[] indices = {
                 0, 1, 2, 2, 3, 0,
                 4, 5, 6, 6, 7, 4,
@@ -66,6 +43,9 @@ public class CubeVertices extends Vertices3{
 
     }
 
+    /**
+     * Depending on hasColor hasTexCoords hasNormals, choose which vertices to setup.
+     */
     private float[] getVertices(boolean hasColor, boolean hasTexCoords, boolean hasNormals) {
         if(hasColor) {
             if(hasTexCoords) {

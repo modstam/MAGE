@@ -5,6 +5,7 @@ import javax.microedition.khronos.opengles.GL10;
 import android.opengl.GLSurfaceView;
 
 /**
+ * Keeps track of the GLSurfaceView and GL10 instance.
  * Created by Andreas Stjerndal on 04-Jan-2015.
  */
 public class GLGraphics {

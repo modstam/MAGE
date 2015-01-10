@@ -34,6 +34,8 @@ import se.tribestar.mage.world.light.Light;
 import se.tribestar.mage.world.viewport.ViewPort;
 
 /**
+ * Ties together the whole backend engine.
+ *
  * Created by Andreas Stjerndal on 04-Jan-2015.
  */
 public abstract class GLBackendController extends Activity implements BackendController, Renderer {
@@ -61,6 +63,9 @@ public abstract class GLBackendController extends Activity implements BackendCon
     HashMap<String, Vertices3> vertices;
     HashMap<String, Texture> textures;
 
+    /**
+     * Initializes the fields and surfaceview.
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -110,7 +115,7 @@ public abstract class GLBackendController extends Activity implements BackendCon
     }
 
     /**
-     * Called at startup
+     * Called at startup, a user of the engine should override this method.
      */
     public void start() {
         //For overriding.
@@ -127,6 +132,7 @@ public abstract class GLBackendController extends Activity implements BackendCon
             float deltaTime = (System.nanoTime()-startTime) / 1000000000.0f;
             startTime = System.nanoTime();
 
+            //call the worlds update and draw methods.
             world.update(deltaTime);
             world.draw(deltaTime);
         }
@@ -149,15 +155,26 @@ public abstract class GLBackendController extends Activity implements BackendCon
         }
     }
 
+    /**
+     * Prepare the renderer and OpenGL.
+     */
     public void preRender(List<Light> lights, List<ViewPort> viewPorts){
         renderer.prerender(lights, viewPorts);
     }
 
+    /**
+     * Called after all the objects of a frame is rendered.
+     */
     public void postRender(List<Light> lights, List<ViewPort> viewPorts){
         renderer.postrender(lights, viewPorts);
     }
 
+
+    /**
+     * Render the Drawable object.
+     */
     public void render(Drawable drawable) {
+        //Get the correct vertices.
        if(drawable instanceof Cube){
            renderer.draw(drawable, vertices.get((primitiveHasher("CUBE", drawable))));
        }
@@ -168,7 +185,7 @@ public abstract class GLBackendController extends Activity implements BackendCon
 
        }
        else if(drawable instanceof Mesh){
-
+           renderer.draw(drawable, vertices.get(((Mesh) drawable).filename));
        }
 
     }
@@ -190,13 +207,14 @@ public abstract class GLBackendController extends Activity implements BackendCon
             else
                 return;
         }
-        else if(drawable instanceof Sphere){
-            hashKey = primitiveHasher("SPHERE", drawable);
-            if(!vertices.containsKey(hashKey))
-                model = new SphereVertices(glGraphics, drawable.hasColors(), drawable.hasTexture(), drawable.hasNormals());
-            else
-                return;
-        }
+        //Spheres not implemented.
+//        else if(drawable instanceof Sphere){
+//            hashKey = primitiveHasher("SPHERE", drawable);
+//            if(!vertices.containsKey(hashKey))
+//                model = new SphereVertices(glGraphics, drawable.hasColors(), drawable.hasTexture(), drawable.hasNormals());
+//            else
+//                return;
+//        }
         else if(drawable instanceof Mesh){
             hashKey = ((Mesh) drawable).filename;
             if(!vertices.containsKey(hashKey)){
@@ -210,6 +228,9 @@ public abstract class GLBackendController extends Activity implements BackendCon
         vertices.put(hashKey, model);
     }
 
+    /**
+     * Load a texture into RAM
+     */
     private void loadTexture(Drawable drawable) {
         if(!drawable.hasTexture())
             return;
@@ -218,6 +239,9 @@ public abstract class GLBackendController extends Activity implements BackendCon
             textures.put(drawable.getTexturePath(), new Texture(this, drawable.getTexturePath()));
     }
 
+    /**
+     * Generating the HashMap key for a primitive object.
+     */
     private String primitiveHasher(String primitiveName, Drawable drawable) {
         return "\n" + primitiveName + "-" + drawable.hasColors() + "-" + drawable.hasTexture() + "-" + drawable.hasNormals();
     }
@@ -262,6 +286,9 @@ public abstract class GLBackendController extends Activity implements BackendCon
         return audio;
     }
 
+    /**
+     * Connect a world to the backend
+     */
     public void setWorld(GLWorld newWorld) {
         if (newWorld == null)
             throw new IllegalArgumentException("Screen must not be null");

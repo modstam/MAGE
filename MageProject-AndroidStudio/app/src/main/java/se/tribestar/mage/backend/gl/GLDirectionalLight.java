@@ -3,6 +3,7 @@ package se.tribestar.mage.backend.gl;
 import javax.microedition.khronos.opengles.GL10;
 
 /**
+ * Representing a directional light.
  * Created by Andreas Stjerndal on 06-Jan-2015.
  */
 public class GLDirectionalLight {

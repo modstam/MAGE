@@ -9,6 +9,7 @@ import java.nio.ShortBuffer;
 import javax.microedition.khronos.opengles.GL10;
 
 /**
+ * Handling OpenGL Vertices
  * Created by Andreas Stjerndal on 04-Jan-2015.
  */
 public class Vertices {
