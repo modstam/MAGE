@@ -11,6 +11,7 @@ import se.tribestar.mage.backend.gl.GLBackendController;
 import se.tribestar.mage.backend.gl.GLGraphics;
 
 /**
+ * Simple triangle test.
  * Created by Andreas Stjerndal on 04-Jan-2015.
  */
 public class TriangleTest {

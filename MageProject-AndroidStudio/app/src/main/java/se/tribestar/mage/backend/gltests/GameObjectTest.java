@@ -3,6 +3,7 @@ package se.tribestar.mage.backend.gltests;
 import java.util.Random;
 
 /**
+ * Representing an example Game Object.
  * Created by Andreas Stjerndal on 05-Jan-2015.
  */
 public class GameObjectTest {

@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 /**
+ * Interface for file input/output.
  * Created by Andreas Stjerndal on 03-Jan-2015.
  */
 public interface FileIO {

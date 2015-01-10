@@ -1,6 +1,7 @@
 package se.tribestar.mage.backend;
 
 /**
+ * Interface for 2D graphics.
  * Created by Andreas Stjerndal on 03-Jan-2015.
  */
 public interface Graphics {

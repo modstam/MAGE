@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Generic object pooling.
  * Created by Andreas Stjerndal on 04-Jan-2015.
  */
 public class Pool<T> {

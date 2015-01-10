@@ -3,6 +3,7 @@ package se.tribestar.mage.backend;
 import java.util.List;
 
 /**
+ * Interface for user input.
  * Created by Andreas Stjerndal on 03-Jan-2015.
  */
 public interface Input {
@@ -27,6 +28,9 @@ public interface Input {
         }
     }
 
+    /**
+     * Class representing a touchevent.
+     */
     public static class TouchEvent {
         public static final int TOUCH_DOWN = 0;
         public static final int TOUCH_UP = 1;
