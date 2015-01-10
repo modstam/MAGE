@@ -5,6 +5,8 @@ import android.media.SoundPool;
 import se.tribestar.mage.backend.Sound;
 
 /**
+ * Class representing a sound resource.
+ *
  * Created by Andreas Stjerndal on 04-Jan-2015.
  */
 public class AndroidSound implements Sound {

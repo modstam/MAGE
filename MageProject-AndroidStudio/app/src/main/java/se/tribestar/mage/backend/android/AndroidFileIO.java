@@ -16,6 +16,8 @@ import android.preference.PreferenceManager;
 import se.tribestar.mage.backend.FileIO;
 
 /**
+ * Handling file input and output on Android.
+ *
  * Created by Andreas Stjerndal on 03-Jan-2015.
  */
 public class AndroidFileIO implements FileIO {

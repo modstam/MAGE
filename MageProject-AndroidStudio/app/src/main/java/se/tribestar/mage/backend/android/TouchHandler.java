@@ -7,6 +7,7 @@ import java.util.List;
 import se.tribestar.mage.backend.Input;
 
 /**
+ * Interface for handling both multi and single touch input.
  * Created by Andreas Stjerndal on 04-Jan-2015.
  */
 public interface TouchHandler extends View.OnTouchListener {

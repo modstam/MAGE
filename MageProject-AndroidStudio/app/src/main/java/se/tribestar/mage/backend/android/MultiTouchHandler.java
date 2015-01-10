@@ -11,6 +11,7 @@ import se.tribestar.mage.backend.Input;
 import se.tribestar.mage.backend.Pool;
 
 /**
+ * Handling multitouch input.
  * Created by Andreas Stjerndal on 04-Jan-2015.
  */
 @TargetApi(5)

@@ -13,6 +13,7 @@ import static se.tribestar.mage.backend.Input.TouchEvent;
 import static se.tribestar.mage.backend.Pool.PoolObjectFactory;
 
 /**
+ * Handling single touch input.
  * Created by Andreas Stjerndal on 04-Jan-2015.
  */
 public class SingleTouchHandler implements TouchHandler {

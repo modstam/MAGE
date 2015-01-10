@@ -7,6 +7,8 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 
 /**
+ * Handling Android Accelerometer.
+ *
  * Created by Andreas Stjerndal on 04-Jan-2015.
  */
 public class AccelerometerHandler implements SensorEventListener {

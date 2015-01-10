@@ -9,6 +9,7 @@ import android.view.View;
 import se.tribestar.mage.backend.Input;
 
 /**
+ * Handling user input on Android.
  * Created by Andreas Stjerndal on 03-Jan-2015.
  */
 public class AndroidInput implements Input {

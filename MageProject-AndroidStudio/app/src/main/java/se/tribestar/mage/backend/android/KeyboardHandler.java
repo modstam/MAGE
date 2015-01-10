@@ -10,6 +10,7 @@ import se.tribestar.mage.backend.Input.KeyEvent;
 import se.tribestar.mage.backend.Pool;
 
 /**
+ * Handling Android user key input.
  * Created by Andreas Stjerndal on 04-Jan-2015.
  */
 public class KeyboardHandler implements OnKeyListener {
