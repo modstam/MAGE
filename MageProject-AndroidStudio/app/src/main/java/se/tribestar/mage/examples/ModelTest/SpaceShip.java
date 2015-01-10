@@ -33,7 +33,7 @@ public class SpaceShip extends Logic {
         mesh = new Mesh();
         mesh.transform.position = new Vector3(0,0,0);
         mesh.transform.rotation = new Vector3(0,0,0);
-        mesh.setColor(Color.ORANGE);
+        mesh.setColor(Color.WHITE);
         mesh.setTexturePath("ship.png");
         mesh.filename = "ship.obj";
         world.addObject(mesh);
