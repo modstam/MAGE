@@ -1,9 +1,9 @@
-package se.tribestar.mage.world;
+package se.tribestar.mage.frontend.world;
 
 import java.util.Random;
 import java.util.UUID;
 
-import se.tribestar.mage.math.Transform;
+import se.tribestar.mage.frontend.math.Transform;
 
 /**
  * Created by modstam on 2015-01-03.

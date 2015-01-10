@@ -4,8 +4,7 @@ import android.os.Bundle;
 
 import se.tribestar.mage.backend.gl.GLBackendController;
 import se.tribestar.mage.backend.gl.GLWorld;
-import se.tribestar.mage.examples.SimpleCube;
-import se.tribestar.mage.world.World;
+import se.tribestar.mage.frontend.world.World;
 
 /**
  * Users of the engine expands this class with the main class of their game.

@@ -1,8 +1,7 @@
 package se.tribestar.mage.backend;
 
 import se.tribestar.mage.backend.gl.GLWorld;
-import se.tribestar.mage.backend.gl.Vertices3;
-import se.tribestar.mage.world.drawable.Drawable;
+import se.tribestar.mage.frontend.world.drawable.Drawable;
 
 /**
  * Interface for a backend controller.

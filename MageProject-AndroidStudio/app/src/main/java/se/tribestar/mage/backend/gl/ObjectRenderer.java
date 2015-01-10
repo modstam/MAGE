@@ -1,16 +1,12 @@
 package se.tribestar.mage.backend.gl;
 
-import android.opengl.GLU;
-import android.util.Log;
-
 import java.util.List;
 
 import javax.microedition.khronos.opengles.GL10;
 
-import se.tribestar.mage.backend.BackendController;
-import se.tribestar.mage.world.drawable.Drawable;
-import se.tribestar.mage.world.light.*;
-import se.tribestar.mage.world.viewport.ViewPort;
+import se.tribestar.mage.frontend.world.drawable.Drawable;
+import se.tribestar.mage.frontend.world.light.*;
+import se.tribestar.mage.frontend.world.viewport.ViewPort;
 
 /**
  * Class for rendering objects and preparing OpenGL

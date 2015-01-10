@@ -1,4 +1,4 @@
-package se.tribestar.mage.world.drawable;
+package se.tribestar.mage.frontend.world.drawable;
 
 /**
  * Created by modstam on 2015-01-03.

@@ -1,7 +1,7 @@
-package se.tribestar.mage.world.viewport;
+package se.tribestar.mage.frontend.world.viewport;
 
-import se.tribestar.mage.math.Vector3;
-import se.tribestar.mage.world.GameObject;
+import se.tribestar.mage.frontend.math.Vector3;
+import se.tribestar.mage.frontend.world.GameObject;
 
 /**
  * Created by modstam on 2015-01-03.

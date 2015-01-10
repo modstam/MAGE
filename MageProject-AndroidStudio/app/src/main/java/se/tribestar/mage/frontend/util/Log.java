@@ -1,4 +1,4 @@
-package se.tribestar.mage.util;
+package se.tribestar.mage.frontend.util;
 
 /**
  * Created by Andreas Stjerndal on 09-Jan-2015.

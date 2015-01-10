@@ -4,7 +4,7 @@ import android.opengl.GLU;
 
 import javax.microedition.khronos.opengles.GL10;
 
-import se.tribestar.mage.math.Vector3;
+import se.tribestar.mage.frontend.math.Vector3;
 
 /**
  * Look at / 3rd person camera

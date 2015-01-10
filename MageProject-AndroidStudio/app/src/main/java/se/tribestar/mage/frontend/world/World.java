@@ -1,22 +1,15 @@
-package se.tribestar.mage.world;
+package se.tribestar.mage.frontend.world;
 
-import java.lang.reflect.Array;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 import se.tribestar.mage.backend.gl.GLBackendController;
 import se.tribestar.mage.backend.gl.GLWorld;
-import se.tribestar.mage.backend.gl.Vertices;
-import se.tribestar.mage.backend.gl.Vertices3;
-import se.tribestar.mage.logic.Logic;
-import se.tribestar.mage.world.drawable.Cube;
-import se.tribestar.mage.world.drawable.Drawable;
-import se.tribestar.mage.world.drawable.Mesh;
-import se.tribestar.mage.world.drawable.Sphere;
-import se.tribestar.mage.world.light.Light;
-import se.tribestar.mage.world.viewport.ViewPort;
+import se.tribestar.mage.frontend.logic.Logic;
+import se.tribestar.mage.frontend.world.drawable.Drawable;
+import se.tribestar.mage.frontend.world.light.Light;
+import se.tribestar.mage.frontend.world.viewport.ViewPort;
 
 /**
  * Created by modstam on 2015-01-03.

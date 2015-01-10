@@ -1,10 +1,8 @@
-package se.tribestar.mage.world.drawable;
+package se.tribestar.mage.frontend.world.drawable;
 
-import se.tribestar.mage.backend.gl.Texture;
-import se.tribestar.mage.backend.gl.Vertices;
-import se.tribestar.mage.world.GameObject;
-import se.tribestar.mage.world.drawable.visuals.Color;
-import se.tribestar.mage.world.drawable.visuals.Material;
+import se.tribestar.mage.frontend.world.GameObject;
+import se.tribestar.mage.frontend.world.drawable.visuals.Color;
+import se.tribestar.mage.frontend.world.drawable.visuals.Material;
 
 /**
  * A drawable is an object that can be drawn (rendered) in the scene.

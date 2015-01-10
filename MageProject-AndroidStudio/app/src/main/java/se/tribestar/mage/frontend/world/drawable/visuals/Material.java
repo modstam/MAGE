@@ -1,4 +1,4 @@
-package se.tribestar.mage.world.drawable.visuals;
+package se.tribestar.mage.frontend.world.drawable.visuals;
 
 import javax.microedition.khronos.opengles.GL10;
 

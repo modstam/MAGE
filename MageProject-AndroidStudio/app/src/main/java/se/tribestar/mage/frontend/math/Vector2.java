@@ -1,4 +1,4 @@
-package se.tribestar.mage.math;
+package se.tribestar.mage.frontend.math;
 
 /**
  * Created by modstam on 2015-01-03.

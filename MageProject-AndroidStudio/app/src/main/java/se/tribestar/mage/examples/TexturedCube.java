@@ -1,12 +1,12 @@
 package se.tribestar.mage.examples;
 
-import se.tribestar.mage.logic.Logic;
-import se.tribestar.mage.math.Vector3;
-import se.tribestar.mage.world.World;
-import se.tribestar.mage.world.drawable.Cube;
-import se.tribestar.mage.world.drawable.visuals.Color;
-import se.tribestar.mage.world.light.DirectionalLight;
-import se.tribestar.mage.world.viewport.Camera;
+import se.tribestar.mage.frontend.logic.Logic;
+import se.tribestar.mage.frontend.math.Vector3;
+import se.tribestar.mage.frontend.world.World;
+import se.tribestar.mage.frontend.world.drawable.Cube;
+import se.tribestar.mage.frontend.world.drawable.visuals.Color;
+import se.tribestar.mage.frontend.world.light.DirectionalLight;
+import se.tribestar.mage.frontend.world.viewport.Camera;
 
 /**
  * Created by modstam on 2015-01-07.

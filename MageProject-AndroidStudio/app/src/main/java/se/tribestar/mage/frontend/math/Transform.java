@@ -1,4 +1,4 @@
-package se.tribestar.mage.math;
+package se.tribestar.mage.frontend.math;
 
 /**
  * A transform is a representation of an objects

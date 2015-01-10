@@ -1,7 +1,5 @@
 package se.tribestar.mage.backend.gl;
 
-import android.util.Log;
-
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.IntBuffer;
@@ -9,8 +7,7 @@ import java.nio.ShortBuffer;
 
 import javax.microedition.khronos.opengles.GL10;
 
-import se.tribestar.mage.math.Vector3;
-import se.tribestar.mage.world.drawable.visuals.Color;
+import se.tribestar.mage.frontend.world.drawable.visuals.Color;
 
 /**
  * A vertices class with potential to use vertex normals.

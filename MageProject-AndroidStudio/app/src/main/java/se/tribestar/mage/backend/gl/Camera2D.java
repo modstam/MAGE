@@ -2,7 +2,7 @@ package se.tribestar.mage.backend.gl;
 
 import javax.microedition.khronos.opengles.GL10;
 
-import se.tribestar.mage.math.Vector2;
+import se.tribestar.mage.frontend.math.Vector2;
 
 /**
  * A camera for 2D games.

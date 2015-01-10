@@ -1,6 +1,6 @@
-package se.tribestar.mage.logic;
+package se.tribestar.mage.frontend.logic;
 
-import se.tribestar.mage.world.World;
+import se.tribestar.mage.frontend.world.World;
 
 /**
  * A Logic-class is called every frame by the world-object

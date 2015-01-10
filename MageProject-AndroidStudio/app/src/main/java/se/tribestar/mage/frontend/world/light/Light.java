@@ -1,8 +1,7 @@
-package se.tribestar.mage.world.light;
+package se.tribestar.mage.frontend.world.light;
 
-import se.tribestar.mage.math.Vector3;
-import se.tribestar.mage.world.GameObject;
-import se.tribestar.mage.world.drawable.visuals.Color;
+import se.tribestar.mage.frontend.world.GameObject;
+import se.tribestar.mage.frontend.world.drawable.visuals.Color;
 
 /**
  * Created by modstam on 2015-01-03.

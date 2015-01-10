@@ -1,6 +1,6 @@
-package se.tribestar.mage.world.audio;
+package se.tribestar.mage.frontend.world.audio;
 
-import se.tribestar.mage.world.GameObject;
+import se.tribestar.mage.frontend.world.GameObject;
 
 /**
  * Created by modstam on 2015-01-03.

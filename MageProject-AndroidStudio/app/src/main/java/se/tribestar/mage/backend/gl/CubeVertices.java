@@ -1,7 +1,6 @@
 package se.tribestar.mage.backend.gl;
 
-import se.tribestar.mage.math.Vector3;
-import se.tribestar.mage.world.drawable.visuals.Color;
+import se.tribestar.mage.frontend.world.drawable.visuals.Color;
 
 /**
  * Class that creates vertices representing a cube.

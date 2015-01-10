@@ -1,6 +1,6 @@
-package se.tribestar.mage.world.drawable;
+package se.tribestar.mage.frontend.world.drawable;
 
-import se.tribestar.mage.math.Vector2;
+import se.tribestar.mage.frontend.math.Vector2;
 
 /**
  * Created by modstam on 2015-01-03.

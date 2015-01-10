@@ -24,14 +24,13 @@ import se.tribestar.mage.backend.Input;
 import se.tribestar.mage.backend.android.AndroidAudio;
 import se.tribestar.mage.backend.android.AndroidFileIO;
 import se.tribestar.mage.backend.android.AndroidInput;
-import se.tribestar.mage.util.Log;
-import se.tribestar.mage.world.drawable.Cube;
-import se.tribestar.mage.world.drawable.Drawable;
-import se.tribestar.mage.world.drawable.Mesh;
-import se.tribestar.mage.world.drawable.Sphere;
-import se.tribestar.mage.world.drawable.Sprite;
-import se.tribestar.mage.world.light.Light;
-import se.tribestar.mage.world.viewport.ViewPort;
+import se.tribestar.mage.frontend.world.drawable.Cube;
+import se.tribestar.mage.frontend.world.drawable.Drawable;
+import se.tribestar.mage.frontend.world.drawable.Mesh;
+import se.tribestar.mage.frontend.world.drawable.Sphere;
+import se.tribestar.mage.frontend.world.drawable.Sprite;
+import se.tribestar.mage.frontend.world.light.Light;
+import se.tribestar.mage.frontend.world.viewport.ViewPort;
 
 /**
  * Ties together the whole backend engine.

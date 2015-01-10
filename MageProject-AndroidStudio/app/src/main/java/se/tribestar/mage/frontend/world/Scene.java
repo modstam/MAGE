@@ -1,4 +1,4 @@
-package se.tribestar.mage.world;
+package se.tribestar.mage.frontend.world;
 
 /**
  * Created by modstam on 2015-01-03.

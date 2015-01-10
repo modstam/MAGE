@@ -5,7 +5,7 @@ import android.opengl.Matrix;
 
 import javax.microedition.khronos.opengles.GL10;
 
-import se.tribestar.mage.math.Vector3;
+import se.tribestar.mage.frontend.math.Vector3;
 
 /**
  * Euler/FPS Camera
