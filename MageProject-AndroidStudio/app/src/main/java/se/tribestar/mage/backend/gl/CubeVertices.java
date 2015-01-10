@@ -287,6 +287,11 @@ public class CubeVertices extends Vertices3{
         return vertices;
     }
 
+    @Override
+    public int getNumVertices(){
+        return 36;
+    }
+
 
 
 }
