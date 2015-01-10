@@ -31,7 +31,7 @@ public class SpaceShip extends Logic {
         world.addCamera(camera);
 
         mesh = new Mesh();
-        mesh.transform.position = new Vector3(0,0,-5);
+        mesh.transform.position = new Vector3(0,0,0);
         mesh.transform.rotation = new Vector3(0,0,0);
         mesh.setColor(Color.ORANGE);
         mesh.setTexturePath("ship.png");
