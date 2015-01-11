@@ -10,6 +10,7 @@ import java.io.InputStream;
 import javax.microedition.khronos.opengles.GL10;
 
 import se.tribestar.mage.backend.FileIO;
+import se.tribestar.mage.frontend.util.Log;
 
 /**
  * Handling a texture.
@@ -36,6 +37,7 @@ public class Texture {
      * Loading a texture from file.
      */
     private void load() {
+        Log.log("Loading " + fileName);
         GL10 gl = glGraphics.getGL();
         int[] textureIds = new int[1];
         gl.glGenTextures(1, textureIds, 0);

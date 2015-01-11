@@ -94,25 +94,30 @@ public abstract class GLBackendController extends Activity implements BackendCon
 
     @Override
     public void onResume() {
+        Log.log("Resume");
         super.onResume();
-        reloadTextures();
         glView.onResume();
         wakeLock.acquire();
     }
 
     public void onSurfaceCreated(GL10 gl, EGLConfig config) {
+        Log.log("Surface created");
         glGraphics.setGL(gl);
+        reloadTextures();
 
         synchronized(stateChanged) {
-            if(state == GLGameState.Initialized)
+            if(state == GLGameState.Initialized) {
                 world = getWorld();
-            world.resume();
-            startTime = System.nanoTime();
-            if(state == GLGameState.Initialized)
+                state = GLGameState.Running;
+                world.resume();
+                startTime = System.nanoTime();
                 start();
-            else
+            } else {
+                state = GLGameState.Running;
+                world.resume();
+                startTime = System.nanoTime();
                 resume();
-            state = GLGameState.Running;
+            }
         }
     }
 
@@ -281,11 +286,14 @@ public abstract class GLBackendController extends Activity implements BackendCon
     }
 
     public void reloadTextures() {
+        Log.log("Reloading textures");
         Iterator it = textures.entrySet().iterator();
         while (it.hasNext()) {
+
             HashMap.Entry pair = (HashMap.Entry)it.next();
+            Log.log("Reloading texture: " + pair.getKey());
             ((Texture) pair.getValue()).reload();
-            it.remove(); // avoids a ConcurrentModificationException
+//            it.remove(); // avoids a ConcurrentModificationException
         }
     }
 

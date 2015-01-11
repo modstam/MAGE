@@ -64,8 +64,13 @@ public class ObjectRenderer {
     public void draw(Drawable drawable, Vertices3 vertices){
 //        Log.log("Drawing an object.");
         GL10 gl = glGraphics.getGL();
-        if(drawable.hasTexture())
+        if(drawable.hasTexture()) {
+//            Log.log("Got texture!");
+            if(backendController.textures.get(drawable.getTexturePath())==null)
+                Log.log("NULL!!!");
+
             backendController.textures.get(drawable.getTexturePath()).bind();
+        }
         setupVertices(drawable,vertices);
         gl.glPushMatrix();
         setMaterial(drawable);
