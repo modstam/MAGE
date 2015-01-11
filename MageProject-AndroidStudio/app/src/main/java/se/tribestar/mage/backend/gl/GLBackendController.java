@@ -14,6 +14,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 import se.tribestar.mage.backend.Audio;
@@ -95,6 +96,7 @@ public abstract class GLBackendController extends Activity implements BackendCon
         super.onResume();
         glView.onResume();
         wakeLock.acquire();
+        reloadTextures();
     }
 
     public void onSurfaceCreated(GL10 gl, EGLConfig config) {
@@ -263,6 +265,15 @@ public abstract class GLBackendController extends Activity implements BackendCon
         wakeLock.release();
         glView.onPause();
         super.onPause();
+    }
+
+    public void reloadTextures() {
+        Iterator it = textures.entrySet().iterator();
+        while (it.hasNext()) {
+            HashMap.Entry pair = (HashMap.Entry)it.next();
+            ((Texture) pair.getValue()).reload();
+            it.remove(); // avoids a ConcurrentModificationException
+        }
     }
 
     public GLGraphics getGLGraphics() {
