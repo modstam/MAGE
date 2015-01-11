@@ -109,9 +109,13 @@ public abstract class GLBackendController extends Activity implements BackendCon
             state = GLGameState.Running;
             world.resume();
             startTime = System.nanoTime();
-            start();
+            if(state == GLGameState.Initialized)
+                start();
+            else
+                resume();
         }
     }
+
 
     public void onSurfaceChanged(GL10 gl, int width, int height) {
     }
@@ -120,6 +124,13 @@ public abstract class GLBackendController extends Activity implements BackendCon
      * Called at startup, a user of the engine should override this method.
      */
     public void start() {
+        //For overriding.
+    }
+
+    /**
+     * Called when activity is resumed, a user of the engine can override this method.
+     */
+    public void resume() {
         //For overriding.
     }
 

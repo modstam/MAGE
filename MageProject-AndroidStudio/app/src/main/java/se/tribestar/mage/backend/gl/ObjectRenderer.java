@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.microedition.khronos.opengles.GL10;
 
+import se.tribestar.mage.frontend.util.Log;
 import se.tribestar.mage.frontend.world.drawable.Drawable;
 import se.tribestar.mage.frontend.world.light.*;
 import se.tribestar.mage.frontend.world.viewport.ViewPort;
@@ -61,6 +62,7 @@ public class ObjectRenderer {
      * Render a drawable object.
      */
     public void draw(Drawable drawable, Vertices3 vertices){
+//        Log.log("Drawing an object.");
         GL10 gl = glGraphics.getGL();
         if(drawable.hasTexture())
             backendController.textures.get(drawable.getTexturePath()).bind();
