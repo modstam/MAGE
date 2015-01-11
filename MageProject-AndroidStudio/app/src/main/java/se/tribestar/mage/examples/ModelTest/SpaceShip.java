@@ -61,9 +61,13 @@ public class SpaceShip extends Logic {
 
     @Override
     public void update(float deltaTime){
-        if(hasInput && input.isTouchDown(0)) {
-            mesh.transform.rotation.x += angle * deltaTime;
-            mesh.transform.rotation.y += angle * deltaTime;
+        if(hasInput) {
+            if(input.isTouchDown(0))
+                mesh.transform.rotation.x += angle * deltaTime;
+            if(input.isTouchDown(1))
+                mesh.transform.rotation.y += angle * deltaTime;
+            if(input.isTouchDown(2))
+                mesh.transform.rotation.z += angle * deltaTime;
         }
     }
 }
