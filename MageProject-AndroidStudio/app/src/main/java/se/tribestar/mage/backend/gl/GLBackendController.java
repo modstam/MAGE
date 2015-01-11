@@ -25,6 +25,7 @@ import se.tribestar.mage.backend.Input;
 import se.tribestar.mage.backend.android.AndroidAudio;
 import se.tribestar.mage.backend.android.AndroidFileIO;
 import se.tribestar.mage.backend.android.AndroidInput;
+import se.tribestar.mage.frontend.util.Log;
 import se.tribestar.mage.frontend.world.drawable.Cube;
 import se.tribestar.mage.frontend.world.drawable.Drawable;
 import se.tribestar.mage.frontend.world.drawable.Mesh;
@@ -94,9 +95,9 @@ public abstract class GLBackendController extends Activity implements BackendCon
     @Override
     public void onResume() {
         super.onResume();
+        reloadTextures();
         glView.onResume();
         wakeLock.acquire();
-        reloadTextures();
     }
 
     public void onSurfaceCreated(GL10 gl, EGLConfig config) {
@@ -135,6 +136,7 @@ public abstract class GLBackendController extends Activity implements BackendCon
 
             //call the worlds update and draw methods.
             world.update(deltaTime);
+//            Log.log("Starting a FRAME---------");
             world.draw(deltaTime);
         }
 
