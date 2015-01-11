@@ -19,7 +19,7 @@ import se.tribestar.mage.frontend.world.viewport.Camera;
  */
 public class SpaceShip extends Logic {
 
-    float angle = 20f;
+    float angle = 30f;
     float scale = 1f;
 //    Cube cube;
     Mesh mesh;
