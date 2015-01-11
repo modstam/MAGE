@@ -10,6 +10,8 @@ public class ModelTest extends MageGame {
     @Override
     public void start() {
         //For overriding.
-        world.addLogic(new SpaceShip(world));
+        SpaceShip myShip = new SpaceShip(world);
+        myShip.setInput(getInput());
+        world.addLogic(myShip);
     }
 }

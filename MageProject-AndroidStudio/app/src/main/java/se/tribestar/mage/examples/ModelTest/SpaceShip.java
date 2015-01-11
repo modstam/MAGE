@@ -1,7 +1,13 @@
 package se.tribestar.mage.examples.ModelTest;
 
+import android.text.method.Touch;
+
+import java.util.List;
+
+import se.tribestar.mage.backend.Input;
 import se.tribestar.mage.frontend.logic.Logic;
 import se.tribestar.mage.frontend.math.Vector3;
+import se.tribestar.mage.frontend.util.Log;
 import se.tribestar.mage.frontend.world.World;
 import se.tribestar.mage.frontend.world.drawable.Mesh;
 import se.tribestar.mage.frontend.world.drawable.visuals.Color;
@@ -17,6 +23,9 @@ public class SpaceShip extends Logic {
     float scale = 1f;
 //    Cube cube;
     Mesh mesh;
+
+    Input input;
+    boolean hasInput = false;
 
     public SpaceShip(World world){
         super(world);
@@ -45,9 +54,16 @@ public class SpaceShip extends Logic {
         world.addLight(dLight);
     }
 
+    public void setInput(Input input) {
+        this.hasInput = true;
+        this.input = input;
+    }
+
     @Override
     public void update(float deltaTime){
-        mesh.transform.rotation.x += angle*deltaTime;
-        mesh.transform.rotation.y += angle*deltaTime;
+        if(hasInput && input.isTouchDown(0)) {
+            mesh.transform.rotation.x += angle * deltaTime;
+            mesh.transform.rotation.y += angle * deltaTime;
+        }
     }
 }
