@@ -14,6 +14,12 @@ import se.tribestar.mage.frontend.world.viewport.Camera;
 public class TexturedCube extends Logic {
 
     float angle = 20f;
+    float speedX = 1f;
+    float speedY = speedX;
+    float limitX = 2.5f;
+    float limitY = 4.5f;
+    float speedUp = 1.08f;
+    float anglespeedUp = 1.15f;
     Cube cube;
 
     public TexturedCube(World world){
@@ -22,7 +28,7 @@ public class TexturedCube extends Logic {
         //See the "SimpleCube.java" class for additional info
 
         Camera camera = new Camera();
-        camera.transform.position = new Vector3(0,1,3);
+        camera.transform.position = new Vector3(0,0,3);
         camera.lookAt = new Vector3(0,0,0);
         world.addCamera(camera);
 
@@ -44,5 +50,27 @@ public class TexturedCube extends Logic {
     public void update(float deltaTime){
         cube.transform.rotation.x += angle*deltaTime;
         cube.transform.rotation.y += angle*deltaTime;
+        cube.transform.position.x += speedX*deltaTime;
+        cube.transform.position.y += speedY*deltaTime;
+        if(cube.transform.position.x > limitX) {
+            cube.transform.position.x = limitX;
+            speedX *= -speedUp;
+            angle *= anglespeedUp;
+        } else if(cube.transform.position.x < -limitX) {
+            cube.transform.position.x = -limitX;
+            speedX *= -speedUp;
+            angle *= anglespeedUp;
+        }
+
+        if(cube.transform.position.y > limitY) {
+            cube.transform.position.y = limitY;
+            speedY *= -speedUp;
+            angle *= anglespeedUp;
+        } else if(cube.transform.position.y < -limitY) {
+            cube.transform.position.y = -limitY;
+            speedY *= -speedUp;
+            angle *= anglespeedUp;
+        }
+
     }
 }
