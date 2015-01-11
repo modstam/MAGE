@@ -106,13 +106,13 @@ public abstract class GLBackendController extends Activity implements BackendCon
         synchronized(stateChanged) {
             if(state == GLGameState.Initialized)
                 world = getWorld();
-            state = GLGameState.Running;
             world.resume();
             startTime = System.nanoTime();
             if(state == GLGameState.Initialized)
                 start();
             else
                 resume();
+            state = GLGameState.Running;
         }
     }
 
