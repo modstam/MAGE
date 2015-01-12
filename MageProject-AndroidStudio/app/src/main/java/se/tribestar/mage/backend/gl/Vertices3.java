@@ -13,6 +13,8 @@ import se.tribestar.mage.frontend.world.drawable.visuals.Color;
  * A vertices class with potential to use vertex normals.
  * Therefore better for 3D.
  * Created by Andreas Stjerndal on 06-Jan-2015.
+ *
+ * * from the book "Beginning Android Games", by Mario Zechner
  */
 public class Vertices3 {
     private GLGraphics glGraphics;

@@ -5,6 +5,9 @@ import javax.microedition.khronos.opengles.GL10;
 /**
  * Representing a ambient light.
  * Created by Andreas Stjerndal on 06-Jan-2015.
+ *
+ * from the book "Beginning Android Games", by Mario Zechner
+ *
  */
 public class AmbientLight {
     float[] color = {0.2f, 0.2f, 0.2f, 1};

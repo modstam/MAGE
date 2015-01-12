@@ -9,6 +9,8 @@ import java.util.List;
 
 /**
  * Created by Andreas Stjerndal on 07-Jan-2015.
+ *
+ * * from the book "Beginning Android Games", by Mario Zechner
  */
 public class ObjLoader {
     public static Vertices3 load(GLBackendController controller, String file) {

@@ -19,6 +19,7 @@ import se.tribestar.mage.backend.FileIO;
  * Handling file input and output on Android.
  *
  * Created by Andreas Stjerndal on 03-Jan-2015.
+ * * from the book "Beginning Android Games", by Mario Zechner
  */
 public class AndroidFileIO implements FileIO {
     Context context;

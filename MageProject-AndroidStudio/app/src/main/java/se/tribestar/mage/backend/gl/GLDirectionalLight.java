@@ -5,6 +5,8 @@ import javax.microedition.khronos.opengles.GL10;
 /**
  * Representing a directional light.
  * Created by Andreas Stjerndal on 06-Jan-2015.
+ *
+ * * from the book "Beginning Android Games", by Mario Zechner
  */
 public class GLDirectionalLight {
     float[] ambient = { 0.2f, 0.2f, 0.2f, 1.0f };

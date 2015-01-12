@@ -14,6 +14,7 @@ import se.tribestar.mage.backend.Sound;
 /**
  * Handling Audio on Android.
  * Created by Andreas Stjerndal on 03-Jan-2015.
+ * * from the book "Beginning Android Games", by Mario Zechner
  */
 public class AndroidAudio implements Audio {
     AssetManager assets;

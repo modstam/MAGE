@@ -10,6 +10,8 @@ import se.tribestar.mage.frontend.math.Vector3;
  * Look at / 3rd person camera
  *
  * Created by Andreas Stjerndal on 07-Jan-2015.
+ *
+ * * from the book "Beginning Android Games", by Mario Zechner
  */
 public class LookAtCamera {
     final Vector3 position;

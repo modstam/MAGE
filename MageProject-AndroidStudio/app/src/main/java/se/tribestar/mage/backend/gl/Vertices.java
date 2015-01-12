@@ -11,6 +11,8 @@ import javax.microedition.khronos.opengles.GL10;
 /**
  * Handling OpenGL Vertices
  * Created by Andreas Stjerndal on 04-Jan-2015.
+ *
+ * * from the book "Beginning Android Games", by Mario Zechner
  */
 public class Vertices {
     final GLGraphics glGraphics;

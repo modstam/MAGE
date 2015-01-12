@@ -10,6 +10,7 @@ import android.hardware.SensorManager;
  * Handling Android Accelerometer.
  *
  * Created by Andreas Stjerndal on 04-Jan-2015.
+ * * from the book "Beginning Android Games", by Mario Zechner
  */
 public class AccelerometerHandler implements SensorEventListener {
     float accelX;

@@ -5,6 +5,8 @@ import java.util.List;
 /**
  * Interface for user input.
  * Created by Andreas Stjerndal on 03-Jan-2015.
+ *
+ * * from the book "Beginning Android Games", by Mario Zechner
  */
 public interface Input {
     public static class KeyEvent {

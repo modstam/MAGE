@@ -13,6 +13,7 @@ import se.tribestar.mage.backend.Pool;
 /**
  * Handling multitouch input.
  * Created by Andreas Stjerndal on 04-Jan-2015.
+ * * from the book "Beginning Android Games", by Mario Zechner
  */
 @TargetApi(5)
 public class MultiTouchHandler implements TouchHandler {

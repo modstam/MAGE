@@ -6,6 +6,8 @@ import android.util.Log;
  * Call logFrame() once per frame to output FPS in log.
  *
  * Created by Andreas Stjerndal on 05-Jan-2015.
+ *
+ * * from the book "Beginning Android Games", by Mario Zechner
  */
 public class FPSCounter {
     long startTime = System.nanoTime();

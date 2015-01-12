@@ -7,6 +7,8 @@ import se.tribestar.mage.frontend.math.Vector2;
 /**
  * A camera for 2D games.
  * Created by Andreas Stjerndal on 05-Jan-2015.
+ *
+ * * from the book "Beginning Android Games", by Mario Zechner
  */
 public class Camera2D {
     public final Vector2 position;

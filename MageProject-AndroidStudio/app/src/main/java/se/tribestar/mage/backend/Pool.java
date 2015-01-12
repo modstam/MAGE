@@ -6,6 +6,7 @@ import java.util.List;
 /**
  * Generic object pooling.
  * Created by Andreas Stjerndal on 04-Jan-2015.
+ * * from the book "Beginning Android Games", by Mario Zechner
  */
 public class Pool<T> {
 

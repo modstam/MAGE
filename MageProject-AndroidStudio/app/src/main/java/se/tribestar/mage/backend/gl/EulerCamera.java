@@ -11,6 +11,9 @@ import se.tribestar.mage.frontend.math.Vector3;
  * Euler/FPS Camera
  *
  * Created by Andreas Stjerndal on 07-Jan-2015.
+ *
+ * * from the book "Beginning Android Games", by Mario Zechner
+ *
  */
 public class EulerCamera {
     final Vector3 position = new Vector3(0, 0, 0);

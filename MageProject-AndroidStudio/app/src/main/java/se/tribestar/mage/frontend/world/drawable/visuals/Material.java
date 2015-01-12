@@ -4,6 +4,8 @@ import javax.microedition.khronos.opengles.GL10;
 
 /**
  * Created by Andreas Stjerndal on 06-Jan-2015.
+ *
+ * * from the book "Beginning Android Games", by Mario Zechner
  */
 public class Material {
     public boolean isEnabled = true;
